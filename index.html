@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wahu Tech | Tech Tutorials and Services</title>
+    <title>Wahu Tech | Neeli Faulkner</title>
     <style>
         body {
             font-family: "Courier New", Courier, monospace;
@@ -13,31 +13,48 @@
             height: 100vh;
             margin: 0;
             background-color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
+
         .container {
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
         }
+
         img {
-            max-width: 300px;
+            max-width: 100%; /* Allow image to resize dynamically */
+            height: auto;
             border-radius: 10px;
+            max-width: 300px; /* Limit maximum width on larger screens */
         }
+
         .text-content {
-            max-width: 400px;
+            max-width: 100%;
+            text-align: center;
+            padding: 10px;
         }
+
         h1 {
             font-size: 2em;
             margin-bottom: 10px;
         }
+
         p {
             font-size: 1.2em;
             margin-bottom: 20px;
         }
+
         .buttons {
             display: flex;
             gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
+
         .buttons a {
             text-decoration: none;
             background-color: #000;
@@ -47,20 +64,53 @@
             font-size: 1em;
             transition: background-color 0.3s;
         }
+
         .buttons a:hover {
             background-color: #444;
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .buttons a {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .buttons a {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://github.com/wahutech/wahutech.github.io/blob/main/me.JPG?raw=true" alt="Neeli Faulkner">
+        <img src="https://github.com/neelifaulkner/neelifaulkner.github.io/blob/main/me.JPG?raw=true" alt="Neeli Faulkner">
         <div class="text-content">
             <h1>hi, i'm neeli.</h1>
             <p>i'm a podcaster and digital educator.</p>
             <div class="buttons">
-                <a href="https://your-portfolio-link.com" target="_blank">Portfolio</a>
-                <a href="mailto:wahutech@pm.me">Contact</a>
+                <a href="https://murdercreekmedia.com" target="_blank">Podcasts</a>
+                <a href="https://youtube.com/@neelifaulkner" target="_blank">YouTube</a>
+                <a href="mailto:wahutech@pm.me">Work With Me</a>
             </div>
         </div>
     </div>
