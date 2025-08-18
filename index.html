@@ -22,7 +22,8 @@
       --brand:#A2130C; /* hover red */
     }
 
-    body {
+    /* Base layout */
+    body{
       margin:0;
       background:var(--bg);
       color:var(--fg);
@@ -33,175 +34,39 @@
       min-height:100vh;
       text-align:center;
     }
-
     .container{
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:18px;
-      max-width:600px;
-      padding:20px;
+      gap:16px;
+      max-width:560px;
+      padding:22px;
     }
 
+    /* Photo */
     img{
-      width:260px;
+      width:240px;
       max-width:100%;
       height:auto;
       border-radius:10px;
     }
 
-    h1{font-size:2em; margin:8px 0}
-    p{font-size:1.2em; margin:0 0 20px; color:var(--muted)}
-
-    /* Buttons column */
-    .buttons{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      align-items:center;
-      width:100%;
-      max-width:360px;
+    /* Typewriter headline */
+    h1{
+      margin:6px 0 0;
+      font-size:1.9rem;
+      line-height:1.15;
     }
-
-    .buttons a{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      min-height:44px;
-      text-decoration:none;
-      background:#000;
-      color:#fff;
-      padding:10px 20px 10px 52px; /* reserve space for wave bars on the left */
-      border-radius:5px;
-      font-size:1em;
-      line-height:1;
-      transition:background-color .25s ease;
-      overflow:hidden; /* just in case */
+    .type{
+      display:inline-block;
+      overflow:hidden;              /* hide the text until typed */
+      white-space:nowrap;
+      border-right:2px solid var(--fg);  /* cursor */
+      /* Adjust steps(n) to number of characters for crisp type */
+      animation: typing 1.9s steps(14, end), blink .8s step-end infinite;
     }
+    @keyframes typing { from { width:0 } to { width: 14ch } }
+    @keyframes blink { 50% { border-color: transparent } }
 
-    .buttons a:hover{ background:var(--brand) }
-
-    /* Wave container (left side, inside padding) */
-    .waves{
-      position:absolute;
-      left:16px;
-      top:50%;
-      transform:translateY(-50%);
-      width:20px; height:16px;
-      display:flex;
-      align-items:flex-end;
-      gap:3px;
-      pointer-events:none;
-    }
-
-    .bar{
-      width:3px;
-      height:2px;              /* collapsed baseline */
-      background:#000;         /* black bars */
-      opacity:0;               /* hidden until hover */
-      transform-origin:bottom;
-      transform:scaleY(0.2);
-      transition:
-        opacity .18s ease,
-        transform .22s ease;
-    }
-
-    /* Staggered reveal & grow on hover */
-    .buttons a:hover .bar{
-      opacity:1;
-    }
-    .buttons a:hover .bar:nth-child(1){
-      transform:scaleY(1.0);
-      transition-delay: 0ms;
-    }
-    .buttons a:hover .bar:nth-child(2){
-      transform:scaleY(0.7);
-      transition-delay: 90ms;
-    }
-    .buttons a:hover .bar:nth-child(3){
-      transform:scaleY(1.2);
-      transition-delay: 180ms;
-    }
-
-    /* Optional: tiny idle pulsing after reveal (respects reduced motion) */
-    @media (prefers-reduced-motion: no-preference){
-      .buttons a:hover .bar{
-        animation: pulse 0.9s ease-in-out infinite alternate;
-      }
-      .buttons a:hover .bar:nth-child(2){ animation-delay: .15s; }
-      .buttons a:hover .bar:nth-child(3){ animation-delay: .3s; }
-
-      @keyframes pulse{
-        from { transform: scaleY(0.7); }
-        to   { transform: scaleY(1.2); }
-      }
-    }
-
-    /* Respect reduced motion: no animations, just the staggered reveal */
-    @media (prefers-reduced-motion: reduce){
-      .buttons a:hover .bar{ animation: none !important; }
-    }
-
-    /* Responsive tweaks */
-    @media (max-width:768px){
-      h1{font-size:1.8em}
-      p{font-size:1em}
-      .buttons{max-width:320px}
-      .buttons a{font-size:.95em}
-    }
-    @media (max-width:480px){
-      h1{font-size:1.5em}
-      p{font-size:.95em}
-      img{width:200px}
-      .buttons{max-width:300px}
-      .buttons a{font-size:.92em}
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img src="neeli.png?v=2" alt="Neeli Faulkner" />
-    <h1>hi, i'm neeli.</h1>
-    <p>i'm an investigative podcaster and digital educator.</p>
-
-    <div class="buttons">
-      <a href="https://murdercreekmedia.com" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Podcasts
-      </a>
-
-      <a href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        YouTube
-      </a>
-
-      <a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Substack
-      </a>
-
-      <a href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Medium
-      </a>
-
-      <a href="mailto:neeli@murdercreekmedia.com">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Work With Me
-      </a>
-    </div>
-  </div>
-</body>
-</html>
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion:
