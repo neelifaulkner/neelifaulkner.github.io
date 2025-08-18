@@ -53,12 +53,14 @@
     h1{font-size:2em; margin:8px 0}
     p{font-size:1.2em; margin:0 0 20px; color:var(--muted)}
 
-    /* Buttons row */
+    /* Buttons column */
     .buttons{
       display:flex;
+      flex-direction:column;
       gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
+      align-items:center;
+      width:100%;
+      max-width:360px;
     }
 
     .buttons a{
@@ -66,49 +68,95 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      width:100%;
+      min-height:44px;
       text-decoration:none;
       background:#000;
       color:#fff;
-      padding:10px 20px;
+      padding:10px 20px 10px 52px; /* reserve space for wave bars on the left */
       border-radius:5px;
       font-size:1em;
+      line-height:1;
       transition:background-color .25s ease;
+      overflow:hidden; /* just in case */
     }
 
     .buttons a:hover{ background:var(--brand) }
 
-    /* Soundwave icon */
-    .buttons a::before{
-      content:"";
+    /* Wave container (left side, inside padding) */
+    .waves{
       position:absolute;
-      left:-22px;   /* outside the button box */
+      left:16px;
       top:50%;
       transform:translateY(-50%);
-      width:14px;
-      height:14px;
-      opacity:0;
-      transition:opacity .25s ease, transform .25s ease;
-
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="4" x2="4" y2="20"/><line x1="10" y1="9" x2="10" y2="20"/><line x1="16" y1="6" x2="16" y2="20"/><line x1="22" y1="2" x2="22" y2="20"/></svg>');
-      background-repeat:no-repeat;
-      background-size:14px 14px;
+      width:20px; height:16px;
+      display:flex;
+      align-items:flex-end;
+      gap:3px;
+      pointer-events:none;
     }
-    .buttons a:hover::before{
+
+    .bar{
+      width:3px;
+      height:2px;              /* collapsed baseline */
+      background:#000;         /* black bars */
+      opacity:0;               /* hidden until hover */
+      transform-origin:bottom;
+      transform:scaleY(0.2);
+      transition:
+        opacity .18s ease,
+        transform .22s ease;
+    }
+
+    /* Staggered reveal & grow on hover */
+    .buttons a:hover .bar{
       opacity:1;
-      transform:translateY(-50%) scale(1.1);
+    }
+    .buttons a:hover .bar:nth-child(1){
+      transform:scaleY(1.0);
+      transition-delay: 0ms;
+    }
+    .buttons a:hover .bar:nth-child(2){
+      transform:scaleY(0.7);
+      transition-delay: 90ms;
+    }
+    .buttons a:hover .bar:nth-child(3){
+      transform:scaleY(1.2);
+      transition-delay: 180ms;
+    }
+
+    /* Optional: tiny idle pulsing after reveal (respects reduced motion) */
+    @media (prefers-reduced-motion: no-preference){
+      .buttons a:hover .bar{
+        animation: pulse 0.9s ease-in-out infinite alternate;
+      }
+      .buttons a:hover .bar:nth-child(2){ animation-delay: .15s; }
+      .buttons a:hover .bar:nth-child(3){ animation-delay: .3s; }
+
+      @keyframes pulse{
+        from { transform: scaleY(0.7); }
+        to   { transform: scaleY(1.2); }
+      }
+    }
+
+    /* Respect reduced motion: no animations, just the staggered reveal */
+    @media (prefers-reduced-motion: reduce){
+      .buttons a:hover .bar{ animation: none !important; }
     }
 
     /* Responsive tweaks */
     @media (max-width:768px){
       h1{font-size:1.8em}
       p{font-size:1em}
-      .buttons a{font-size:.95em; padding:8px 16px}
+      .buttons{max-width:320px}
+      .buttons a{font-size:.95em}
     }
     @media (max-width:480px){
       h1{font-size:1.5em}
       p{font-size:.95em}
-      .buttons a{font-size:.9em; padding:6px 12px}
       img{width:200px}
+      .buttons{max-width:300px}
+      .buttons a{font-size:.92em}
     }
   </style>
 </head>
@@ -119,11 +167,40 @@
     <p>i'm an investigative podcaster and digital educator.</p>
 
     <div class="buttons">
-      <a href="https://murdercreekmedia.com" target="_blank" rel="noopener">Podcasts</a>
-      <a href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">Substack</a>
-      <a href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">Medium</a>
-      <a href="mailto:neeli@murdercreekmedia.com">Work With Me</a>
+      <a href="https://murdercreekmedia.com" target="_blank" rel="noopener">
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
+        Podcasts
+      </a>
+
+      <a href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
+        YouTube
+      </a>
+
+      <a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
+        Substack
+      </a>
+
+      <a href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
+        Medium
+      </a>
+
+      <a href="mailto:neeli@murdercreekmedia.com">
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
+        Work With Me
+      </a>
     </div>
   </div>
 </body>
