@@ -20,6 +20,7 @@
       --bg:#fff;
       --muted:#444;
       --brand:#A2130C; /* hover red */
+      --gap:24px;      /* space between buttons so waves never overlap */
     }
 
     /* Base layout */
@@ -33,19 +34,21 @@
       align-items:center;
       min-height:100vh;
       text-align:center;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     .container{
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:16px;
-      max-width:560px;
+      gap:14px;
+      max-width:640px;
       padding:22px;
     }
 
     /* Photo */
     img{
-      width:240px;
+      width:220px;
       max-width:100%;
       height:auto;
       border-radius:10px;
@@ -72,80 +75,98 @@
 
     /* Subtext */
     p{
-      margin:6px 0 16px;
+      margin:6px 0 10px;
       font-size:1.05rem;
       color:var(--muted);
     }
 
-    /* Buttons: stacked + smaller */
+    /* Buttons: smaller + horizontal */
     .buttons{
       display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:center;
-      width:100%;
-      max-width:300px;
+      flex-wrap:wrap;
+      justify-content:center;
+      column-gap: var(--gap);   /* big enough gap to the left/right */
+      row-gap: 12px;
+      margin-top:6px;
+      max-width:640px;
     }
     .btn{
       position:relative;
-      display:flex;
+      display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:100%;
-      min-height:38px;
-      padding:8px 14px;
+      text-decoration:none;
       background:#000;
       color:#fff;
-      text-decoration:none;
+      padding:8px 14px;       /* smaller */
       border-radius:6px;
-      font-size:.95rem;
+      font-size:.9rem;        /* smaller */
       line-height:1;
-      transition: background-color .25s ease;
-      overflow:visible; /* allow waves outside */
+      min-height:34px;        /* smaller */
+      transition: background-color .22s ease, transform .12s ease;
+      will-change: background-color;
     }
-    .btn:hover{ background:var(--brand) }
+    .btn:hover{ background:var(--brand); }
 
-    /* Waves OUTSIDE left: 3 bars that appear one-by-one on hover */
+    /* Waveform OUTSIDE left (5 bars), shows on hover */
     .waves{
       position:absolute;
-      left:-28px;                 /* outside the button */
+      left:-18px;                  /* sits in the inter-button gap, outside the button */
       top:50%;
       transform:translateY(-50%);
-      width:18px; height:16px;
+      width:14px; height:14px;
       display:flex;
       align-items:flex-end;
-      gap:3px;
+      justify-content:space-between;
       pointer-events:none;
     }
     .bar{
-      width:3px;
+      width:2px;
       height:3px;                 /* collapsed baseline */
       background:#000;            /* black bars */
-      opacity:0;                  /* hidden until hover */
+      opacity:0;                  /* hidden by default */
       transform-origin:bottom;
       transform:scaleY(0.2);
       transition: opacity .18s ease, transform .22s ease;
     }
-    .btn:hover .bar{ opacity:1; }
-    .btn:hover .bar:nth-child(1){ transform:scaleY(1.0); transition-delay: 0ms; }
-    .btn:hover .bar:nth-child(2){ transform:scaleY(0.7); transition-delay: 90ms; }
-    .btn:hover .bar:nth-child(3){ transform:scaleY(1.2); transition-delay: 180ms; }
 
-    /* Optional tiny breathing motion after reveal */
+    /* Staggered reveal on hover for a “one-by-one” entrance */
+    .btn:hover .bar{ opacity:1; }
+    .btn:hover .bar:nth-child(1){ transform:scaleY(0.6); transition-delay: 0ms; }
+    .btn:hover .bar:nth-child(2){ transform:scaleY(1.0); transition-delay: 70ms; }
+    .btn:hover .bar:nth-child(3){ transform:scaleY(0.8); transition-delay:140ms; }
+    .btn:hover .bar:nth-child(4){ transform:scaleY(1.2); transition-delay:210ms; }
+    .btn:hover .bar:nth-child(5){ transform:scaleY(0.9); transition-delay:280ms; }
+
+    /* Subtle “breathing” motion after reveal (if user allows motion) */
     @media (prefers-reduced-motion: no-preference){
-      .btn:hover .bar{ animation: pulse .9s ease-in-out infinite alternate; }
-      .btn:hover .bar:nth-child(2){ animation-delay: .15s; }
-      .btn:hover .bar:nth-child(3){ animation-delay: .3s; }
-      @keyframes pulse{ from { transform:scaleY(0.7) } to { transform:scaleY(1.2) } }
+      .btn:hover .bar{
+        animation: pulse .9s ease-in-out infinite alternate;
+      }
+      .btn:hover .bar:nth-child(2){ animation-delay:.08s; }
+      .btn:hover .bar:nth-child(3){ animation-delay:.16s; }
+      .btn:hover .bar:nth-child(4){ animation-delay:.24s; }
+      .btn:hover .bar:nth-child(5){ animation-delay:.32s; }
+      @keyframes pulse{
+        from { transform: scaleY(0.7); }
+        to   { transform: scaleY(1.2); }
+      }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .btn:hover .bar{ animation:none !important; }
     }
 
     /* Responsive */
-    @media (max-width:520px){
+    @media (max-width:560px){
       img{ width:200px }
       h1{ font-size:1.6rem }
       p{ font-size:1rem }
-      .buttons{ max-width:280px }
-      .btn{ font-size:.92rem; min-height:36px; }
+      .btn{ font-size:.88rem; padding:7px 12px; min-height:32px; }
+      :root{ --gap:22px; }
+    }
+    @media (max-width:420px){
+      .btn{ font-size:.86rem; padding:6px 11px; min-height:30px; }
+      :root{ --gap:20px; }
     }
   </style>
 </head>
@@ -157,23 +178,37 @@
 
     <div class="buttons">
       <a class="btn" href="https://murdercreekmedia.com" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
         Podcasts
       </a>
+
       <a class="btn" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
         YouTube
       </a>
+
       <a class="btn" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
         Substack
       </a>
+
       <a class="btn" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
         Medium
       </a>
+
       <a class="btn" href="mailto:neeli@murdercreekmedia.com">
-        <span class="waves" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+        <span class="waves" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
         Work With Me
       </a>
     </div>
