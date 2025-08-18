@@ -11,9 +11,9 @@
   </script>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Neeli Faulkner</title>
-  <meta name="description" content="hi, i’m neeli — an investigative podcaster and digital educator. founder of Murder Creek Media.">
+  <meta name="description" content="hi, i’m neeli — an investigative journalist and podcaster. founder of Murder Creek Media.">
 
   <!-- Handwritten caption font -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
@@ -23,220 +23,246 @@
       --fg:#000;
       --bg:#fff;
       --muted:#444;
-      --brand:#A2130C;  /* hover red */
-      --gap:24px;       /* space between buttons so waves never overlap */
+      --brand:#A2130C;
+      --note:#F7EFA7;          /* worn yellow sticky note */
+      --note-edge:#E9DF86;     /* darker edge/shading */
+      --shadow:0 10px 22px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
+      --shadow-hover:0 16px 30px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.14);
+      --maxw: 900px;
     }
 
-    /* Base layout */
+    html,body{height:100%}
     body{
       margin:0;
       background:var(--bg);
       color:var(--fg);
       font-family:"Courier New", Courier, monospace;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      text-align:center;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    .container{
+    .wrap{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:28px 20px 60px;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:14px;
-      max-width:680px;
-      padding:22px;
+      gap:20px;
+      text-align:center;
     }
 
-    /* Polaroid photo */
+    /* Polaroid */
     .polaroid{
       background:#fff;
-      padding:10px 10px 25px;         /* extra bottom like a polaroid */
-      box-shadow:0 6px 18px rgba(0,0,0,0.25);
-      display:inline-block;
+      padding:10px 10px 26px;
       border:1px solid #e6e6e6;
-      transform:rotate(-1.5deg);
-      margin-bottom:6px;
+      display:inline-block;
+      box-shadow: var(--shadow);
+      transform:rotate(-1.6deg);
     }
     .polaroid img{
       display:block;
-      width:240px;                    /* adjust if needed */
+      width:240px;
       height:auto;
-      border-radius:6px;              /* tiny rounding inside the frame */
+      border-radius:6px;
     }
     .caption{
       margin-top:8px;
       font-family:'Caveat', cursive;
       font-size:1.2rem;
       color:#333;
-      text-align:center;
       letter-spacing:.2px;
     }
 
-    /* Typewriter headline */
-    h1{
-      margin:6px 0 0;
-      font-size:1.9rem;
-      line-height:1.15;
-    }
-    .type{
-      display:inline-block;
-      overflow:hidden;
-      white-space:nowrap;
-      border-right:2px solid var(--fg);
-      animation: typing 2s steps(18, end), blink .8s step-end infinite;
-    }
-    @keyframes typing { from { width:0 } to { width: 18ch } }
-    @keyframes blink  { 50% { border-color: transparent } }
-    @media (prefers-reduced-motion: reduce){
-      .type{ animation:none; border-right:none }
-    }
-
-    /* Subtext */
-    p{
-      margin:6px 0 10px;
+    /* Typewriter paragraph */
+    .intro{
+      max-width:760px;
+      line-height:1.5;
       font-size:1.05rem;
       color:var(--muted);
+      min-height:3ch;
+      margin-top:6px;
+    }
+    .cursor{
+      border-right:2px solid var(--fg);
+      animation: blink .8s step-end infinite;
+    }
+    @keyframes blink { 50% { border-color: transparent } }
+    @media (prefers-reduced-motion: reduce){
+      .cursor{ border-right:none; animation:none }
     }
 
-    /* Buttons: smaller + horizontal */
-    .buttons{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      column-gap: var(--gap);   /* big enough gap so waves live outside */
-      row-gap: 12px;
-      margin-top:6px;
-      max-width:680px;
+    /* Messy desk section */
+    .desk{ width:100%; margin-top:18px; }
+    .notes{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap:28px 36px;
+      align-items:start;
+      justify-items:center;
+      padding:10px 6px;
     }
-    .btn{
-      position:relative;
-      display:inline-flex;
+
+    /* Post-it base */
+    .postit{
+      display:flex;
       align-items:center;
       justify-content:center;
-      text-decoration:none;
-      background:#000;
-      color:#fff;
-      padding:8px 14px;        /* small */
-      border-radius:6px;
-      font-size:.9rem;         /* small */
-      line-height:1;
-      min-height:34px;         /* small */
-      transition: background-color .22s ease, transform .12s ease;
-      will-change: background-color;
+      width:160px;
+      height:120px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0)) ,
+        linear-gradient(180deg, var(--note), var(--note-edge) 130%);
+      border-radius:6px 6px 4px 4px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+      position:relative;
+      user-select:none;
+      text-align:center;
     }
-    .btn:hover{ background:var(--brand); }
-
-    /* Waveform OUTSIDE left (5 bars), shows on hover */
-    .waves{
+    .postit::before{ /* subtle “pin” */
+      content:"";
       position:absolute;
-      left:-18px;                  /* sits in the inter-button gap, outside the button */
-      top:50%;
-      transform:translateY(-50%);
-      width:14px; height:14px;
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      pointer-events:none;
-    }
-    .bar{
-      width:2px;
-      height:3px;                 /* collapsed baseline */
-      background:#000;            /* black bars */
-      opacity:0;                  /* hidden by default */
-      transform-origin:bottom;
-      transform:scaleY(0.2);
-      transition: opacity .18s ease, transform .22s ease;
+      top:8px; left:50%;
+      width:8px; height:8px;
+      border-radius:50%;
+      background:rgba(0,0,0,.18);
+      transform:translateX(-50%);
+      box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
     }
 
-    /* One-by-one entrance */
-    .btn:hover .bar{ opacity:1; }
-    .btn:hover .bar:nth-child(1){ transform:scaleY(0.6); transition-delay: 0ms; }
-    .btn:hover .bar:nth-child(2){ transform:scaleY(1.0); transition-delay: 70ms; }
-    .btn:hover .bar:nth-child(3){ transform:scaleY(0.8); transition-delay:140ms; }
-    .btn:hover .bar:nth-child(4){ transform:scaleY(1.2); transition-delay:210ms; }
-    .btn:hover .bar:nth-child(5){ transform:scaleY(0.9); transition-delay:280ms; }
-
-    /* Gentle pulse if motion allowed */
-    @media (prefers-reduced-motion: no-preference){
-      .btn:hover .bar{
-        animation: pulse .9s ease-in-out infinite alternate;
-      }
-      .btn:hover .bar:nth-child(2){ animation-delay:.08s; }
-      .btn:hover .bar:nth-child(3){ animation-delay:.16s; }
-      .btn:hover .bar:nth-child(4){ animation-delay:.24s; }
-      .btn:hover .bar:nth-child(5){ animation-delay:.32s; }
-      @keyframes pulse{
-        from { transform: scaleY(0.7); }
-        to   { transform: scaleY(1.2); }
-      }
+    /* Clickable note (link button) */
+    a.postit{
+      text-decoration:none;
+      color:#111;
+      font-weight:600;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
     }
-    @media (prefers-reduced-motion: reduce){
-      .btn:hover .bar{ animation:none !important; }
+    a.postit:hover{
+      transform: translateY(-6px) rotate(0deg);
+      box-shadow: var(--shadow-hover);
+      filter: brightness(1.04);
+    }
+    .postit span{
+      padding:6px 10px;
+      border-radius:4px;
+      font-size:1rem;
     }
 
-    /* Responsive */
-    @media (max-width:560px){
+    /* Non-clickable decoys */
+    .postit.decoy{
+      pointer-events:none;     /* not interactive */
+      filter:saturate(.96);
+      opacity:.98;
+    }
+    .postit.decoy .scribble{
+      position:absolute;
+      bottom:10px; left:50%;
+      transform:translateX(-50%) rotate(-2deg);
+      font-family:'Caveat', cursive;
+      font-size:1rem;
+      color:#333;
+      opacity:.7;
+    }
+
+    /* “Random” rotations */
+    .postit:nth-child(1){ transform:rotate(-3deg) }
+    .postit:nth-child(2){ transform:rotate(2.5deg) }
+    .postit:nth-child(3){ transform:rotate(-5deg) }
+    .postit:nth-child(4){ transform:rotate(3.5deg) }
+    .postit:nth-child(5){ transform:rotate(-2deg) }
+    .postit:nth-child(6){ transform:rotate(1.5deg) }
+    .postit:nth-child(7){ transform:rotate(-4deg) }
+    .postit:nth-child(8){ transform:rotate(2deg) }
+    .postit:nth-child(9){ transform:rotate(-3deg) }
+
+    /* Mobile tweaks */
+    @media (max-width:640px){
       .polaroid img{ width:200px }
-      h1{ font-size:1.6rem }
-      p{ font-size:1rem }
-      .btn{ font-size:.88rem; padding:7px 12px; min-height:32px; }
-      :root{ --gap:22px; }
+      .notes{ gap:22px 26px }
+      .postit{ width:150px; height:110px; }
+      .postit span{ font-size:.95rem }
+      .intro{ font-size:1rem }
     }
     @media (max-width:420px){
-      .btn{ font-size:.86rem; padding:6px 11px; min-height:30px; }
-      :root{ --gap:20px; }
+      .postit{ width:140px; height:100px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <main class="wrap">
+    <!-- Polaroid -->
     <div class="polaroid">
       <img src="neeli.png?v=2" alt="Neeli Faulkner" />
       <div class="caption">truth &gt; everything</div>
     </div>
 
-    <h1><span class="type">hi, i'm neeli.</span></h1>
-    <p>i'm an investigative podcaster and digital educator.</p>
+    <!-- Typewriter paragraph -->
+    <p id="intro" class="intro"><span id="introText" class="cursor"></span></p>
 
-    <div class="buttons">
-      <a class="btn" href="https://murdercreekmedia.com" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Podcasts
-      </a>
+    <!-- Messy desk sticky notes -->
+    <section class="desk" aria-label="Links">
+      <div class="notes">
+        <!-- Real links -->
+        <a class="postit" href="https://murdercreekmedia.com" target="_blank" rel="noopener"><span>Podcasts</span></a>
+        <a class="postit" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener"><span>YouTube</span></a>
 
-      <a class="btn" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        YouTube
-      </a>
+        <!-- DEC0Y -->
+        <div class="postit decoy" aria-hidden="true">
+          <div class="scribble">to do ✓</div>
+        </div>
 
-      <a class="btn" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Substack
-      </a>
+        <!-- Real links -->
+        <a class="postit" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener"><span>Substack</span></a>
 
-      <a class="btn" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Medium
-      </a>
+        <!-- DEC0Y -->
+        <div class="postit decoy" aria-hidden="true"></div>
 
-      <a class="btn" href="mailto:neeli@murdercreekmedia.com">
-        <span class="waves" aria-hidden="true">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </span>
-        Collab
-      </a>
-    </div>
-  </div>
+        <!-- Real links -->
+        <a class="postit" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener"><span>Medium</span></a>
+
+        <!-- DEC0Y -->
+        <div class="postit decoy" aria-hidden="true">
+          <div class="scribble">notes</div>
+        </div>
+
+        <!-- Real link -->
+        <a class="postit" href="mailto:neeli@murdercreekmedia.com"><span>Work With Me</span></a>
+
+        <!-- DEC0Y -->
+        <div class="postit decoy" aria-hidden="true">
+          <div class="scribble">idea 💡</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Typewriter paragraph (respects reduced motion)
+    (function(){
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const el = document.getElementById('introText');
+      const full = "hi, i'm neeli. i'm an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads, and earned national recognition for investigative audio. i'm also the founder of murder creek media, an advocate, and a dog lover.";
+
+      if (prefersReduced) {
+        el.textContent = full;
+        el.classList.remove('cursor');
+        return;
+      }
+
+      let i = 0;
+      const speed = 18; // ms per character
+      function type() {
+        if (i <= full.length) {
+          el.textContent = full.slice(0, i);
+          i++;
+          window.requestAnimationFrame(() => setTimeout(type, speed));
+        } else {
+          el.classList.remove('cursor');
+        }
+      }
+      type();
+    })();
+  </script>
 </body>
 </html>
