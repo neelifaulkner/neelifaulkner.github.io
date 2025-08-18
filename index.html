@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Neeli Faulkner</title>
-  <meta name="description" content="hi, i’m neeli — an investigative journalist and podcaster. founder of Murder Creek Media.">
+  <meta name="description" content="hi, i’m neeli — investigative journalist & podcaster. founder of Murder Creek Media.">
 
   <!-- Handwritten caption font -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:20px;
+      gap:18px;
       text-align:center;
     }
 
@@ -74,25 +74,35 @@
       letter-spacing:.2px;
     }
 
-    /* Typewriter paragraph */
-    .intro{
-      max-width:760px;
-      line-height:1.5;
-      font-size:1.05rem;
-      color:var(--muted);
-      min-height:3ch;
-      margin-top:6px;
+    /* Headline (typewriter) */
+    h1{
+      margin:6px 0 0;
+      font-size:2.2rem;
+      line-height:1.15;
+      min-height:2.6rem; /* keeps layout from jumping while typing */
     }
     .cursor{
       border-right:2px solid var(--fg);
+      display:inline-block;
       animation: blink .8s step-end infinite;
+      white-space:nowrap;
+      overflow:hidden;
     }
     @keyframes blink { 50% { border-color: transparent } }
     @media (prefers-reduced-motion: reduce){
       .cursor{ border-right:none; animation:none }
     }
 
-    /* Messy desk section */
+    /* Intro paragraph (static) */
+    .intro{
+      max-width:760px;
+      line-height:1.6;
+      font-size:1.05rem;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    /* Messy desk notes */
     .desk{ width:100%; margin-top:18px; }
     .notes{
       display:grid;
@@ -102,8 +112,6 @@
       justify-items:center;
       padding:10px 6px;
     }
-
-    /* Post-it base */
     .postit{
       display:flex;
       align-items:center;
@@ -117,8 +125,11 @@
       box-shadow: var(--shadow);
       border:1px solid rgba(0,0,0,.06);
       position:relative;
+      text-decoration:none;
+      color:#111;
+      font-weight:600;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
       user-select:none;
-      text-align:center;
     }
     .postit::before{ /* subtle “pin” */
       content:"";
@@ -130,15 +141,7 @@
       transform:translateX(-50%);
       box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
     }
-
-    /* Clickable note (link button) */
-    a.postit{
-      text-decoration:none;
-      color:#111;
-      font-weight:600;
-      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    }
-    a.postit:hover{
+    .postit:hover{
       transform: translateY(-6px) rotate(0deg);
       box-shadow: var(--shadow-hover);
       filter: brightness(1.04);
@@ -149,32 +152,12 @@
       font-size:1rem;
     }
 
-    /* Non-clickable decoys */
-    .postit.decoy{
-      pointer-events:none;     /* not interactive */
-      filter:saturate(.96);
-      opacity:.98;
-    }
-    .postit.decoy .scribble{
-      position:absolute;
-      bottom:10px; left:50%;
-      transform:translateX(-50%) rotate(-2deg);
-      font-family:'Caveat', cursive;
-      font-size:1rem;
-      color:#333;
-      opacity:.7;
-    }
-
-    /* “Random” rotations */
+    /* Random rotations for 5 real notes */
     .postit:nth-child(1){ transform:rotate(-3deg) }
     .postit:nth-child(2){ transform:rotate(2.5deg) }
     .postit:nth-child(3){ transform:rotate(-5deg) }
     .postit:nth-child(4){ transform:rotate(3.5deg) }
     .postit:nth-child(5){ transform:rotate(-2deg) }
-    .postit:nth-child(6){ transform:rotate(1.5deg) }
-    .postit:nth-child(7){ transform:rotate(-4deg) }
-    .postit:nth-child(8){ transform:rotate(2deg) }
-    .postit:nth-child(9){ transform:rotate(-3deg) }
 
     /* Mobile tweaks */
     @media (max-width:640px){
@@ -182,6 +165,7 @@
       .notes{ gap:22px 26px }
       .postit{ width:150px; height:110px; }
       .postit span{ font-size:.95rem }
+      h1{ font-size:1.9rem }
       .intro{ font-size:1rem }
     }
     @media (max-width:420px){
@@ -197,52 +181,34 @@
       <div class="caption">truth &gt; everything</div>
     </div>
 
-    <!-- Typewriter paragraph -->
-    <p id="intro" class="intro"><span id="introText" class="cursor"></span></p>
+    <!-- Header with typewriter -->
+    <h1><span id="title" class="cursor"></span></h1>
 
-    <!-- Messy desk sticky notes -->
+    <!-- Static paragraph -->
+    <p class="intro">
+      i'm an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
+      and earned national recognition for investigative audio. i'm also the founder of murder creek media, an advocate,
+      and a dog lover.
+    </p>
+
+    <!-- Post-it note links -->
     <section class="desk" aria-label="Links">
       <div class="notes">
-        <!-- Real links -->
         <a class="postit" href="https://murdercreekmedia.com" target="_blank" rel="noopener"><span>Podcasts</span></a>
         <a class="postit" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener"><span>YouTube</span></a>
-
-        <!-- DEC0Y -->
-        <div class="postit decoy" aria-hidden="true">
-          <div class="scribble">to do ✓</div>
-        </div>
-
-        <!-- Real links -->
         <a class="postit" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener"><span>Substack</span></a>
-
-        <!-- DEC0Y -->
-        <div class="postit decoy" aria-hidden="true"></div>
-
-        <!-- Real links -->
         <a class="postit" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener"><span>Medium</span></a>
-
-        <!-- DEC0Y -->
-        <div class="postit decoy" aria-hidden="true">
-          <div class="scribble">notes</div>
-        </div>
-
-        <!-- Real link -->
         <a class="postit" href="mailto:neeli@murdercreekmedia.com"><span>Work With Me</span></a>
-
-        <!-- DEC0Y -->
-        <div class="postit decoy" aria-hidden="true">
-          <div class="scribble">idea 💡</div>
-        </div>
       </div>
     </section>
   </main>
 
   <script>
-    // Typewriter paragraph (respects reduced motion)
+    // Typewriter for the header only (respects reduced motion)
     (function(){
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const el = document.getElementById('introText');
-      const full = "hi, i'm neeli. i'm an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads, and earned national recognition for investigative audio. i'm also the founder of murder creek media, an advocate, and a dog lover.";
+      const el = document.getElementById('title');
+      const full = "hi, i'm neeli";
 
       if (prefersReduced) {
         el.textContent = full;
@@ -251,7 +217,7 @@
       }
 
       let i = 0;
-      const speed = 18; // ms per character
+      const speed = 40; // ms per character
       function type() {
         if (i <= full.length) {
           el.textContent = full.slice(0, i);
