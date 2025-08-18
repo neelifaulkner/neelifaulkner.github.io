@@ -24,8 +24,8 @@
       --bg:#fff;
       --muted:#444;
       --brand:#A2130C;
-      --note:#F7EFA7;          /* worn yellow sticky note */
-      --note-edge:#E9DF86;     /* darker edge/shading */
+      --note:#F7EFA7;
+      --note-edge:#E9DF86;
       --shadow:0 10px 22px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
       --shadow-hover:0 16px 30px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.14);
       --maxw: 900px;
@@ -37,8 +37,6 @@
       background:var(--bg);
       color:var(--fg);
       font-family:"Courier New", Courier, monospace;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
     .wrap{
       max-width:var(--maxw);
@@ -71,7 +69,6 @@
       font-family:'Caveat', cursive;
       font-size:1.2rem;
       color:#333;
-      letter-spacing:.2px;
     }
 
     /* Headline (typewriter) */
@@ -79,7 +76,7 @@
       margin:6px 0 0;
       font-size:2.2rem;
       line-height:1.15;
-      min-height:2.6rem; /* keeps layout from jumping while typing */
+      min-height:2.6rem;
     }
     .cursor{
       border-right:2px solid var(--fg);
@@ -93,7 +90,7 @@
       .cursor{ border-right:none; animation:none }
     }
 
-    /* Intro paragraph (static) */
+    /* Intro paragraph */
     .intro{
       max-width:760px;
       line-height:1.6;
@@ -102,7 +99,7 @@
       margin-top:4px;
     }
 
-    /* Messy desk notes */
+    /* Post-it notes */
     .desk{ width:100%; margin-top:18px; }
     .notes{
       display:grid;
@@ -129,9 +126,8 @@
       color:#111;
       font-weight:600;
       transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-      user-select:none;
     }
-    .postit::before{ /* subtle “pin” */
+    .postit::before{
       content:"";
       position:absolute;
       top:8px; left:50%;
@@ -146,25 +142,20 @@
       box-shadow: var(--shadow-hover);
       filter: brightness(1.04);
     }
-    .postit span{
-      padding:6px 10px;
-      border-radius:4px;
-      font-size:1rem;
-    }
+    .postit span{ font-size:1rem; }
 
-    /* Random rotations for 5 real notes */
+    /* Random rotations */
     .postit:nth-child(1){ transform:rotate(-3deg) }
     .postit:nth-child(2){ transform:rotate(2.5deg) }
     .postit:nth-child(3){ transform:rotate(-5deg) }
     .postit:nth-child(4){ transform:rotate(3.5deg) }
     .postit:nth-child(5){ transform:rotate(-2deg) }
 
-    /* Mobile tweaks */
+    /* Mobile */
     @media (max-width:640px){
       .polaroid img{ width:200px }
       .notes{ gap:22px 26px }
       .postit{ width:150px; height:110px; }
-      .postit span{ font-size:.95rem }
       h1{ font-size:1.9rem }
       .intro{ font-size:1rem }
     }
@@ -198,33 +189,30 @@
         <a class="postit" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener"><span>YouTube</span></a>
         <a class="postit" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener"><span>Substack</span></a>
         <a class="postit" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener"><span>Medium</span></a>
-        <a class="postit" href="mailto:neeli@murdercreekmedia.com"><span>Work With Me</span></a>
+        <a class="postit" href="mailto:neeli@murdercreekmedia.com"><span>Collab</span></a>
       </div>
     </section>
   </main>
 
   <script>
-    // Typewriter for the header only (respects reduced motion)
+    // Typewriter for the header, cursor stays blinking
     (function(){
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const el = document.getElementById('title');
-      const full = "hi, i'm neeli";
+      const full = "hi, i'm neeli.";
 
       if (prefersReduced) {
         el.textContent = full;
-        el.classList.remove('cursor');
         return;
       }
 
       let i = 0;
-      const speed = 40; // ms per character
+      const speed = 40; 
       function type() {
         if (i <= full.length) {
           el.textContent = full.slice(0, i);
           i++;
           window.requestAnimationFrame(() => setTimeout(type, speed));
-        } else {
-          el.classList.remove('cursor');
         }
       }
       type();
