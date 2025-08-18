@@ -56,7 +56,7 @@
     /* Buttons row */
     .buttons{
       display:flex;
-      gap:10px;
+      gap:12px;
       flex-wrap:wrap;
       justify-content:center;
     }
@@ -65,10 +65,11 @@
       position:relative;
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       text-decoration:none;
       background:#000;
       color:#fff;
-      padding:10px 20px 10px 20px;
+      padding:10px 20px;
       border-radius:5px;
       font-size:1em;
       transition:background-color .25s ease;
@@ -76,22 +77,25 @@
 
     .buttons a:hover{ background:var(--brand) }
 
-    /* Audio icon (hidden until hover) */
+    /* Soundwave icon */
     .buttons a::before{
       content:"";
       position:absolute;
-      left:10px;
-      width:14px; height:14px;
+      left:-22px;   /* outside the button box */
+      top:50%;
+      transform:translateY(-50%);
+      width:14px;
+      height:14px;
       opacity:0;
-      transform:translateX(-6px);
-      transition:opacity .2s ease, transform .2s ease;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>');
+      transition:opacity .25s ease, transform .25s ease;
+
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="4" x2="4" y2="20"/><line x1="10" y1="9" x2="10" y2="20"/><line x1="16" y1="6" x2="16" y2="20"/><line x1="22" y1="2" x2="22" y2="20"/></svg>');
       background-repeat:no-repeat;
       background-size:14px 14px;
     }
     .buttons a:hover::before{
       opacity:1;
-      transform:translateX(0);
+      transform:translateY(-50%) scale(1.1);
     }
 
     /* Responsive tweaks */
