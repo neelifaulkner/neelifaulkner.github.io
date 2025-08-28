@@ -26,18 +26,24 @@
       align-items:center;
       justify-content:center;
       font-family:"Courier New", Courier, monospace;
-      background:#faf7f2; /* page bg outside board */
+      background:#faf7f2;
     }
 
     .board{
       position:relative;
       width:var(--board-w);
       height:var(--board-h);
-      background:var(--board);        /* flat light brown interior */
-      border:22px solid var(--rim);   /* darker brown rim */
-      border-radius:12px;
+      background:var(--board);
+      border:12px solid var(--rim); /* thinner border */
+      border-radius:10px;
       box-shadow:0 20px 44px rgba(0,0,0,.30);
       overflow:hidden;
+
+      /* Subtle paper-like texture overlay */
+      background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 8px 8px;
     }
 
     .item{ position:absolute; box-shadow:var(--shadow-sm); transform-origin:center; }
@@ -102,7 +108,6 @@
       .item{ position:static; transform:none !important; }
       .report{ width:90%; max-width:560px; }
       .note{ width:120px; height:120px; }
-      .notes{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
     }
   </style>
 </head>
