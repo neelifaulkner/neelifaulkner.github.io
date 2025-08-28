@@ -1,193 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZ6FXS13W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3HZ6FXS13W');
-  </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Neeli Faulkner</title>
-  <meta name="description" content="hi, i'm neeli — investigative journalist & podcaster. founder of Murder Creek Media.">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --rim:#4b2f1b;         /* darker brown rim */
-      --board:#d9c6ab;       /* lighter brown interior */
-      --paper:#fffef9;       /* official report paper */
-      --tape:#eadfbd;        /* masking tape */
-      --note:#F7EFA7;        /* yellow sticky */
+      --bg:#d9c6ab;      /* entire page background */
+      --paper:#fffef9;   /* report paper */
+      --tape:#eadfbd;
+      --note:#F7EFA7;
       --note-edge:#E9DF86;
       --ink:#000;
       --shadow:0 12px 26px rgba(0,0,0,.22), 0 6px 12px rgba(0,0,0,.14);
-      --shadow-sm:0 8px 18px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
-      --board-w: min(1100px, 94vw);
-      --board-h: 94vh;
     }
 
-    html, body { height:100%; }
     body{
       margin:0;
       font-family:"Courier New", Courier, monospace;
+      background:var(--bg);
       color:var(--ink);
-      background:#faf7f2;
       display:flex;
+      flex-direction:column;
       align-items:center;
-      justify-content:center;
-      overflow:hidden; /* desktop: no scroll */
+      gap:20px;
+      padding:40px 20px;
     }
 
-    .board{
-      position:relative;
-      width:var(--board-w);
-      height:var(--board-h);
-      background:var(--board);
-      border:22px solid var(--rim);
-      border-radius:12px;
-      box-shadow: 0 20px 44px rgba(0,0,0,.30);
-      overflow:hidden;
-    }
-
-    .item{ position:absolute; box-shadow:var(--shadow-sm); transform-origin:center; }
-
-    .pin{
-      position:absolute; top:-10px; left:50%;
-      transform:translateX(-50%);
-      width:14px; height:14px; border-radius:50%;
-      background:#b33; box-shadow:0 2px 0 rgba(255,255,255,.6) inset, 0 3px 6px rgba(0,0,0,.35);
-      z-index:2;
-    }
-
+    /* Polaroid */
     .polaroid{
-      background:#fff; padding:12px 12px 28px; border:1px solid #e6e6e6; border-radius:6px;
-      transform:rotate(-4deg); transition: transform .18s ease;
+      background:#fff;
+      padding:12px 12px 28px;
+      border:1px solid #e6e6e6;
+      border-radius:6px;
+      box-shadow:var(--shadow);
+      transform:rotate(-3deg);
+      max-width:240px;
     }
-    .polaroid:hover{ transform:translateY(-4px) rotate(-2deg); }
-    .polaroid img{ display:block; width:230px; height:auto; border-radius:4px; }
-    .caption{ margin-top:8px; font-family:'Caveat', cursive; font-size:1.1rem; color:#333; text-align:center; }
+    .polaroid img{ width:100%; border-radius:4px; display:block; }
+    .caption{ margin-top:8px; font-family:'Caveat', cursive; font-size:1.1rem; text-align:center; }
 
+    /* Report */
     .report{
-      background:var(--paper); border:1px solid rgba(0,0,0,.12); border-radius:6px;
-      padding:26px 22px; width:min(540px, 55vw); box-shadow:var(--shadow); transform:rotate(1.2deg);
+      background:var(--paper);
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:6px;
+      padding:26px 22px;
+      max-width:600px;
+      box-shadow:var(--shadow);
+      position:relative;
     }
-    .report h1{ margin:0 0 10px; font-size:1.9rem; line-height:1.1; }
-    .rule{ height:2px; background:#000; opacity:.18; margin:10px 0 14px; }
-    .report p{ margin:0; line-height:1.55; font-size:1.02rem; color:#222; }
-    .tape{ position:absolute; width:90px; height:22px; background:var(--tape); opacity:.9; box-shadow:0 4px 6px rgba(0,0,0,.18); transform:rotate(-8deg); mix-blend-mode:multiply; }
-    .report .t1{ top:-16px; left:30px; }
-    .report .t2{ top:-18px; right:40px; transform:rotate(7deg); }
+    .report h1{ margin:0 0 10px; font-size:1.9rem; }
+    .report .rule{ height:2px; background:#000; opacity:.18; margin:10px 0 14px; }
+    .report p{ margin:0; line-height:1.55; font-size:1rem; }
+    .tape{
+      position:absolute;
+      width:90px; height:22px;
+      background:var(--tape);
+      opacity:.9;
+      box-shadow:0 4px 6px rgba(0,0,0,.18);
+      mix-blend-mode:multiply;
+    }
+    .report .t1{ top:-12px; left:20px; transform:rotate(-8deg); }
+    .report .t2{ top:-14px; right:30px; transform:rotate(7deg); }
 
+    /* Notes */
+    .notes{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+    }
     .note{
       width:140px; height:140px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0)) ,
-        linear-gradient(180deg, var(--note), var(--note-edge) 130%);
-      border-radius:6px 6px 4px 4px; border:1px solid rgba(0,0,0,.08);
+      background:linear-gradient(180deg, var(--note), var(--note-edge) 130%);
+      border-radius:6px;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:var(--shadow);
       display:flex; align-items:center; justify-content:center;
-      font-weight:700; color:#111; text-decoration:none;
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      font-weight:700;
+      color:#111;
+      text-decoration:none;
+      transform:rotate(-2deg);
+      transition:transform .2s ease, filter .2s ease;
     }
-    .note:hover{ transform:translateY(-6px) rotate(0deg); filter:brightness(1.06); box-shadow:var(--shadow); }
-    .note span{ font-size:1rem; }
-    .note .pin{ top:-9px; }
+    .note:hover{ transform:translateY(-6px) rotate(0deg); filter:brightness(1.06); }
 
-    /* Desktop positions */
-    #photo{ left:8%;  top:10%; transform:rotate(-4deg); }
-    #report{ left:28%; top:14%; }
-    #n1{ left:8%;  top:62%; transform:rotate(-3deg) }
-    #n2{ left:26%; top:66%; transform:rotate(2.5deg) }
-    #n3{ left:44%; top:70%; transform:rotate(-4deg) }
-    #n4{ left:62%; top:72%; transform:rotate(3deg) }
-    #n5{ left:80%; top:68%; transform:rotate(-2deg) }
-
-    /* ======= Mobile layout fix: stack & grid (no overlap) ======= */
-    @media (max-width: 640px){
-      /* allow gentle scroll if needed rather than overlap */
-      body{ overflow:auto; }
-      .board{
-        height:100vh;            /* still “one screen” */
-        overflow:auto;           /* but scroll if content requires */
-        display:flex;
-        flex-wrap:wrap;
-        align-content:flex-start;
-        justify-content:center;
-        gap:12px;
-        padding:12px;
-      }
-      /* turn off absolute positioning + rotations on mobile stack */
-      .item{ position:static; transform:none !important; box-shadow:var(--shadow-sm); }
-
-      /* order & sizing */
-      #photo{ order:1; }
-      #report{ order:2; width:90vw; max-width:560px; padding:20px 16px; }
-      .report h1{ font-size:1.6rem; }
-      .report p{ font-size:1rem; }
-      .report .t1,.report .t2{ display:none; } /* tape can crowd small screens */
-
-      .polaroid img{ width:170px; }
-      .caption{ font-size:1rem; }
-
-      /* notes in a tidy 2-column grid */
-      .note{
-        order:3;
-        flex:1 1 calc(50% - 12px);
-        width:auto; height:110px;
-      }
-      /* keep them grouped visually after the report */
-      #n1{ order:3 } #n2{ order:4 } #n3{ order:5 } #n4{ order:6 } #n5{ order:7 }
-    }
-
-    @media (max-width: 400px){
-      .polaroid img{ width:150px; }
-      .note{ height:100px; }
-      .report h1{ font-size:1.45rem; }
+    @media(max-width:600px){
+      .report{ padding:18px; }
+      .report h1{ font-size:1.5rem; }
+      .note{ width:120px; height:120px; }
     }
   </style>
 </head>
 <body>
-  <div class="board" role="main" aria-label="Board">
-    <!-- Single Polaroid -->
-    <div id="photo" class="item polaroid" aria-label="Polaroid photo">
-      <div class="pin" aria-hidden="true"></div>
-      <img src="neeli.png?v=2" alt="Neeli polaroid">
-      <div class="caption">truth &gt; everything</div>
-    </div>
+  <!-- Polaroid -->
+  <div class="polaroid">
+    <img src="neeli.png?v=2" alt="Neeli polaroid">
+    <div class="caption">truth &gt; everything</div>
+  </div>
 
-    <!-- Official report -->
-    <section id="report" class="item report" aria-label="Official report">
-      <div class="tape t1" aria-hidden="true"></div>
-      <div class="tape t2" aria-hidden="true"></div>
-      <h1>hi, i’m neeli.</h1>
-      <div class="rule"></div>
-      <p>
-        i’m an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
-        and earned national recognition for investigative audio. i’m also the founder of murder creek media, an advocate,
-        and a dog lover.
-      </p>
-    </section>
+  <!-- Report -->
+  <section class="report">
+    <div class="tape t1"></div>
+    <div class="tape t2"></div>
+    <h1>hi, i’m neeli.</h1>
+    <div class="rule"></div>
+    <p>
+      i’m an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
+      and earned national recognition for investigative audio. i’m also the founder of murder creek media, an advocate,
+      and a dog lover.
+    </p>
+  </section>
 
-    <!-- Sticky notes -->
-    <a id="n1" class="item note" href="https://murdercreekmedia.com" target="_blank" rel="noopener">
-      <div class="pin" aria-hidden="true"></div><span>Podcasts</span>
-    </a>
-    <a id="n2" class="item note" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
-      <div class="pin" aria-hidden="true"></div><span>YouTube</span>
-    </a>
-    <a id="n3" class="item note" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
-      <div class="pin" aria-hidden="true"></div><span>Substack</span>
-    </a>
-    <a id="n4" class="item note" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
-      <div class="pin" aria-hidden="true"></div><span>Medium</span>
-    </a>
-    <a id="n5" class="item note" href="mailto:neeli@murdercreekmedia.com">
-      <div class="pin" aria-hidden="true"></div><span>Collab</span>
-    </a>
+  <!-- Sticky Notes -->
+  <div class="notes">
+    <a class="note" href="https://murdercreekmedia.com" target="_blank">Podcasts</a>
+    <a class="note" href="https://youtube.com/@neelifaulkner" target="_blank">YouTube</a>
+    <a class="note" href="https://neelifaulkner.substack.com" target="_blank">Substack</a>
+    <a class="note" href="https://medium.com/@neelifaulkner" target="_blank">Medium</a>
+    <a class="note" href="mailto:neeli@murdercreekmedia.com">Collab</a>
   </div>
 </body>
 </html>
