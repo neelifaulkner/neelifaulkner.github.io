@@ -14,220 +14,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Neeli Faulkner</title>
   <meta name="description" content="hi, i’m neeli — investigative journalist & podcaster. founder of Murder Creek Media.">
+
+  <!-- Handwritten caption font -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --rim:#4b2f1b;     /* darker brown rim */
-      --board:#d9c6ab;   /* lighter brown interior */
-      --paper:#fffef9;   /* report paper */
-      --tape:#eadfbd;    /* masking tape */
-      --note:#F7EFA7;    /* sticky note */
+      --fg:#000;
+      --bg:#fff;
+      --muted:#444;
+      --brand:#A2130C;
+      --note:#F7EFA7;
       --note-edge:#E9DF86;
-      --ink:#000;
-
-      --shadow:0 12px 26px rgba(0,0,0,.22), 0 6px 12px rgba(0,0,0,.14);
-      --shadow-sm:0 8px 18px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
-
-      --board-w: min(1100px, 94vw);
-      --board-h: 94vh;   /* desktop fits on one screen */
+      --shadow:0 10px 22px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
+      --shadow-hover:0 16px 30px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.14);
+      --maxw: 900px;
     }
 
-    html, body { height:100%; margin:0; }
+    html,body{height:100%}
     body{
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
       font-family:"Courier New", Courier, monospace;
-      background:#faf7f2; /* page bg outside the board */
-      color:var(--ink);
     }
-
-    /* The framed board */
-    .board{
-      position:relative;
-      width:var(--board-w);
-      height:var(--board-h);
-      background:var(--board);
-      border:12px solid var(--rim);     /* thinner rim */
-      border-radius:10px;
-      box-shadow:0 20px 44px rgba(0,0,0,.30);
-      overflow:hidden;
-
-      /* subtle paper/cardstock texture (very light crosshatch) */
-      background-image:
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 8px 8px;
+    .wrap{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:28px 20px 60px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+      text-align:center;
     }
-
-    /* Pinned items (desktop) */
-    .item{ position:absolute; box-shadow:var(--shadow-sm); transform-origin:center; }
 
     /* Polaroid */
     .polaroid{
       background:#fff;
-      padding:12px 12px 28px;
+      padding:10px 10px 26px;
       border:1px solid #e6e6e6;
-      border-radius:6px;
-      transform:rotate(-4deg);
-      transition: transform .18s ease;
+      display:inline-block;
+      box-shadow: var(--shadow);
+      transform:rotate(-1.6deg);
     }
-    .polaroid:hover{ transform:translateY(-4px) rotate(-2deg); }
-    .polaroid img{ width:230px; height:auto; border-radius:4px; display:block; }
+    .polaroid img{
+      display:block;
+      width:240px;
+      height:auto;
+      border-radius:6px;
+    }
     .caption{
       margin-top:8px;
       font-family:'Caveat', cursive;
-      font-size:1.1rem;
+      font-size:1.2rem;
       color:#333;
-      text-align:center;
-      letter-spacing:.2px;
     }
 
-    /* Official report */
-    .report{
-      background:var(--paper);
-      border:1px solid rgba(0,0,0,.12);
-      border-radius:6px;
-      padding:26px 22px;
-      width:min(540px, 55vw);
-      box-shadow:var(--shadow);
-      transform:rotate(1.2deg);
+    /* Headline (typewriter) */
+    h1{
+      margin:6px 0 0;
+      font-size:2.2rem;
+      line-height:1.15;
+      min-height:2.6rem;
     }
-    .report h1{ margin:0 0 10px; font-size:1.9rem; line-height:1.1; }
-    .report .rule{ height:2px; background:#000; opacity:.18; margin:10px 0 14px; }
-    .report p{ margin:0; line-height:1.55; font-size:1.02rem; color:#222; }
-    .tape{
-      position:absolute;
-      width:90px; height:22px;
-      background:var(--tape);
-      opacity:.9;
-      box-shadow:0 4px 6px rgba(0,0,0,.18);
-      mix-blend-mode:multiply;
+    .cursor{
+      border-right:2px solid var(--fg);
+      display:inline-block;
+      animation: blink .8s step-end infinite;
+      white-space:nowrap;
+      overflow:hidden;
     }
-    .report .t1{ top:-16px; left:30px; transform:rotate(-8deg); }
-    .report .t2{ top:-18px; right:40px; transform:rotate(7deg); }
+    @keyframes blink { 50% { border-color: transparent } }
+    @media (prefers-reduced-motion: reduce){
+      .cursor{ border-right:none; animation:none }
+    }
 
-    /* Sticky notes (square, yellow) */
-    .note{
-      width:140px; height:140px;
+    /* Intro paragraph */
+    .intro{
+      max-width:760px;
+      line-height:1.6;
+      font-size:1.05rem;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    /* Post-it notes */
+    .desk{ width:100%; margin-top:18px; }
+    .notes{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap:28px 36px;
+      align-items:start;
+      justify-items:center;
+      padding:10px 6px;
+    }
+    .postit{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:160px;
+      height:120px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0)) ,
+        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0)) ,
         linear-gradient(180deg, var(--note), var(--note-edge) 130%);
-      border-radius:6px;
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:var(--shadow);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:700; color:#111; text-decoration:none;
-      transform:rotate(-2deg);
-      transition:transform .2s ease, filter .2s ease;
+      border-radius:6px 6px 4px 4px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+      position:relative;
+      text-decoration:none;
+      color:#111;
+      font-weight:600;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
     }
-    .note:hover{ transform:translateY(-6px) rotate(0deg); filter:brightness(1.06); }
-    .note span{ font-size:1rem; }
-
-    /* Desktop positions (percent-based so they scale) */
-    #photo  { left:8%;  top:10%; }
-    #report { left:28%; top:14%; }
-    #n1     { left:8%;  top:62%; }
-    #n2     { left:26%; top:66%; }
-    #n3     { left:44%; top:70%; }
-    #n4     { left:62%; top:72%; }
-    #n5     { left:80%; top:68%; }
-
-    /* ===== Mobile layout fix: stack + square notes (no overlap) ===== */
-    @media (max-width: 700px){
-      /* Make the whole page/board feel seamless on mobile */
-      body{
-        background:var(--board);
-        /* prevent top cut-off under notches/toolbars */
-        padding-top: max(16px, env(safe-area-inset-top));
-      }
-
-      .board{
-        width:100%;
-        height:auto;             /* allow content height */
-        border:none;             /* remove rim on tiny screens */
-        border-radius:0;
-        box-shadow:none;
-        padding:20px 16px 24px;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:16px;
-      }
-
-      /* Turn off absolute positioning & rotations for flow layout */
-      .item{ position:static; transform:none !important; }
-
-      /* Photo first */
-      .polaroid img{ width:165px; }
-
-      /* Report full-width under photo */
-      .report{
-        width:100%;
-        max-width:560px;
-        padding:18px 16px;
-      }
-      .report h1{ font-size:1.55rem; }
-      .report p { font-size:1rem; }
-      .report .t1, .report .t2{ display:none; } /* tape can crowd on small screens */
-
-      /* Notes: tidy two-column grid, TRUE SQUARES */
-      .notes{
-        width:100%;
-        display:flex;
-        flex-wrap:wrap;
-        gap:12px;
-        justify-content:center;
-      }
-      .note{
-        width:calc(50% - 12px);
-        aspect-ratio: 1 / 1;   /* <- keeps them perfectly square */
-        height:auto;           /* rely on aspect ratio */
-        max-width:200px;       /* just in case on wider phones */
-        transform:none;        /* avoid awkward tilt in tight space */
-      }
-      .note span{ font-size:.95rem; }
+    .postit::before{
+      content:"";
+      position:absolute;
+      top:8px; left:50%;
+      width:8px; height:8px;
+      border-radius:50%;
+      background:rgba(0,0,0,.18);
+      transform:translateX(-50%);
+      box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
     }
+    .postit:hover{
+      transform: translateY(-6px) rotate(0deg);
+      box-shadow: var(--shadow-hover);
+      filter: brightness(1.04);
+    }
+    .postit span{ font-size:1rem; }
 
-    @media (max-width: 400px){
-      .polaroid img{ width:145px; }
-      .note{ width:calc(50% - 10px); }
-      .report h1{ font-size:1.45rem; }
+    /* Random rotations */
+    .postit:nth-child(1){ transform:rotate(-3deg) }
+    .postit:nth-child(2){ transform:rotate(2.5deg) }
+    .postit:nth-child(3){ transform:rotate(-5deg) }
+    .postit:nth-child(4){ transform:rotate(3.5deg) }
+    .postit:nth-child(5){ transform:rotate(-2deg) }
+
+    /* Mobile */
+    @media (max-width:640px){
+      .polaroid img{ width:200px }
+      .notes{ gap:22px 26px }
+      .postit{ width:150px; height:110px; }
+      h1{ font-size:1.9rem }
+      .intro{ font-size:1rem }
+    }
+    @media (max-width:420px){
+      .postit{ width:140px; height:100px; }
     }
   </style>
 </head>
 <body>
-  <div class="board" role="main" aria-label="Pinned layout">
-
+  <main class="wrap">
     <!-- Polaroid -->
-    <div id="photo" class="item polaroid" aria-label="Polaroid photo">
-      <img src="neeli.png?v=2" alt="Neeli polaroid">
+    <div class="polaroid">
+      <img src="neeli.png?v=2" alt="Neeli Faulkner" />
       <div class="caption">truth &gt; everything</div>
     </div>
 
-    <!-- Official report -->
-    <section id="report" class="item report" aria-label="Official report">
-      <div class="tape t1" aria-hidden="true"></div>
-      <div class="tape t2" aria-hidden="true"></div>
-      <h1>hi, i’m neeli.</h1>
-      <div class="rule"></div>
-      <p>
-        i’m an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
-        and earned national recognition for investigative audio. i’m also the founder of murder creek media, an advocate,
-        and a dog lover.
-      </p>
+    <!-- Header with typewriter -->
+    <h1><span id="title" class="cursor"></span></h1>
+
+    <!-- Static paragraph -->
+    <p class="intro">
+      i'm an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
+      and earned national recognition for investigative audio. i'm also the founder of murder creek media, an advocate,
+      and a dog lover.
+    </p>
+
+    <!-- Post-it note links -->
+    <section class="desk" aria-label="Links">
+      <div class="notes">
+        <a class="postit" href="https://murdercreekmedia.com" target="_blank" rel="noopener"><span>Podcasts</span></a>
+        <a class="postit" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener"><span>YouTube</span></a>
+        <a class="postit" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener"><span>Substack</span></a>
+        <a class="postit" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener"><span>Medium</span></a>
+        <a class="postit" href="mailto:neeli@murdercreekmedia.com"><span>Collab</span></a>
+      </div>
     </section>
+  </main>
 
-    <!-- Sticky notes (wrapped so mobile can reflow them) -->
-    <div class="notes">
-      <a id="n1" class="item note" href="https://murdercreekmedia.com" target="_blank" rel="noopener"><span>Podcasts</span></a>
-      <a id="n2" class="item note" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener"><span>YouTube</span></a>
-      <a id="n3" class="item note" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener"><span>Substack</span></a>
-      <a id="n4" class="item note" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener"><span>Medium</span></a>
-      <a id="n5" class="item note" href="mailto:neeli@murdercreekmedia.com"><span>Collab</span></a>
-    </div>
+  <script>
+    // Typewriter for the header, cursor stays blinking
+    (function(){
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const el = document.getElementById('title');
+      const full = "hi, i'm neeli.";
 
-  </div>
+      if (prefersReduced) {
+        el.textContent = full;
+        return;
+      }
+
+      let i = 0;
+      const speed = 40; 
+      function type() {
+        if (i <= full.length) {
+          el.textContent = full.slice(0, i);
+          i++;
+          window.requestAnimationFrame(() => setTimeout(type, speed));
+        }
+      }
+      type();
+    })();
+  </script>
 </body>
 </html>
+
+
