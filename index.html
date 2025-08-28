@@ -175,4 +175,87 @@
     }
 
     /* Sticky notes (5) */
-    #n1{ left:8%
+    #n1{ left:8%;  top:62%; transform:rotate(-3deg) }   /* Podcasts */
+    #n2{ left:26%; top:66%; transform:rotate(2.5deg) }  /* YouTube  */
+    #n3{ left:44%; top:70%; transform:rotate(-4deg) }   /* Substack */
+    #n4{ left:62%; top:72%; transform:rotate(3deg) }    /* Medium   */
+    #n5{ left:80%; top:68%; transform:rotate(-2deg) }   /* Collab   */
+
+    /* Responsive adjustments to keep within the board and readable */
+    @media (max-width: 980px){
+      #report{ left:24%; top:12%; }
+      #n1{ top:60% } #n2{ top:66% } #n3{ top:70% } #n4{ top:72% } #n5{ top:66% }
+    }
+    @media (max-width: 720px){
+      .polaroid img{ width:200px }
+      .report{ width:64vw; }
+      #photo{ left:6%; top:8%; }
+      #report{ left:28%; top:10%; }
+      #n1{ left:6%;  top:60% }
+      #n2{ left:26%; top:66% }
+      #n3{ left:48%; top:68% }
+      #n4{ left:68%; top:70% }
+      #n5{ left:80%; top:62% }
+    }
+    @media (max-width: 540px){
+      .report{ width:72vw; padding:22px 18px; }
+      .report h1{ font-size:1.6rem }
+      .report p{ font-size:1rem }
+      .note{ width:130px; height:130px }
+      #photo{ left:5%; top:6%; }
+      #report{ left:20%; top:12%; }
+      #n1{ left:6%;  top:58% }
+      #n2{ left:34%; top:62% }
+      #n3{ left:62%; top:66% }
+      #n4{ left:34%; top:78% }
+      #n5{ left:6%;  top:74% }
+    }
+  </style>
+</head>
+<body>
+  <div class="board" role="main" aria-label="Board">
+
+    <!-- Single Polaroid -->
+    <div id="photo" class="item polaroid" aria-label="Polaroid photo">
+      <div class="pin" aria-hidden="true"></div>
+      <img src="neeli.png?v=2" alt="Neeli polaroid">
+      <div class="caption">truth &gt; everything</div>
+    </div>
+
+    <!-- Official report (no typewriter effect) -->
+    <section id="report" class="item report" aria-label="Official report">
+      <div class="tape t1" aria-hidden="true"></div>
+      <div class="tape t2" aria-hidden="true"></div>
+      <h1>hi, i’m neeli.</h1>
+      <div class="rule"></div>
+      <p>
+        i’m an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
+        and earned national recognition for investigative audio. i’m also the founder of murder creek media, an advocate,
+        and a dog lover.
+      </p>
+    </section>
+
+    <!-- Sticky notes (all yellow, square) -->
+    <a id="n1" class="item note" href="https://murdercreekmedia.com" target="_blank" rel="noopener">
+      <div class="pin" aria-hidden="true"></div><span>Podcasts</span>
+    </a>
+
+    <a id="n2" class="item note" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
+      <div class="pin" aria-hidden="true"></div><span>YouTube</span>
+    </a>
+
+    <a id="n3" class="item note" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
+      <div class="pin" aria-hidden="true"></div><span>Substack</span>
+    </a>
+
+    <a id="n4" class="item note" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
+      <div class="pin" aria-hidden="true"></div><span>Medium</span>
+    </a>
+
+    <a id="n5" class="item note" href="mailto:neeli@murdercreekmedia.com">
+      <div class="pin" aria-hidden="true"></div><span>Collab</span>
+    </a>
+
+  </div>
+</body>
+</html>
