@@ -134,21 +134,22 @@
     #n4     { left:62%; top:72%; }
     #n5     { left:80%; top:68%; }
 
-    /* (wrapper for notes so mobile can reflow them) */
-    .notes { /* desktop: acts like a plain wrapper; not positioned */ }
-
-    /* ===== Mobile layout fix: stack and grid (no overlap) ===== */
+    /* ===== Mobile layout fix: stack + square notes (no overlap) ===== */
     @media (max-width: 700px){
       /* Make the whole page/board feel seamless on mobile */
-      body{ background:var(--board); }
+      body{
+        background:var(--board);
+        /* prevent top cut-off under notches/toolbars */
+        padding-top: max(16px, env(safe-area-inset-top));
+      }
 
       .board{
         width:100%;
         height:auto;             /* allow content height */
-        border:none;             /* remove thick rim on tiny screens */
+        border:none;             /* remove rim on tiny screens */
         border-radius:0;
         box-shadow:none;
-        padding:20px 16px;
+        padding:20px 16px 24px;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -159,7 +160,7 @@
       .item{ position:static; transform:none !important; }
 
       /* Photo first */
-      .polaroid img{ width:170px; }
+      .polaroid img{ width:165px; }
 
       /* Report full-width under photo */
       .report{
@@ -167,11 +168,11 @@
         max-width:560px;
         padding:18px 16px;
       }
-      .report h1{ font-size:1.6rem; }
+      .report h1{ font-size:1.55rem; }
       .report p { font-size:1rem; }
       .report .t1, .report .t2{ display:none; } /* tape can crowd on small screens */
 
-      /* Notes: tidy two-column grid */
+      /* Notes: tidy two-column grid, TRUE SQUARES */
       .notes{
         width:100%;
         display:flex;
@@ -181,13 +182,17 @@
       }
       .note{
         width:calc(50% - 12px);
-        height:110px;
+        aspect-ratio: 1 / 1;   /* <- keeps them perfectly square */
+        height:auto;           /* rely on aspect ratio */
+        max-width:200px;       /* just in case on wider phones */
+        transform:none;        /* avoid awkward tilt in tight space */
       }
+      .note span{ font-size:.95rem; }
     }
 
     @media (max-width: 400px){
-      .polaroid img{ width:150px; }
-      .note{ height:100px; }
+      .polaroid img{ width:145px; }
+      .note{ width:calc(50% - 10px); }
       .report h1{ font-size:1.45rem; }
     }
   </style>
