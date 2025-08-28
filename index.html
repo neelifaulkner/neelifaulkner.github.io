@@ -7,38 +7,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#d9c6ab;      /* entire page background */
-      --paper:#fffef9;   /* report paper */
+      --rim:#4b2f1b;     /* darker brown rim */
+      --board:#d9c6ab;   /* lighter brown interior */
+      --paper:#fffef9;
       --tape:#eadfbd;
       --note:#F7EFA7;
       --note-edge:#E9DF86;
       --ink:#000;
       --shadow:0 12px 26px rgba(0,0,0,.22), 0 6px 12px rgba(0,0,0,.14);
+      --shadow-sm:0 8px 18px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
+      --board-w: min(1100px, 94vw);
+      --board-h: 94vh;
     }
 
+    html, body { height:100%; margin:0; }
     body{
-      margin:0;
-      font-family:"Courier New", Courier, monospace;
-      background:var(--bg);
-      color:var(--ink);
       display:flex;
-      flex-direction:column;
       align-items:center;
-      gap:20px;
-      padding:40px 20px;
+      justify-content:center;
+      font-family:"Courier New", Courier, monospace;
+      background:#faf7f2; /* page bg outside board */
     }
+
+    .board{
+      position:relative;
+      width:var(--board-w);
+      height:var(--board-h);
+      background:var(--board);        /* flat light brown interior */
+      border:22px solid var(--rim);   /* darker brown rim */
+      border-radius:12px;
+      box-shadow:0 20px 44px rgba(0,0,0,.30);
+      overflow:hidden;
+    }
+
+    .item{ position:absolute; box-shadow:var(--shadow-sm); transform-origin:center; }
 
     /* Polaroid */
     .polaroid{
-      background:#fff;
-      padding:12px 12px 28px;
-      border:1px solid #e6e6e6;
-      border-radius:6px;
-      box-shadow:var(--shadow);
-      transform:rotate(-3deg);
-      max-width:240px;
+      background:#fff; padding:12px 12px 28px; border:1px solid #e6e6e6; border-radius:6px;
+      transform:rotate(-4deg);
     }
-    .polaroid img{ width:100%; border-radius:4px; display:block; }
+    .polaroid img{ width:230px; border-radius:4px; display:block; }
     .caption{ margin-top:8px; font-family:'Caveat', cursive; font-size:1.1rem; text-align:center; }
 
     /* Report */
@@ -47,31 +56,23 @@
       border:1px solid rgba(0,0,0,.12);
       border-radius:6px;
       padding:26px 22px;
-      max-width:600px;
+      width:min(540px, 55vw);
       box-shadow:var(--shadow);
-      position:relative;
+      transform:rotate(1.2deg);
+      position:absolute;
     }
     .report h1{ margin:0 0 10px; font-size:1.9rem; }
     .report .rule{ height:2px; background:#000; opacity:.18; margin:10px 0 14px; }
-    .report p{ margin:0; line-height:1.55; font-size:1rem; }
+    .report p{ margin:0; line-height:1.55; font-size:1.02rem; }
     .tape{
-      position:absolute;
-      width:90px; height:22px;
-      background:var(--tape);
-      opacity:.9;
-      box-shadow:0 4px 6px rgba(0,0,0,.18);
+      position:absolute; width:90px; height:22px; background:var(--tape);
+      opacity:.9; box-shadow:0 4px 6px rgba(0,0,0,.18);
       mix-blend-mode:multiply;
     }
-    .report .t1{ top:-12px; left:20px; transform:rotate(-8deg); }
-    .report .t2{ top:-14px; right:30px; transform:rotate(7deg); }
+    .report .t1{ top:-16px; left:30px; transform:rotate(-8deg); }
+    .report .t2{ top:-18px; right:40px; transform:rotate(7deg); }
 
-    /* Notes */
-    .notes{
-      display:flex;
-      flex-wrap:wrap;
-      gap:20px;
-      justify-content:center;
-    }
+    /* Sticky Notes */
     .note{
       width:140px; height:140px;
       background:linear-gradient(180deg, var(--note), var(--note-edge) 130%);
@@ -79,48 +80,59 @@
       border:1px solid rgba(0,0,0,.08);
       box-shadow:var(--shadow);
       display:flex; align-items:center; justify-content:center;
-      font-weight:700;
-      color:#111;
-      text-decoration:none;
+      font-weight:700; color:#111; text-decoration:none;
       transform:rotate(-2deg);
       transition:transform .2s ease, filter .2s ease;
     }
     .note:hover{ transform:translateY(-6px) rotate(0deg); filter:brightness(1.06); }
+    .note span{ font-size:1rem; }
 
-    @media(max-width:600px){
-      .report{ padding:18px; }
-      .report h1{ font-size:1.5rem; }
+    /* Layout positions */
+    #photo{ left:8%; top:10%; }
+    #report{ left:28%; top:14%; }
+    #n1{ left:8%;  top:62%; }
+    #n2{ left:26%; top:66%; }
+    #n3{ left:44%; top:70%; }
+    #n4{ left:62%; top:72%; }
+    #n5{ left:80%; top:68%; }
+
+    /* Mobile stack */
+    @media (max-width:640px){
+      .board{ display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:16px; padding:16px; height:auto; }
+      .item{ position:static; transform:none !important; }
+      .report{ width:90%; max-width:560px; }
       .note{ width:120px; height:120px; }
+      .notes{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
     }
   </style>
 </head>
 <body>
-  <!-- Polaroid -->
-  <div class="polaroid">
-    <img src="neeli.png?v=2" alt="Neeli polaroid">
-    <div class="caption">truth &gt; everything</div>
-  </div>
+  <div class="board">
+    <!-- Polaroid -->
+    <div id="photo" class="item polaroid">
+      <img src="neeli.png?v=2" alt="Neeli polaroid">
+      <div class="caption">truth &gt; everything</div>
+    </div>
 
-  <!-- Report -->
-  <section class="report">
-    <div class="tape t1"></div>
-    <div class="tape t2"></div>
-    <h1>hi, i’m neeli.</h1>
-    <div class="rule"></div>
-    <p>
-      i’m an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
-      and earned national recognition for investigative audio. i’m also the founder of murder creek media, an advocate,
-      and a dog lover.
-    </p>
-  </section>
+    <!-- Report -->
+    <section id="report" class="item report">
+      <div class="tape t1"></div>
+      <div class="tape t2"></div>
+      <h1>hi, i’m neeli.</h1>
+      <div class="rule"></div>
+      <p>
+        i’m an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
+        and earned national recognition for investigative audio. i’m also the founder of murder creek media, an advocate,
+        and a dog lover.
+      </p>
+    </section>
 
-  <!-- Sticky Notes -->
-  <div class="notes">
-    <a class="note" href="https://murdercreekmedia.com" target="_blank">Podcasts</a>
-    <a class="note" href="https://youtube.com/@neelifaulkner" target="_blank">YouTube</a>
-    <a class="note" href="https://neelifaulkner.substack.com" target="_blank">Substack</a>
-    <a class="note" href="https://medium.com/@neelifaulkner" target="_blank">Medium</a>
-    <a class="note" href="mailto:neeli@murdercreekmedia.com">Collab</a>
+    <!-- Sticky Notes -->
+    <a id="n1" class="item note" href="https://murdercreekmedia.com" target="_blank">Podcasts</a>
+    <a id="n2" class="item note" href="https://youtube.com/@neelifaulkner" target="_blank">YouTube</a>
+    <a id="n3" class="item note" href="https://neelifaulkner.substack.com" target="_blank">Substack</a>
+    <a id="n4" class="item note" href="https://medium.com/@neelifaulkner" target="_blank">Medium</a>
+    <a id="n5" class="item note" href="mailto:neeli@murdercreekmedia.com">Collab</a>
   </div>
 </body>
 </html>
