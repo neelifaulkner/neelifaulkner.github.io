@@ -70,9 +70,9 @@
     /* ===== Case file links ===== */
     .case-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap:22px 24px;
-      align-items:stretch;
+      grid-template-columns: repeat(2, 1fr); /* two columns */
+      gap:28px 36px;
+      align-items:start;
       justify-items:stretch;
       padding:10px 6px;
     }
@@ -121,6 +121,7 @@
     .casefile:hover::after{ opacity:.9; transform: rotate(-6deg) scale(1); }
     .casefile:focus-visible{ outline:2px dashed var(--brand); outline-offset:3px }
 
+    /* quirky random rotations */
     .casefile:nth-child(1){ transform:rotate(-1.2deg) }
     .casefile:nth-child(2){ transform:rotate(1.4deg) }
     .casefile:nth-child(3){ transform:rotate(-2.2deg) }
@@ -141,7 +142,12 @@
       .casefile small{ color:#d0d0d0; opacity:.85 }
     }
 
-    @media (max-width:640px){ .polaroid img{ width:200px } h1{ font-size:1.9rem } .intro{ font-size:1rem } }
+    @media (max-width:640px){
+      .polaroid img{ width:200px }
+      h1{ font-size:1.9rem }
+      .intro{ font-size:1rem }
+      .case-grid{ grid-template-columns: 1fr; } /* one column on small screens */
+    }
   </style>
 
   <!-- Structured data -->
@@ -207,9 +213,9 @@
           <span class="title">Medium</span>
           <small>features &amp; essays</small>
         </a>
-        <a class="casefile" href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">
+        <a class="casefile" href="https://www.tiktok.com/@neelifaulkner" target="_blank" rel="noopener">
           <span class="title">TikTok</span>
-          <small>@murdercreekmedia</small>
+          <small>@neelifaulkner</small>
         </a>
         <a class="casefile" href="mailto:neeli@murdercreekmedia.com">
           <span class="title">Collab</span>
