@@ -1,213 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Analytics: keep as-is (moved below meta for perf order) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neeli Faulkner — Investigative Journalist & Podcaster</title>
+  <meta name="description" content="Hi, I’m Neeli — investigative journalist & podcaster. Founder of Murder Creek Media. My work has sparked post-conviction appeals and new cold-case leads." />
+  <meta name="theme-color" content="#A2130C" />
+  <link rel="canonical" href="https://neelifaulkner.com/" />
+
+  <!-- Social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Neeli Faulkner — Investigative Journalist & Podcaster" />
+  <meta property="og:description" content="Founder of Murder Creek Media. Investigative audio with teeth. Truth > everything." />
+  <meta property="og:url" content="https://neelifaulkner.com/" />
+  <meta property="og:image" content="https://neelifaulkner.com/neeli.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Neeli Faulkner — Investigative Journalist & Podcaster" />
+  <meta name="twitter:description" content="Founder of Murder Creek Media. Investigative audio with teeth. Truth > everything." />
+  <meta name="twitter:image" content="https://neelifaulkner.com/neeli.png?v=2" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="neeli.png?v=2" />
+
+  <style>
+    :root{
+      --fg:#000; --bg:#fff; --muted:#444; --brand:#A2130C;
+      --shadow:0 10px 22px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
+      --shadow-hover:0 16px 30px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.14);
+      --maxw: 900px;
+      --focus: 2px dashed var(--brand);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --fg:#fff; --bg:#0b0b0b; --muted:#c7c7c7 }
+      .polaroid{ background:#111; border-color:#2a2a2a }
+      .caption{ color:#e8e8e8 }
+    }
+
+    html,body{height:100%}
+    body{ margin:0; background:var(--bg); color:var(--fg); font-family:"Courier New", Courier, monospace; }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:28px 20px 60px; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center; }
+
+    .sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
+    /* Polaroid */
+    .polaroid{ background:#fff; padding:10px 10px 26px; border:1px solid #e6e6e6; display:inline-block; box-shadow: var(--shadow); transform:rotate(-1.6deg); }
+    .polaroid img{ display:block; width:240px; height:auto; border-radius:6px; }
+    .caption{ margin-top:8px; font-family:'Caveat', cursive; font-size:1.2rem; color:#333; }
+
+    /* Headline (typewriter) */
+    h1{ margin:6px 0 0; font-size:2.2rem; line-height:1.15; min-height:2.6rem; }
+    .cursor{ border-right:2px solid currentColor; display:inline-block; animation: blink .8s step-end infinite; white-space:nowrap; overflow:hidden; }
+    @keyframes blink { 50% { border-color: transparent } }
+    @media (prefers-reduced-motion: reduce){ .cursor{ border-right:none; animation:none } }
+
+    /* Intro */
+    .intro{ max-width:760px; line-height:1.6; font-size:1.05rem; color:var(--muted); margin-top:4px; }
+
+    /* ===== Case file links ===== */
+    .case-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap:22px 24px;
+      align-items:stretch;
+      justify-items:stretch;
+      padding:10px 6px;
+    }
+    .casefile{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:6px;
+      padding:22px 18px 18px 18px;
+      text-decoration:none;
+      color:#111;
+      background: linear-gradient(180deg, #F2E6C8, #E6D6AE 120%);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:6px 6px 4px 4px;
+      box-shadow: var(--shadow);
+      transform: rotate(-0.5deg);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .casefile::before{
+      content:"";
+      position:absolute;
+      top:-10px; left:0;
+      width:84px; height:22px;
+      border-radius:6px 6px 0 0;
+      background: linear-gradient(180deg, #EEDDB6, #E2CB93);
+      border:1px solid rgba(0,0,0,.08);
+      border-bottom:none;
+      transform: translateX(10px);
+    }
+    .casefile::after{
+      content:"OPEN";
+      position:absolute;
+      top:10px; right:12px;
+      font: 700 .7rem "Courier New", Courier, monospace;
+      letter-spacing:.08em;
+      color:var(--brand);
+      opacity:0;
+      transform: rotate(-6deg) scale(.95);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .casefile .title{ font-weight:700; font-size:1.02rem; }
+    .casefile small{ color:#444; opacity:.9 }
+
+    .casefile:hover{ transform: translateY(-6px) rotate(0deg); box-shadow: var(--shadow-hover); filter: brightness(1.02); }
+    .casefile:hover::after{ opacity:.9; transform: rotate(-6deg) scale(1); }
+    .casefile:focus-visible{ outline:2px dashed var(--brand); outline-offset:3px }
+
+    .casefile:nth-child(1){ transform:rotate(-1.2deg) }
+    .casefile:nth-child(2){ transform:rotate(1.4deg) }
+    .casefile:nth-child(3){ transform:rotate(-2.2deg) }
+    .casefile:nth-child(4){ transform:rotate(2.0deg) }
+    .casefile:nth-child(5){ transform:rotate(-1.0deg) }
+    .casefile:nth-child(6){ transform:rotate(1.2deg) }
+
+    @media (prefers-color-scheme: dark){
+      .casefile{
+        color:#f1f1f1;
+        background: linear-gradient(180deg, #3a3326, #2f291e 120%);
+        border-color: rgba(255,255,255,.06);
+      }
+      .casefile::before{
+        background: linear-gradient(180deg, #4a422f, #3d3526);
+        border-color: rgba(255,255,255,.06);
+      }
+      .casefile small{ color:#d0d0d0; opacity:.85 }
+    }
+
+    @media (max-width:640px){ .polaroid img{ width:200px } h1{ font-size:1.9rem } .intro{ font-size:1rem } }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Neeli Faulkner",
+    "url": "https://neelifaulkner.com/",
+    "jobTitle": "Investigative Journalist & Podcaster",
+    "affiliation": {"@type":"Organization","name":"Murder Creek Media"},
+    "sameAs": [
+      "https://murdercreekmedia.com",
+      "https://youtube.com/@neelifaulkner",
+      "https://neelifaulkner.substack.com",
+      "https://medium.com/@neelifaulkner",
+      "https://www.tiktok.com/@neelifaulkner"
+    ]
+  }
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZ6FXS13W"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3HZ6FXS13W');
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-3HZ6FXS13W');
   </script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Neeli Faulkner</title>
-  <meta name="description" content="hi, i’m neeli — investigative journalist & podcaster. founder of Murder Creek Media.">
-
-  <!-- Handwritten caption font -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --fg:#000;
-      --bg:#fff;
-      --muted:#444;
-      --brand:#A2130C;
-      --note:#F7EFA7;
-      --note-edge:#E9DF86;
-      --shadow:0 10px 22px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12);
-      --shadow-hover:0 16px 30px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.14);
-      --maxw: 900px;
-    }
-
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family:"Courier New", Courier, monospace;
-    }
-    .wrap{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:28px 20px 60px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:18px;
-      text-align:center;
-    }
-
-    /* Polaroid */
-    .polaroid{
-      background:#fff;
-      padding:10px 10px 26px;
-      border:1px solid #e6e6e6;
-      display:inline-block;
-      box-shadow: var(--shadow);
-      transform:rotate(-1.6deg);
-    }
-    .polaroid img{
-      display:block;
-      width:240px;
-      height:auto;
-      border-radius:6px;
-    }
-    .caption{
-      margin-top:8px;
-      font-family:'Caveat', cursive;
-      font-size:1.2rem;
-      color:#333;
-    }
-
-    /* Headline (typewriter) */
-    h1{
-      margin:6px 0 0;
-      font-size:2.2rem;
-      line-height:1.15;
-      min-height:2.6rem;
-    }
-    .cursor{
-      border-right:2px solid var(--fg);
-      display:inline-block;
-      animation: blink .8s step-end infinite;
-      white-space:nowrap;
-      overflow:hidden;
-    }
-    @keyframes blink { 50% { border-color: transparent } }
-    @media (prefers-reduced-motion: reduce){
-      .cursor{ border-right:none; animation:none }
-    }
-
-    /* Intro paragraph */
-    .intro{
-      max-width:760px;
-      line-height:1.6;
-      font-size:1.05rem;
-      color:var(--muted);
-      margin-top:4px;
-    }
-
-    /* Post-it notes */
-    .desk{ width:100%; margin-top:18px; }
-    .notes{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap:28px 36px;
-      align-items:start;
-      justify-items:center;
-      padding:10px 6px;
-    }
-    .postit{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:160px;
-      height:120px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0)) ,
-        linear-gradient(180deg, var(--note), var(--note-edge) 130%);
-      border-radius:6px 6px 4px 4px;
-      box-shadow: var(--shadow);
-      border:1px solid rgba(0,0,0,.06);
-      position:relative;
-      text-decoration:none;
-      color:#111;
-      font-weight:600;
-      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    }
-    .postit::before{
-      content:"";
-      position:absolute;
-      top:8px; left:50%;
-      width:8px; height:8px;
-      border-radius:50%;
-      background:rgba(0,0,0,.18);
-      transform:translateX(-50%);
-      box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
-    }
-    .postit:hover{
-      transform: translateY(-6px) rotate(0deg);
-      box-shadow: var(--shadow-hover);
-      filter: brightness(1.04);
-    }
-    .postit span{ font-size:1rem; }
-
-    /* Random rotations */
-    .postit:nth-child(1){ transform:rotate(-3deg) }
-    .postit:nth-child(2){ transform:rotate(2.5deg) }
-    .postit:nth-child(3){ transform:rotate(-5deg) }
-    .postit:nth-child(4){ transform:rotate(3.5deg) }
-    .postit:nth-child(5){ transform:rotate(-2deg) }
-
-    /* Mobile */
-    @media (max-width:640px){
-      .polaroid img{ width:200px }
-      .notes{ gap:22px 26px }
-      .postit{ width:150px; height:110px; }
-      h1{ font-size:1.9rem }
-      .intro{ font-size:1rem }
-    }
-    @media (max-width:420px){
-      .postit{ width:140px; height:100px; }
-    }
-  </style>
 </head>
 <body>
   <main class="wrap">
     <!-- Polaroid -->
-    <div class="polaroid">
-      <img src="neeli.png?v=2" alt="Neeli Faulkner" />
+    <div class="polaroid" aria-label="Polaroid of Neeli with caption Truth greater than everything">
+      <img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" fetchpriority="high" />
       <div class="caption">truth &gt; everything</div>
     </div>
 
-    <!-- Header with typewriter -->
-    <h1><span id="title" class="cursor"></span></h1>
+    <!-- Header -->
+    <h1>
+      <span class="sr-only">Hi, I'm Neeli.</span>
+      <span aria-hidden="true" id="title" class="cursor"></span>
+    </h1>
 
-    <!-- Static paragraph -->
     <p class="intro">
-      i'm an investigative journalist and podcaster whose work has sparked post-conviction appeals, new cold case leads,
-      and earned national recognition for investigative audio. i'm also the founder of murder creek media, an advocate,
-      and a dog lover.
+      I'm an investigative journalist and podcaster whose work has sparked post-conviction appeals, surfaced new cold-case leads, and earned national recognition for investigative audio. I'm the founder of Murder Creek Media, an advocate, and a dog lover.
     </p>
 
-    <!-- Post-it note links -->
+    <!-- Case file links -->
     <section class="desk" aria-label="Links">
-      <div class="notes">
-        <a class="postit" href="https://murdercreekmedia.com" target="_blank" rel="noopener"><span>Podcasts</span></a>
-        <a class="postit" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener"><span>YouTube</span></a>
-        <a class="postit" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener"><span>Substack</span></a>
-        <a class="postit" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener"><span>Medium</span></a>
-        <a class="postit" href="mailto:neeli@murdercreekmedia.com"><span>Collab</span></a>
+      <div class="case-grid">
+        <a class="casefile" href="https://murdercreekmedia.com" target="_blank" rel="noopener">
+          <span class="title">Podcasts</span>
+          <small>Murder Creek Media</small>
+        </a>
+        <a class="casefile" href="https://youtube.com/@neelifaulkner" target="_blank" rel="noopener">
+          <span class="title">YouTube</span>
+          <small>@neelifaulkner</small>
+        </a>
+        <a class="casefile" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
+          <span class="title">Substack</span>
+          <small>dispatches &amp; deep dives</small>
+        </a>
+        <a class="casefile" href="https://medium.com/@neelifaulkner" target="_blank" rel="noopener">
+          <span class="title">Medium</span>
+          <small>features &amp; essays</small>
+        </a>
+        <a class="casefile" href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">
+          <span class="title">TikTok</span>
+          <small>@murdercreekmedia</small>
+        </a>
+        <a class="casefile" href="mailto:neeli@murdercreekmedia.com">
+          <span class="title">Collab</span>
+          <small>neeli@murdercreekmedia.com</small>
+        </a>
       </div>
     </section>
   </main>
 
   <script>
-    // Typewriter for the header, cursor stays blinking
+    // Typewriter effect
     (function(){
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const el = document.getElementById('title');
       const full = "hi, i'm neeli.";
-
-      if (prefersReduced) {
-        el.textContent = full;
-        return;
-      }
-
-      let i = 0;
-      const speed = 40; 
+      if (prefersReduced) { el.textContent = full; return; }
+      let i = 0; const speed = 40;
       function type() {
         if (i <= full.length) {
           el.textContent = full.slice(0, i);
@@ -220,5 +239,3 @@
   </script>
 </body>
 </html>
-
-
