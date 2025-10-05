@@ -38,128 +38,100 @@
       line-height: 1.5;
     }
 
-    /* Cover Section */
+    /* Cover */
     .title {
       font-variant: small-caps;
       letter-spacing: 0.05em;
       font-size: clamp(18px, 2vw, 22px);
       margin: 0;
     }
+    .subtitle { font-style: italic; font-size: clamp(13px, 1.8vw, 16px); margin: 0; }
+    .meta, .location { font-size: clamp(12px, 1.6vw, 15px); margin: 0; }
+    .invocation { margin: clamp(20px, 4vh, 40px) 0 0 0; font-size: clamp(12px, 1.6vw, 15px); }
 
-    .subtitle {
-      font-style: italic;
-      font-size: clamp(13px, 1.8vw, 16px);
-      margin: 0;
-    }
-
-    .meta, .location {
-      font-size: clamp(12px, 1.6vw, 15px);
-      margin: 0;
-    }
-
-    .invocation {
-      margin: clamp(20px, 4vh, 40px) 0 0 0;
-      font-size: clamp(12px, 1.6vw, 15px);
-    }
-
-    /* About Section */
-    #about .content {
-      text-align: justify;
-      text-justify: inter-word;
-      line-height: 1.6;
-    }
-
+    /* About */
+    #about .content { text-align: justify; text-justify: inter-word; line-height: 1.6; }
     #about h2 {
-      text-align: center;
-      font-variant: small-caps;
-      letter-spacing: 0.15em;
-      font-size: clamp(16px, 2vw, 18px);
-      margin-bottom: 2.5em;
+      text-align: center; font-variant: small-caps; letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px); margin-bottom: 2.5em;
     }
+    p { font-size: clamp(13px, 1.6vw, 15px); margin: 1em 0; }
 
-    p {
-      font-size: clamp(13px, 1.6vw, 15px);
-      margin: 1em 0;
-    }
-
-    /* Programs Section */
-    #programs .content {
-      text-align: left; /* left-aligned like a table of contents */
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
+    /* Programs */
+    #programs .content { text-align: left; max-width: 700px; margin: 0 auto; line-height: 1.7; }
     #programs h2 {
-      text-align: center;
-      font-variant: small-caps;
-      letter-spacing: 0.15em;
-      font-size: clamp(16px, 2vw, 18px);
-      margin-bottom: 2.5em;
+      text-align: center; font-variant: small-caps; letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px); margin-bottom: 2.5em;
     }
-
     .year {
-      font-variant: small-caps;
-      font-size: clamp(14px, 1.8vw, 16px);
-      letter-spacing: 0.08em;
-      margin-top: 2em;
-      margin-bottom: 0.6em;
+      font-variant: small-caps; font-size: clamp(14px, 1.8vw, 16px);
+      letter-spacing: 0.08em; margin-top: 2em; margin-bottom: 0.6em;
     }
-
-    .rule { /* subtle divider between year groups */
-      border: 0;
-      border-top: 1px solid #dedcdc;
-      margin: 2.2em 0 1.4em;
-    }
-
-    .program {
-      margin-left: 1em;
-      margin-bottom: 0.25em;
-      font-size: clamp(13px, 1.6vw, 15px);
-    }
-
+    .rule { border: 0; border-top: 1px solid #dedcdc; margin: 2.2em 0 1.4em; }
+    .program { margin-left: 1em; margin-bottom: 0.25em; font-size: clamp(13px, 1.6vw, 15px); }
     .program a {
-      text-decoration: none;
-      color: #111;
-      border-bottom: 1px solid transparent;
+      text-decoration: none; color: #111; border-bottom: 1px solid transparent;
       transition: border-color 0.25s ease;
     }
-
     .program a:hover { border-bottom: 1px solid #111; }
-
     .desc {
-      margin-left: 1.5em;
-      margin-top: 0.1em;
-      margin-bottom: 0.6em;
+      margin-left: 1.5em; margin-top: 0.1em; margin-bottom: 0.6em;
+      font-size: clamp(12px, 1.5vw, 14px); color: #444; font-style: italic;
+    }
+    .upcoming { color: #555; font-style: normal; font-weight: normal; }
+
+    /* Visual Index */
+    #visual-index .content { text-align: left; max-width: 700px; margin: 0 auto; }
+    #visual-index h2 {
+      text-align: center; font-variant: small-caps; letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px); margin-bottom: 2.2em;
+    }
+    .plate { margin-bottom: 2.5em; }
+    .plate figure { margin: 0; }
+    .plate img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .plate figcaption {
+      margin-top: 0.6em;
       font-size: clamp(12px, 1.5vw, 14px);
       color: #444;
       font-style: italic;
+      line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
-    .upcoming {
-      color: #555;
-      font-style: normal; /* not italicized now */
-      font-weight: normal;
+    /* Appendix */
+    #appendix .content { text-align: left; max-width: 700px; margin: 0 auto; line-height: 1.8; }
+    #appendix h2 {
+      text-align: center; font-variant: small-caps; letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px); margin-bottom: 2.5em;
     }
+    .links-category {
+      font-variant: small-caps; font-size: clamp(14px, 1.8vw, 16px);
+      letter-spacing: 0.08em; margin-top: 2em; margin-bottom: 0.8em;
+    }
+    .link-item { margin-left: 1em; margin-bottom: 0.5em; display: block; font-size: clamp(13px, 1.6vw, 15px); }
+    .link-item a {
+      text-decoration: none; color: #111; border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease;
+    }
+    .link-item a:hover { border-bottom: 1px solid #111; }
 
     /* Scroll cue */
     .scroll-cue {
-      position: absolute;
-      bottom: 3vh;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.85rem;
-      font-style: italic;
-      opacity: 0.6;
+      position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%);
+      font-size: 0.85rem; font-style: italic; opacity: 0.6;
     }
-
     a.scroll-cue { text-decoration: none; color: #111; }
     a.scroll-cue:hover { opacity: 1; }
   </style>
 </head>
 <body>
 
-  <!-- Cover Page -->
+  <!-- Cover -->
   <section id="cover">
     <div class="content">
       <h1 class="title">THE GRIMOIRE OF NEELI FAULKNER</h1>
@@ -171,7 +143,7 @@
     <a href="#about" class="scroll-cue">Scroll ↓</a>
   </section>
 
-  <!-- About Page -->
+  <!-- About -->
   <section id="about">
     <div class="content">
       <h2>- ABOUT -</h2>
@@ -189,7 +161,7 @@
     <a href="#programs" class="scroll-cue">Scroll ↓</a>
   </section>
 
-  <!-- Programs Page -->
+  <!-- Programs -->
   <section id="programs">
     <div class="content">
       <h2>- PROGRAMS -</h2>
@@ -222,15 +194,70 @@
       <hr class="rule" />
 
       <div class="year">2026</div>
-      <div class="program upcoming">
-        Skeptical: An Investigative Podcast (Season 2)
-      </div>
+      <div class="program upcoming">Skeptical: An Investigative Podcast (Season 2)</div>
       <div class="desc">Forthcoming in 2026. Case announcement to be released inside the grimoire.</div>
 
-      <div class="program upcoming">
-        Southbound and Silent
-      </div>
+      <div class="program upcoming">Southbound and Silent</div>
       <div class="desc">Concise profiles of missing persons across the American South, with timelines and tip lines highlighted for community action.</div>
+    </div>
+    <a href="#visual-index" class="scroll-cue">Scroll ↓</a>
+  </section>
+
+  <!-- Visual Index -->
+  <section id="visual-index">
+    <div class="content">
+      <h2>- VISUAL INDEX -</h2>
+
+      <!-- 1: You -->
+      <div class="plate">
+        <figure>
+          <img src="images/neeli4.png" alt="Portrait of Neeli Faulkner" loading="lazy" />
+          <figcaption>Neeli Faulkner — investigator, journalist, and founder of Murder Creek Media.</figcaption>
+        </figure>
+      </div>
+
+      <!-- 2: Walking dog -->
+      <div class="plate">
+        <figure>
+          <img src="images/dog.png" alt="Neeli walking her dog" loading="lazy" />
+          <figcaption>Quiet moments after the day ends. Reflection and routine — the calm that balances the pursuit.</figcaption>
+        </figure>
+      </div>
+
+      <!-- 3: Sleuthing in car -->
+      <div class="plate">
+        <figure>
+          <img src="images/sleuthing.png" alt="Neeli Faulkner in a car, taking field notes during an investigation" loading="lazy" />
+          <figcaption>On the road to a lead. Notebooks open, recorder ready, intuition in the passenger’s seat.</figcaption>
+        </figure>
+      </div>
+
+    </div>
+    <a href="#appendix" class="scroll-cue">Scroll ↓</a>
+  </section>
+
+  <!-- Appendix -->
+  <section id="appendix">
+    <div class="content">
+      <h2>- APPENDIX -</h2>
+
+      <div class="links-category">CONNECT</div>
+      <div class="link-item"><a href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">Murder Creek Media</a></div>
+      <div class="link-item"><a href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="link-item"><a href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">Medium</a></div>
+      <div class="link-item"><a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">Substack</a></div>
+      <div class="link-item"><a href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">TikTok</a></div>
+      <div class="link-item"><a href="https://www.facebook.com/neeli.faulkner" target="_blank" rel="noopener">Facebook</a></div>
+      <div class="link-item"><a href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener">Instagram</a></div>
+      <div class="link-item"><a href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div class="link-item"><a href="mailto:neeli@murdercreekmedia.com">Email</a></div>
+
+      <hr class="rule" />
+
+      <div class="links-category">SUPPORT</div>
+      <div class="link-item"><a href="https://pay.bluevine.com/p/b2704eacb94d4c5e85907980e9a85547/pay/" target="_blank" rel="noopener">Donate via Bluevine</a></div>
+      <div class="link-item"><a href="https://get.refresh.me/neelifaulkner" target="_blank" rel="noopener">Affiliate: Refresh.me</a></div>
+      <div class="link-item"><a href="https://fiverr.partnerlinks.io/2nhcarjuqt1v-h7ufis" target="_blank" rel="noopener">Affiliate: Fiverr</a></div>
     </div>
   </section>
 
