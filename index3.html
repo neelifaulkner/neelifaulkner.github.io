@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Grimoire of Neeli Faulkner</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fdfaf5;
+      color: #111111;
+      font-family: "Times New Roman", Times, serif;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory; /* enables vertical page snapping */
+      overflow-y: scroll;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8vh 10vw;
+      scroll-snap-align: start;   /* snaps each section into place */
+      scroll-snap-stop: always;   /* ensures clean snapping */
+    }
+
+    .content {
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Cover Section */
+    .title {
+      font-variant: small-caps;
+      letter-spacing: 0.05em;
+      font-size: clamp(18px, 2vw, 22px);
+      margin: 0;
+    }
+
+    .subtitle {
+      font-style: italic;
+      font-size: clamp(13px, 1.8vw, 16px);
+      margin: 0;
+    }
+
+    .meta, .location {
+      font-size: clamp(12px, 1.6vw, 15px);
+      margin: 0;
+    }
+
+    .invocation {
+      margin: clamp(20px, 4vh, 40px) 0 0 0;
+      font-size: clamp(12px, 1.6vw, 15px);
+    }
+
+    /* About Section */
+    h2 {
+      font-variant: small-caps;
+      letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px);
+      margin-bottom: 2.5em;
+    }
+
+    p {
+      font-size: clamp(13px, 1.6vw, 15px);
+      margin: 1em 0;
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 3vh;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    a.scroll-cue {
+      text-decoration: none;
+      color: #111;
+    }
+
+    a.scroll-cue:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cover Page -->
+  <section id="cover">
+    <div class="content">
+      <h1 class="title">THE GRIMOIRE OF NEELI FAULKNER</h1>
+      <p class="subtitle">Multimedia artistry and records of investigation, intuition, &amp; truth.</p>
+      <p class="meta">Vol. 3: October 3–5, 2025</p>
+      <p class="location">Orange Beach, Alabama</p>
+      <p class="invocation">For those who seek to understand what was never meant to be hidden.</p>
+    </div>
+    <a href="#about" class="scroll-cue">Scroll ↓</a>
+  </section>
+
+  <!-- About Page -->
+  <section id="about">
+    <div class="content">
+      <h2>- ABOUT -</h2>
+
+      <p>Neeli Faulkner is an investigative journalist, podcaster, and multimedia artist whose work bridges logic and intuition. Through Murder Creek Media, she documents wrongful convictions, unsolved homicides, and the human stories behind them, blending forensic research with narrative craft.</p>
+
+      <p>Her investigations have uncovered new evidence that has led to post-conviction appeals and generated new leads in long-dormant homicide cases. Faulkner’s commitment to truth and storytelling has earned her national recognition for investigative audio.</p>
+
+      <p>A graduate of Columbia Southern University, Faulkner earned her Bachelor’s degree in Information Systems and Cybersecurity, graduating <em>summa cum laude</em>. She is a member of Omega Nu Lambda and the National Society of Leadership and Success, and serves as the senior producer and host of the investigative true-crime podcast <em>Skeptical</em>.</p>
+
+      <p>Outside of her professional work, Faulkner dedicates her time to nonprofit projects supporting children with special needs and continues to advocate for truth, transparency, and justice through digital storytelling.</p>
+
+      <p>Her work is both methodical and instinctive, part case file and part calling, devoted to uncovering truth in places others have forgotten to look.</p>
+    </div>
+  </section>
+
+</body>
+</html>
