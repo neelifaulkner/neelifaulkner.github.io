@@ -14,7 +14,7 @@
       color: #111111;
       font-family: "Times New Roman", Times, serif;
       scroll-behavior: smooth;
-      scroll-snap-type: y mandatory; /* enables vertical page snapping */
+      scroll-snap-type: y mandatory;
       overflow-y: scroll;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -27,8 +27,8 @@
       align-items: center;
       justify-content: center;
       padding: 8vh 10vw;
-      scroll-snap-align: start;   /* snaps each section into place */
-      scroll-snap-stop: always;   /* ensures clean snapping */
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
 
     .content {
@@ -63,7 +63,14 @@
     }
 
     /* About Section */
-    h2 {
+    #about .content {
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.6;
+    }
+
+    #about h2 {
+      text-align: center;
       font-variant: small-caps;
       letter-spacing: 0.15em;
       font-size: clamp(16px, 2vw, 18px);
@@ -74,17 +81,66 @@
       font-size: clamp(13px, 1.6vw, 15px);
       margin: 1em 0;
     }
-    
-    #about .content {
-  text-align: justify;        /* aligns both left & right sides */
-  text-justify: inter-word;   /* adjusts spacing between words */
-  line-height: 1.6;
-}
 
-#about h2 {
-  text-align: center;         /* keeps “- ABOUT -” centered */
-}
+    /* Programs Section */
+    #programs .content {
+      text-align: left; /* left-aligned like a table of contents */
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
+    #programs h2 {
+      text-align: center;
+      font-variant: small-caps;
+      letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px);
+      margin-bottom: 2.5em;
+    }
+
+    .year {
+      font-variant: small-caps;
+      font-size: clamp(14px, 1.8vw, 16px);
+      letter-spacing: 0.08em;
+      margin-top: 2em;
+      margin-bottom: 0.6em;
+    }
+
+    .rule { /* subtle divider between year groups */
+      border: 0;
+      border-top: 1px solid #dedcdc;
+      margin: 2.2em 0 1.4em;
+    }
+
+    .program {
+      margin-left: 1em;
+      margin-bottom: 0.25em;
+      font-size: clamp(13px, 1.6vw, 15px);
+    }
+
+    .program a {
+      text-decoration: none;
+      color: #111;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease;
+    }
+
+    .program a:hover { border-bottom: 1px solid #111; }
+
+    .desc {
+      margin-left: 1.5em;
+      margin-top: 0.1em;
+      margin-bottom: 0.6em;
+      font-size: clamp(12px, 1.5vw, 14px);
+      color: #444;
+      font-style: italic;
+    }
+
+    .upcoming {
+      color: #555;
+      font-style: normal; /* not italicized now */
+      font-weight: normal;
+    }
 
     /* Scroll cue */
     .scroll-cue {
@@ -97,14 +153,8 @@
       opacity: 0.6;
     }
 
-    a.scroll-cue {
-      text-decoration: none;
-      color: #111;
-    }
-
-    a.scroll-cue:hover {
-      opacity: 1;
-    }
+    a.scroll-cue { text-decoration: none; color: #111; }
+    a.scroll-cue:hover { opacity: 1; }
   </style>
 </head>
 <body>
@@ -135,6 +185,52 @@
       <p>Outside of her professional work, Faulkner dedicates her time to nonprofit projects supporting children with special needs and continues to advocate for truth, transparency, and justice through digital storytelling.</p>
 
       <p>Her work is both methodical and instinctive, part case file and part calling, devoted to uncovering truth in places others have forgotten to look.</p>
+    </div>
+    <a href="#programs" class="scroll-cue">Scroll ↓</a>
+  </section>
+
+  <!-- Programs Page -->
+  <section id="programs">
+    <div class="content">
+      <h2>- PROGRAMS -</h2>
+
+      <div class="year">2024</div>
+      <div class="program">
+        <a href="https://www.murdercreekmedia.com/skeptical" target="_blank">
+          Skeptical: An Investigative Podcast (Season 1)
+        </a>
+      </div>
+      <div class="desc">A serial investigation re-examining the 1994 murder of Mike Bernos and the convictions that followed, challenging a narrative built without physical evidence.</div>
+
+      <hr class="rule" />
+
+      <div class="year">2025</div>
+      <div class="program">
+        <a href="https://www.murdercreekmedia.com/murderinmobilecounty" target="_blank">
+          Murder in Mobile County
+        </a>
+      </div>
+      <div class="desc">An open case file into the 1981 murder of Brenda Peters in Mobile County, Alabama — fieldwork, records requests, and witness interviews documented in real time.</div>
+
+      <div class="program">
+        <a href="https://www.murdercreekmedia.com/deaddiary" target="_blank">
+          Dead Diary
+        </a>
+      </div>
+      <div class="desc">Short-form investigative commentary and case updates — trials, filings, and emerging evidence distilled without the noise.</div>
+
+      <hr class="rule" />
+
+      <div class="year">2026</div>
+      <div class="program upcoming">
+        Skeptical: An Investigative Podcast (Season 2)
+      </div>
+      <div class="desc">Forthcoming in 2026. Case announcement to be released inside the grimoire.</div>
+
+      <div class="program upcoming">
+        Southbound and Silent
+      </div>
+      <div class="desc">Concise profiles of missing persons across the American South, with timelines and tip lines highlighted for community action.</div>
     </div>
   </section>
 
