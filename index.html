@@ -4,15 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Neeli Faulkner — Investigative Journalist & Podcaster</title>
-  <meta name="description" content="Hi, I’m Neeli — investigative journalist & podcaster. Founder of Murder Creek Media. My work has sparked post-conviction appeals and new cold-case leads." />
+  <meta name="description" content="Hi, I’m Neeli Faulkner — investigative journalist & podcaster. Founder of Murder Creek Media. My work has sparked post-conviction appeals and new cold-case leads." />
   <meta name="theme-color" content="#A2130C" />
   <link rel="canonical" href="https://neelifaulkner.com/" />
-
+  
   <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest">
+
 
   <!-- Icons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -286,6 +287,91 @@
   font-size: 0.95rem;
 }
 
+/* ——— OFF DUTY POLAROIDS ——— */
+.offduty-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.offduty-title {
+  text-align: center;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.1rem, 0.6rem + 1.4vw, 1.6rem);
+}
+
+.offduty-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .offduty-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.od-polaroid {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  padding: 10px 10px 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12), 0 2px 0 rgba(0, 0, 0, 0.04) inset;
+  transform: rotate(-2deg);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .od-polaroid {
+    background: #f1f1f1;
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.08) inset;
+  }
+}
+
+.od-polaroid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* keep them square */
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+.od-caption {
+  margin-top: 8px;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+    
+@media (max-width: 640px) {
+  .od-polaroid {
+    max-width: 380px;   /* smaller frame */
+    margin: 0 auto;
+    padding: 8px 8px 24px; /* slightly tighter white border */
+  }
+
+  .od-polaroid img {
+    width: 100%;
+    max-width: 360px;   /* limits image size */
+  }
+
+  .od-caption {
+    font-size: 0.95rem; /* scale down caption */
+  }
+}
+    
+
+
+
   </style>
 
   <!-- Structured Data -->
@@ -305,7 +391,7 @@
     <section class="screen hero" aria-label="Intro">
       <div class="wrap" style="text-align:center">
         <div class="polaroid"><img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" /></div>
-        <h1>Hi, I’m Neeli.</h1>
+        <h1>Hi, I’m Neeli Faulkner.</h1>
       </div>
       <div class="scroll-indicator" aria-hidden="true"><div>scroll</div><div class="arrow"></div></div>
     </section>
@@ -327,10 +413,10 @@
         <div class="about-photo"><div class="polaroid"><img src="neeli2.png" alt="Neeli in a candid, documentary-style portrait" /></div></div>
         <div class="about-text">
           <h2>Who I Am Off The Record</h2>
-          <p>I'm the founder of Murder Creek Media, where I lead a fully volunteer team of over 15 dedicated researchers, writers, and investigators.</p>
-          <p>My investigative and storytelling work has produced new evidence in two murder convictions and surfaced new leads in an unsolved cold case, giving families long-overdue hope for answers.</p>
-          <p>I'm a proud member of the National Society of Leadership and Success (NSLS) and Omega Nu Lambda, and in 2025, I was nationally recognized by the Alliance for Women in Media for my investigative work on <em>Skeptical: An Investigative Podcast</em> — a rare honor for someone in independent media.</p>
-          <p>Outside of my professional work, I dedicate my time to nonprofit projects supporting children with special needs and continue to advocate for truth, transparency, and justice through digital storytelling.</p>
+          <p>I'm the founder of <strong>Murder Creek Media</strong>, where I lead a fully volunteer team of over 15 dedicated researchers, writers, and investigators.</p>
+          <p>My investigative and storytelling work has produced <strong>new evidence in two murder convictions</strong> and surfaced <strong>new leads in an unsolved cold case</strong>, giving families long-overdue hope for answers.</p>
+          <p>I'm a proud member of the <strong>National Society of Leadership and Success (NSLS)</strong> and <strong>Omega Nu Lambda</strong>, and in <strong>2025</strong>, I was nationally recognized by the <strong>Alliance for Women in Media</strong> for my investigative work on <em>Skeptical: An Investigative Podcast</em> — a rare honor for someone in independent media.</p>
+          <p>Outside of my professional work, I dedicate my time to <strong>nonprofit projects supporting children with special needs</strong> and continue to advocate for truth, transparency, and justice through digital storytelling.</p>
         </div>
       </div>
     </section>
@@ -442,6 +528,40 @@
     </div>
   </div>
 </section>
+
+<section class="screen" aria-label="Off Duty">
+  <div class="wrap offduty-wrap">
+    <h2 class="offduty-title">Off Duty</h2>
+
+    <div class="offduty-grid">
+      <figure class="od-polaroid">
+        <img src="offduty1.png" alt="cute dog" loading="lazy" width="500" height="500">
+        <figcaption class="od-caption">a good boy</figcaption>
+      </figure>
+
+      <figure class="od-polaroid" style="transform:rotate(1.5deg)">
+        <img src="offduty2.png" alt="embarassed" loading="lazy" width="500" height="500">
+        <figcaption class="od-caption">cringe factory</figcaption>
+      </figure>
+
+      <figure class="od-polaroid" style="transform:rotate(-1deg)">
+        <img src="offduty3.png" alt="Trail view" loading="lazy" width="500" height="500">
+        <figcaption class="od-caption">fresh air fixes most things</figcaption>
+      </figure>
+
+      <figure class="od-polaroid" style="transform:rotate(2deg)">
+        <img src="offduty4.png" alt="Sleuthing" loading="lazy" width="500" height="500">
+        <figcaption class="od-caption">literal sleuthing</figcaption>
+      </figure>
+
+      <figure class="od-polaroid" style="transform:rotate(-1.8deg)">
+        <img src="offduty5.png" alt="coastal cruising" loading="lazy" width="500" height="500">
+        <figcaption class="od-caption">chasing starbies</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 
 
   <!-- Folder tap-to-reveal on touch; keyboard focus support -->
