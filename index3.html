@@ -121,12 +121,53 @@
       font-variant: small-caps; font-size: clamp(14px, 1.8vw, 16px);
       letter-spacing: 0.08em; margin-top: 2em; margin-bottom: 0.8em;
     }
-    .link-item { margin-left: 1em; margin-bottom: 0.5em; display: block; font-size: clamp(13px, 1.6vw, 15px); }
+    .link-item {
+      margin-left: 1em;
+      margin-bottom: 0.5em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(13px, 1.6vw, 15px);
+    }
+    .link-item img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
     .link-item a {
-      text-decoration: none; color: #111; border-bottom: 1px solid transparent;
+      text-decoration: none;
+      color: #111;
+      border-bottom: 1px solid transparent;
       transition: border-color 0.25s ease;
     }
     .link-item a:hover { border-bottom: 1px solid #111; }
+
+    /* Colophon */
+    #colophon .content {
+      text-align: center;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    #colophon h2 {
+      text-align: center;
+      font-variant: small-caps;
+      letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px);
+      margin-bottom: 2.5em;
+    }
+    #colophon p {
+      font-size: clamp(13px, 1.6vw, 15px);
+      margin: 0.5em 0;
+    }
+    #colophon .fin {
+      margin-top: 3em;
+      font-size: clamp(12px, 1.5vw, 14px);
+      font-style: italic;
+      color: #555;
+    }
 
     /* Scroll cue */
     .scroll-cue {
@@ -155,16 +196,11 @@
   <section id="about">
     <div class="content">
       <h2>- ABOUT -</h2>
-
       <p>Neeli Faulkner is an investigative journalist, podcaster, and multimedia artist whose work bridges logic and intuition. Through Murder Creek Media, she documents wrongful convictions, unsolved homicides, and the human stories behind them, blending forensic research with narrative craft.</p>
-
       <p>Her investigations have uncovered new evidence that has led to post-conviction appeals and generated new leads in long-dormant homicide cases. Faulkner’s commitment to truth and storytelling has earned her national recognition for investigative audio.</p>
-
       <p>A graduate of Columbia Southern University, Faulkner earned her Bachelor’s degree in Information Systems and Cybersecurity, graduating <em>summa cum laude</em>. She is a member of Omega Nu Lambda and the National Society of Leadership and Success, and serves as the senior producer and host of the investigative true-crime podcast <em>Skeptical</em>.</p>
-
       <p>Outside of her professional work, Faulkner dedicates her time to nonprofit projects supporting children with special needs and continues to advocate for truth, transparency, and justice through digital storytelling.</p>
-
-      <p>Her work is both methodical and instinctive, part case file and part calling, devoted to uncovering truth in places others have forgotten to look.</p>
+      <p>Her work is both methodical and instinctive, part case file and part calling, devoted to uncovering truth in places others have forgotten to look. Faulkner remains open to collaborations, media partnerships, and investigative consulting opportunities that align with her mission of truth and storytelling.</p>
     </div>
     <a href="#programs" class="scroll-cue">Scroll ↓</a>
   </section>
@@ -216,7 +252,6 @@
     <div class="content">
       <h2>- VISUAL INDEX -</h2>
 
-      <!-- 1: You -->
       <div class="plate">
         <figure>
           <img src="/neeli4.png" alt="Portrait of Neeli Faulkner" loading="lazy" />
@@ -224,7 +259,6 @@
         </figure>
       </div>
 
-      <!-- 2: Walking dog -->
       <div class="plate">
         <figure>
           <img src="/dog.png" alt="Neeli walking her dog near the beach" loading="lazy" />
@@ -232,14 +266,12 @@
         </figure>
       </div>
 
-      <!-- 3: Sleuthing in car -->
       <div class="plate">
         <figure>
           <img src="/sleuthing.png" alt="Neeli Faulkner in a car, taking field notes during an investigation" loading="lazy" />
           <figcaption>On the road to a lead. Notebooks open, recorder ready, intuition in the driver’s seat.</figcaption>
         </figure>
       </div>
-
     </div>
     <a href="#appendix" class="scroll-cue">Scroll ↓</a>
   </section>
@@ -250,22 +282,35 @@
       <h2>- APPENDIX -</h2>
 
       <div class="links-category">CONNECT</div>
-      <div class="link-item"><a href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">Murder Creek Media</a></div>
-      <div class="link-item"><a href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">YouTube</a></div>
-      <div class="link-item"><a href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">Medium</a></div>
-      <div class="link-item"><a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">Substack</a></div>
-      <div class="link-item"><a href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">TikTok</a></div>
-      <div class="link-item"><a href="https://www.facebook.com/neeli.faulkner" target="_blank" rel="noopener">Facebook</a></div>
-      <div class="link-item"><a href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener">Instagram</a></div>
-      <div class="link-item"><a href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener">LinkedIn</a></div>
-      <div class="link-item"><a href="mailto:neeli@murdercreekmedia.com">Email</a></div>
+
+      <div class="link-item"><img src="mcmicon.png" alt=""><a href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">Murder Creek Media</a></div>
+      <div class="link-item"><img src="youtubeicon.png" alt=""><a href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="link-item"><img src="mediumicon.png" alt=""><a href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">Medium</a></div>
+      <div class="link-item"><img src="substackicon.png" alt=""><a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">Substack</a></div>
+      <div class="link-item"><img src="tiktokicon.png" alt=""><a href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">TikTok</a></div>
+      <div class="link-item"><img src="facebookicon.png" alt=""><a href="https://www.facebook.com/neeli.faulkner" target="_blank" rel="noopener">Facebook</a></div>
+      <div class="link-item"><img src="instagramicon.png" alt=""><a href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener">Instagram</a></div>
+      <div class="link-item"><img src="linkedinicon.png" alt=""><a href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div class="link-item"><img src="emailicon.png" alt=""><a href="mailto:neeli@murdercreekmedia.com">Email</a></div>
 
       <hr class="rule" />
 
       <div class="links-category">SUPPORT</div>
-      <div class="link-item"><a href="https://pay.bluevine.com/p/b2704eacb94d4c5e85907980e9a85547/pay/" target="_blank" rel="noopener">Donate via Bluevine</a></div>
-      <div class="link-item"><a href="https://get.refresh.me/neelifaulkner" target="_blank" rel="noopener">Affiliate: Refresh.me</a></div>
-      <div class="link-item"><a href="https://fiverr.partnerlinks.io/2nhcarjuqt1v-h7ufis" target="_blank" rel="noopener">Affiliate: Fiverr</a></div>
+      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://pay.bluevine.com/p/b2704eacb94d4c5e85907980e9a85547/pay/" target="_blank" rel="noopener">Donate via Bluevine</a></div>
+      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://get.refresh.me/neelifaulkner" target="_blank" rel="noopener">Affiliate: Refresh.me</a></div>
+      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://fiverr.partnerlinks.io/2nhcarjuqt1v-h7ufis" target="_blank" rel="noopener">Affiliate: Fiverr</a></div>
+    </div>
+    <a href="#colophon" class="scroll-cue">Scroll ↓</a>
+  </section>
+
+  <!-- Colophon -->
+  <section id="colophon">
+    <div class="content">
+      <h2>- COLOPHON -</h2>
+      <p>Compiled and designed by Neeli Faulkner</p>
+      <p>Murder Creek Media · Orange Beach, Alabama · MMXXV</p>
+      <p>Typeface: Times New Roman · HTML Edition</p>
+      <p class="fin">End of Volume II</p>
     </div>
   </section>
 
