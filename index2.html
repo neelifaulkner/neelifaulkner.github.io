@@ -84,61 +84,51 @@
     .about-text p{margin:0 0 12px;}
     @media(max-width:800px){.about-split{grid-template-columns:1fr}.about-photo{order:-1}}
 
- /* TIMELINE — desktop/tablet */
-.timeline-h {
-  display: grid;
+ /* === TIMELINE — desktop/tablet (final fix) === */
+.timeline-h{
+  display:grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto 16px auto; /* slimmer center row for the line */
-  align-items: center;
-  gap: 10px 16px;
-  position: relative;
+  grid-template-rows: auto 16px auto; /* middle row = the line */
+  align-items:center;
+  gap:10px 16px;
   max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 8px 6px;
+  margin:0 auto;
+  padding:8px 6px;
 }
 
-.timeline-h .date {
-  text-align: center;
-  font-weight: 700;
-  letter-spacing: .06em;
-  font-size: .9rem;
+.timeline-h .date{
+  text-align:center; font-weight:700; letter-spacing:.06em; font-size:.9rem;
 }
 
-/* Grey line spans full width in the middle row */
-.rule {
+/* Grey line across the middle row */
+.rule{
   grid-row: 2 / 3;
   grid-column: 1 / -1;
   height: 3px;
   background: var(--muted);
   align-self: center;
-  position: relative;
 }
 
-/* Red dots aligned exactly in line with the grey line */
-.tick {
-  grid-row: 2 / 3;           /* same row as the line */
+/* Red dots: same row as the line, explicitly placed per column */
+.timeline-h > .tick{
+  grid-row: 2 / 3;        /* sit IN the line row */
+  align-self: center;     /* vertical center = embedded in line */
   justify-self: center;
-  align-self: center;        /* vertically centered */
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--brand);
-  position: relative;
-  z-index: 1;                /* same layer as the line */
+  width: 12px; height: 12px; border-radius: 50%; background: var(--brand);
+  z-index: 1;
 }
 
-/* Position dots per column */
-.tick:nth-of-type(1){ grid-column: 1; }
-.tick:nth-of-type(2){ grid-column: 2; }
-.tick:nth-of-type(3){ grid-column: 3; }
-.tick:nth-of-type(4){ grid-column: 4; }
-.tick:nth-of-type(5){ grid-column: 5; }
+/* Your HTML order makes the ticks children 7..11: place them in columns 1..5 */
+.timeline-h > .tick:nth-child(7){ grid-column: 1; }
+.timeline-h > .tick:nth-child(8){ grid-column: 2; }
+.timeline-h > .tick:nth-child(9){ grid-column: 3; }
+.timeline-h > .tick:nth-child(10){ grid-column: 4; }
+.timeline-h > .tick:nth-child(11){ grid-column: 5; }
 
-.timeline-h .desc {
-  text-align: center;
-  color: var(--muted);
-  font-size: .95rem;
+.timeline-h .desc{
+  text-align:center; color: var(--muted); font-size:.95rem;
 }
+
 
 
 
