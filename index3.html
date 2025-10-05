@@ -29,6 +29,7 @@
       padding: 8vh 10vw;
       scroll-snap-align: start;
       scroll-snap-stop: always;
+      position: relative;
     }
 
     .content {
@@ -191,9 +192,13 @@
     .scroll-cue {
       position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%);
       font-size: 0.85rem; font-style: italic; opacity: 0.6;
+      transition: opacity 0.3s ease;
     }
     a.scroll-cue { text-decoration: none; color: #111; }
     a.scroll-cue:hover { opacity: 1; }
+
+    /* Hide scroll cue on colophon */
+    #colophon .scroll-cue { display: none; }
   </style>
 </head>
 <body>
@@ -227,38 +232,25 @@
   <section id="programs">
     <div class="content">
       <h2>- PROGRAMS -</h2>
-
       <div class="year">2024</div>
       <div class="program">
-        <a href="https://www.murdercreekmedia.com/skeptical" target="_blank">
-          Skeptical: An Investigative Podcast (Season 1)
-        </a>
+        <a href="https://www.murdercreekmedia.com/skeptical" target="_blank">Skeptical: An Investigative Podcast (Season 1)</a>
       </div>
       <div class="desc">A serial investigation re-examining the 1994 murder of Mike Bernos and the convictions that followed, challenging a narrative built without physical evidence.</div>
-
       <hr class="rule" />
-
       <div class="year">2025</div>
       <div class="program">
-        <a href="https://www.murdercreekmedia.com/murderinmobilecounty" target="_blank">
-          Murder in Mobile County
-        </a>
+        <a href="https://www.murdercreekmedia.com/murderinmobilecounty" target="_blank">Murder in Mobile County</a>
       </div>
       <div class="desc">An open case file into the 1981 murder of Brenda Peters in Mobile County, Alabama — fieldwork, records requests, and witness interviews documented in real time.</div>
-
       <div class="program">
-        <a href="https://www.murdercreekmedia.com/deaddiary" target="_blank">
-          Dead Diary
-        </a>
+        <a href="https://www.murdercreekmedia.com/deaddiary" target="_blank">Dead Diary</a>
       </div>
       <div class="desc">Short-form investigative commentary and case updates — trials, filings, and emerging evidence distilled without the noise.</div>
-
       <hr class="rule" />
-
       <div class="year">2026</div>
       <div class="program upcoming">Skeptical: An Investigative Podcast (Season 2)</div>
       <div class="desc">Forthcoming in 2026. Case announcement to be released inside the grimoire.</div>
-
       <div class="program upcoming">Southbound and Silent</div>
       <div class="desc">Concise profiles of missing persons across the American South, with timelines and tip lines highlighted for community action.</div>
     </div>
@@ -269,7 +261,6 @@
   <section id="visual-index">
     <div class="content">
       <h2>- VISUAL INDEX -</h2>
-
       <div class="visual-grid">
         <div class="plate">
           <figure>
@@ -277,14 +268,12 @@
             <figcaption>Neeli Faulkner — investigator, journalist, and founder of Murder Creek Media.</figcaption>
           </figure>
         </div>
-
         <div class="plate">
           <figure>
             <img src="/dog.png" alt="Neeli walking her dog near the beach" loading="lazy" />
             <figcaption>Quiet moments before the day begins. Reflection and routine — the calm that balances the pursuit.</figcaption>
           </figure>
         </div>
-
         <div class="plate">
           <figure>
             <img src="/sleuthing.png" alt="Neeli Faulkner in a car, taking field notes during an investigation" loading="lazy" />
@@ -300,25 +289,21 @@
   <section id="appendix">
     <div class="content">
       <h2>- APPENDIX -</h2>
-
       <div class="links-category">CONNECT</div>
-
-      <div class="link-item"><img src="mcmicon.png" alt=""><a href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">Murder Creek Media</a></div>
-      <div class="link-item"><img src="youtubeicon.png" alt=""><a href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">YouTube</a></div>
-      <div class="link-item"><img src="mediumicon.png" alt=""><a href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">Medium</a></div>
-      <div class="link-item"><img src="substackicon.png" alt=""><a href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">Substack</a></div>
-      <div class="link-item"><img src="tiktokicon.png" alt=""><a href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">TikTok</a></div>
-      <div class="link-item"><img src="facebookicon.png" alt=""><a href="https://www.facebook.com/neeli.faulkner" target="_blank" rel="noopener">Facebook</a></div>
-      <div class="link-item"><img src="instagramicon.png" alt=""><a href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener">Instagram</a></div>
-      <div class="link-item"><img src="linkedinicon.png" alt=""><a href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div class="link-item"><img src="mcmicon.png" alt=""><a href="https://www.murdercreekmedia.com" target="_blank">Murder Creek Media</a></div>
+      <div class="link-item"><img src="youtubeicon.png" alt=""><a href="https://www.youtube.com/@neelifaulkner" target="_blank">YouTube</a></div>
+      <div class="link-item"><img src="mediumicon.png" alt=""><a href="https://www.medium.com/@neelifaulkner" target="_blank">Medium</a></div>
+      <div class="link-item"><img src="substackicon.png" alt=""><a href="https://neelifaulkner.substack.com" target="_blank">Substack</a></div>
+      <div class="link-item"><img src="tiktokicon.png" alt=""><a href="https://www.tiktok.com/@murdercreekmedia" target="_blank">TikTok</a></div>
+      <div class="link-item"><img src="facebookicon.png" alt=""><a href="https://www.facebook.com/neeli.faulkner" target="_blank">Facebook</a></div>
+      <div class="link-item"><img src="instagramicon.png" alt=""><a href="https://www.instagram.com/neelilauren" target="_blank">Instagram</a></div>
+      <div class="link-item"><img src="linkedinicon.png" alt=""><a href="https://www.linkedin.com/in/neeliafaulkner" target="_blank">LinkedIn</a></div>
       <div class="link-item"><img src="emailicon.png" alt=""><a href="mailto:neeli@murdercreekmedia.com">Email</a></div>
-
       <hr class="rule" />
-
       <div class="links-category">SUPPORT</div>
-      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://pay.bluevine.com/p/b2704eacb94d4c5e85907980e9a85547/pay/" target="_blank" rel="noopener">Donate via Bluevine</a></div>
-      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://get.refresh.me/neelifaulkner" target="_blank" rel="noopener">Affiliate: Refresh.me</a></div>
-      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://fiverr.partnerlinks.io/2nhcarjuqt1v-h7ufis" target="_blank" rel="noopener">Affiliate: Fiverr</a></div>
+      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://pay.bluevine.com/p/b2704eacb94d4c5e85907980e9a85547/pay/" target="_blank">Donate via Bluevine</a></div>
+      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://get.refresh.me/neelifaulkner" target="_blank">Affiliate: Refresh.me</a></div>
+      <div class="link-item"><img src="supporticon.png" alt=""><a href="https://fiverr.partnerlinks.io/2nhcarjuqt1v-h7ufis" target="_blank">Affiliate: Fiverr</a></div>
     </div>
     <a href="#colophon" class="scroll-cue">Scroll ↓</a>
   </section>
