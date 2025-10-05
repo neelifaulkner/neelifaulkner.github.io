@@ -95,21 +95,24 @@
       grid-row:2/3;grid-column:1/-1;height:3px;width:100%;
       background: var(--muted); /* grey line */
     }
-    .timeline-h .date {
+ .timeline-h .date {
   text-align: center;
   font-weight: 700;
   letter-spacing: .06em;
   font-size: .9rem;
 }
 
+/* Red dots aligned directly on the line */
 .tick {
+  grid-row: 2 / 3;               /* places dots in the same row as the line */
+  justify-self: center;
+  align-self: center;            /* centers them vertically */
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: var(--brand);
-  justify-self: center;
   position: relative;
-  top: -8px; /* moves the dots upward to sit on top of the line */
+  z-index: 2;                    /* ensures dots appear above the line */
 }
 
 .timeline-h .desc {
@@ -117,6 +120,7 @@
   color: var(--muted);
   font-size: .95rem;
 }
+
 
 
     /* Mobile vertical timeline (static) */
