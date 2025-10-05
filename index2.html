@@ -52,6 +52,12 @@
       }
       .polaroid{ background:var(--paper-bg); border-color:#333 }
       .caption{ color:#e8e8e8 }
+      .casefile{
+        color:var(--fg);
+        background: var(--paper-bg);
+        border-color: rgba(255,255,255,.06);
+      }
+      .casefile small{ color:var(--muted); opacity: 1 }
     }
 
     html,body{height:100%}
@@ -59,7 +65,7 @@
       margin:0; 
       background:var(--bg); 
       color:var(--fg); 
-      font-family:"Courier New", Courier, monospace; /* Keeping Courier for the typewritten look */
+      font-family:"Courier New", Courier, monospace;
     }
     .wrap{ 
       max-width:var(--maxw); 
@@ -76,27 +82,27 @@
 
     /* Polaroid / Passport Photo */
     .polaroid{ 
-      background: none; /* No background */
-      padding: 0; /* No padding */
-      border: none; /* No border */
+      background: none; 
+      padding: 0; 
+      border: none; 
       display: inline-block; 
-      box-shadow: none; /* No shadow */
-      transform: none; /* No rotation */
+      box-shadow: none; 
+      transform: none; 
       position: relative;
     }
     .polaroid img{ 
       display:block; 
       width:240px; 
       height:auto; 
-      border-radius: 2px; /* Less rounded corners */
-      border: 1px solid var(--muted); /* Subtle border for definition */
+      border-radius: 2px; 
+      border: 1px solid var(--muted); 
     }
     .caption{ 
       margin-top: 10px; 
       font-family:'Caveat', cursive; 
-      font-size: 1.5rem; /* Larger for a handwritten note */
-      color: var(--fg); /* Use primary text color */
-      border-top: 1px solid var(--muted); /* Separator line like a form */
+      font-size: 1.5rem; 
+      color: var(--fg); 
+      border-top: 1px solid var(--muted); 
       padding-top: 8px;
     }
 
@@ -112,7 +118,7 @@
     /* ===== Case file links - Minimalist Analog ===== */
     .case-grid{
       display:grid;
-      grid-template-columns: repeat(2, 1fr); /* two columns */
+      grid-template-columns: repeat(2, 1fr); 
       gap: 20px 24px;
       align-items:start;
       justify-items:stretch;
@@ -124,17 +130,17 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap: 4px; /* Reduced gap */
+      gap: 4px; 
       padding: 16px 18px 12px 18px;
       text-decoration:none;
       color: var(--fg);
-      background: var(--paper-bg); /* Use the slightly darker paper background */
+      background: var(--paper-bg); 
       border: 1px solid rgba(0,0,0,.08);
       border-radius: 4px;
       box-shadow: var(--shadow);
-      transform: translateY(0); /* Remove default rotation */
+      transform: translateY(0); 
       transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-      text-align: left; /* Align text left, like a file */
+      text-align: left; 
     }
     
     /* Remove paper-tab pseudo-elements */
@@ -161,16 +167,6 @@
     }
     .casefile:focus-visible{ outline:2px dashed var(--brand); outline-offset:3px }
 
-    /* DELETE the quirky random rotations block */
-
-    @media (prefers-color-scheme: dark){
-      .casefile{
-        color:var(--fg);
-        background: var(--paper-bg);
-        border-color: rgba(255,255,255,.06);
-      }
-      .casefile small{ color:var(--muted); opacity: 1 }
-    }
 
     @media (max-width:640px){
       .polaroid img{ width:200px }
