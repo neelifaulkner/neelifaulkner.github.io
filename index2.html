@@ -136,11 +136,60 @@
   }
 }
 
-/* === TIMELINE — mobile only (safety) === */
+/* === TIMELINE — mobile vertical spine (≤800px) === */
 @media (max-width: 800px){
-  .timeline-wrap{ display:none !important; }
-  .timeline-v{ display:grid !important; }
+  .timeline-wrap{ display:none !important; }   /* hide desktop timeline */
+  .timeline-v{
+    display:block !important;
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    padding-left: 28px;   /* room for spine + dots */
+  }
+  /* grey spine */
+  .timeline-v::before{
+    content:"";
+    position:absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--muted);
+  }
+  .tcard{
+    position: relative;
+    background: var(--paper-bg);
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: var(--shadow);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin: 12px 0;
+  }
+  /* red dot on the spine, vertically centered near the date */
+  .tcard::before{
+    content:"";
+    position:absolute;
+    left: -18px;          /* lines up over the spine */
+    top: 22px;            /* sits near the date text */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--brand);
+  }
+  .tcard h3{
+    margin: 0 0 4px;
+    font-size: .95rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .tcard p{
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.45;
+  }
 }
+
 
 /* ——— LINK BOXES ——— */
 .links-wrap {
@@ -230,11 +279,6 @@
   letter-spacing: 0.03em;
   font-size: 0.95rem;
 }
-
-
-
-
-
 
   </style>
 
