@@ -346,101 +346,93 @@
 }
 
 
-/* ——— CURRENT PROJECTS ——— */
-.projects-wrap { max-width: var(--maxw); margin: 0 auto; }
+
+
+/* ——— CURRENT PROJECTS (fresh, compact) ——— */
+.projects-section { background: var(--bg); }
+.projects-wrap {
+  /* contained width so cards don't stretch edge-to-edge */
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  --thumb: 140px; /* square thumbnail size */
+}
 
 .projects-title {
   text-align: center;
-  margin: 0 0 18px;
+  margin: 0 0 22px;
   text-transform: uppercase;
   letter-spacing: .08em;
   font-size: clamp(1.1rem, .6rem + 1.4vw, 1.6rem);
 }
 
+/* Grid: 4 = desktop, 2 = tablet, 1 = mobile */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+  justify-items: center; /* centers each card within its grid cell */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px){
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 640px) {
+@media (max-width: 640px){
   .projects-grid { grid-template-columns: 1fr; }
+  .projects-wrap { --thumb: 120px; } /* slightly smaller thumbs on phones */
 }
 
+/* Card */
 .project-card {
-  display: flex;
-  flex-direction: column;
   background: #fff;
   color: var(--fg);
   border: 1px solid rgba(0,0,0,.15);
-  border-radius: 0;
+  border-radius: 0; /* straight edges */
   box-shadow: var(--shadow);
-  transition: transform .12s ease, box-shadow .12s ease;
-  overflow: hidden;
-}
-.project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
-}
-
-/* Perfect-square image container */
-.project-image {
   width: 100%;
-  aspect-ratio: 1 / 1;           /* ensures perfect square */
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  height: auto;
-  max-height: none;
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  max-width: 240px;          /* keeps cards compact */
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
 
-/* For older browsers that ignore aspect-ratio */
-.project-image {
-  height: auto;
-  max-height: 100%;
+/* Small square thumbnail, centered */
+.project-thumb {
+  width: var(--thumb);
+  height: var(--thumb);      /* perfect square */
+  border: 1px solid rgba(0,0,0,.12);
+  background: #f2f2f2;
+  overflow: hidden;
+  align-self: center;        /* center the thumb in the card */
 }
-.project-card {
-  position: relative;
-}
-.project-card::before {
-  content: "";
-  display: block;
-  padding-top: 100%;             /* fallback: maintains square ratio */
-}
-.project-card img.project-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+.project-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.project-content {
-  position: relative;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
+/* Text */
 .project-card h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: .95rem;
   font-weight: 700;
   letter-spacing: .03em;
 }
-
 .project-card p {
   margin: 0;
   color: var(--muted);
-  font-size: .95rem;
+  font-size: .9rem;
   line-height: 1.45;
 }
+
+
+
+
 
 
 
@@ -619,49 +611,51 @@
 
     
     
-<section class="screen" aria-label="Current Projects">
+<section class="screen projects-section" aria-label="Current Projects">
   <div class="wrap projects-wrap">
     <h2 class="projects-title">Current Projects</h2>
 
     <div class="projects-grid">
       <!-- 1) Murder in Mobile County -->
       <article class="project-card">
-        <img src="mobilecounty.png" alt="Murder in Mobile County podcast artwork" class="project-image" width="500" height="500">
-        <div class="project-content">
-          <h3>Murder in Mobile County</h3>
-          <p>Investigative serial podcast exploring the unsolved murder of Brenda Peters from Mobile, AL in May of 1981.</p>
+        <div class="project-thumb">
+          <img src="mobilecounty.png" alt="Murder in Mobile County artwork" width="500" height="500">
         </div>
+        <h3>Murder in Mobile County</h3>
+        <p>Investigative serial podcast exploring the unsolved murder of Brenda Peters from Mobile, AL in May of 1981.</p>
       </article>
 
       <!-- 2) Care Playbook -->
       <article class="project-card">
-        <img src="careplaybook.png" alt="Care Playbook logo" class="project-image" width="500" height="500">
-        <div class="project-content">
-          <h3>Care Playbook</h3>
-          <p>Collection of resources for parents &amp; caregivers of special-needs children in South Alabama.</p>
+        <div class="project-thumb">
+          <img src="careplaybook.png" alt="Care Playbook brand graphic" width="500" height="500">
         </div>
+        <h3>Care Playbook</h3>
+        <p>Collection of resources for parents &amp; caregivers of special-needs children in South Alabama.</p>
       </article>
 
       <!-- 3) Dead Diary -->
       <article class="project-card">
-        <img src="deaddiarya.png" alt="Dead Diary podcast cover art" class="project-image" width="500" height="500">
-        <div class="project-content">
-          <h3>Dead Diary</h3>
-          <p>Weekly podcast recapping trending true crime cases.</p>
+        <div class="project-thumb">
+          <img src="deaddiarya.png" alt="Dead Diary podcast cover art" width="500" height="500">
         </div>
+        <h3>Dead Diary</h3>
+        <p>Weekly podcast recapping trending true crime cases.</p>
       </article>
 
       <!-- 4) The Ultimate Investigative Toolkit -->
       <article class="project-card">
-        <img src="toolkit.png" alt="Ultimate Investigative Toolkit graphic" class="project-image" width="500" height="500">
-        <div class="project-content">
-          <h3>The Ultimate Investigative Toolkit</h3>
-          <p>Multilayered learning course designed to give amateur sleuths and creators the proven strategies to find, analyze, and verify information.</p>
+        <div class="project-thumb">
+          <img src="toolkit.png" alt="Ultimate Investigative Toolkit graphic" width="500" height="500">
         </div>
+        <h3>The Ultimate Investigative Toolkit</h3>
+        <p>Multilayered learning course designed to give amateur sleuths and creators the proven strategies to find, analyze, and verify information.</p>
       </article>
     </div>
   </div>
 </section>
+
+
 
 
     
