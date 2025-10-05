@@ -81,34 +81,52 @@
     .upcoming { color: #555; font-style: normal; font-weight: normal; }
 
     /* Visual Index */
-    #visual-index .content { text-align: left; max-width: 700px; margin: 0 auto; }
-    #visual-index h2 {
-      text-align: center; font-variant: small-caps; letter-spacing: 0.15em;
-      font-size: clamp(16px, 2vw, 18px); margin-bottom: 2.2em;
+    #visual-index .content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
     }
-    .plate { margin-bottom: 2.5em; }
-    .plate figure { margin: 0; }
+
+    #visual-index h2 {
+      text-align: center;
+      font-variant: small-caps;
+      letter-spacing: 0.15em;
+      font-size: clamp(16px, 2vw, 18px);
+      margin-bottom: 2em;
+    }
+
+    .visual-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .plate {
+      flex: 1 1 250px;
+      max-width: 260px;
+      text-align: center;
+    }
+
+    .plate figure {
+      margin: 0;
+    }
+
     .plate img {
-      width: 80%;
-      max-width: 500px;
+      width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto;
       background: #ffffff;
       padding: 6px;
       border: 1px solid #dddddd;
     }
+
     .plate figcaption {
       margin-top: 0.6em;
       font-size: clamp(12px, 1.5vw, 14px);
       color: #444;
       font-style: italic;
       line-height: 1.6;
-      text-align: justify;
-      text-justify: inter-word;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     /* Appendix */
@@ -252,25 +270,27 @@
     <div class="content">
       <h2>- VISUAL INDEX -</h2>
 
-      <div class="plate">
-        <figure>
-          <img src="/neeli4.png" alt="Portrait of Neeli Faulkner" loading="lazy" />
-          <figcaption>Neeli Faulkner — investigator, journalist, and founder of Murder Creek Media.</figcaption>
-        </figure>
-      </div>
+      <div class="visual-grid">
+        <div class="plate">
+          <figure>
+            <img src="/neeli4.png" alt="Portrait of Neeli Faulkner" loading="lazy" />
+            <figcaption>Neeli Faulkner — investigator, journalist, and founder of Murder Creek Media.</figcaption>
+          </figure>
+        </div>
 
-      <div class="plate">
-        <figure>
-          <img src="/dog.png" alt="Neeli walking her dog near the beach" loading="lazy" />
-          <figcaption>Quiet moments before the day begins. Reflection and routine — the calm that balances the pursuit.</figcaption>
-        </figure>
-      </div>
+        <div class="plate">
+          <figure>
+            <img src="/dog.png" alt="Neeli walking her dog near the beach" loading="lazy" />
+            <figcaption>Quiet moments before the day begins. Reflection and routine — the calm that balances the pursuit.</figcaption>
+          </figure>
+        </div>
 
-      <div class="plate">
-        <figure>
-          <img src="/sleuthing.png" alt="Neeli Faulkner in a car, taking field notes during an investigation" loading="lazy" />
-          <figcaption>On the road to a lead. Notebooks open, recorder ready, intuition in the driver’s seat.</figcaption>
-        </figure>
+        <div class="plate">
+          <figure>
+            <img src="/sleuthing.png" alt="Neeli Faulkner in a car, taking field notes during an investigation" loading="lazy" />
+            <figcaption>On the road to a lead. Notebooks open, recorder ready, intuition in the driver’s seat.</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
     <a href="#appendix" class="scroll-cue">Scroll ↓</a>
