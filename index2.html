@@ -84,42 +84,62 @@
     .about-text p{margin:0 0 12px;}
     @media(max-width:800px){.about-split{grid-template-columns:1fr}.about-photo{order:-1}}
 
-    /* TIMELINE (plain) */
-    .timeline h2{text-align:center;margin:0 0 14px;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(1.1rem,.6rem+1.4vw,1.6rem);}
-    .timeline-wrap{display:none;}
-    .timeline-h{
-      display:grid;grid-template-rows:auto 40px auto;grid-template-columns:repeat(5,1fr);
-      align-items:center;gap:10px 16px;max-width:var(--maxw);margin:0 auto;padding:8px 6px;position:relative;
-    }
-    .rule{
-      grid-row:2/3;grid-column:1/-1;height:3px;width:100%;
-      background: var(--muted); /* grey line */
-    }
- .timeline-h .date {
+ /* TIMELINE — desktop/tablet */
+.timeline-h {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 16px auto; /* slimmer center row for the line */
+  align-items: center;
+  gap: 10px 16px;
+  position: relative;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 8px 6px;
+}
+
+.timeline-h .date {
   text-align: center;
   font-weight: 700;
   letter-spacing: .06em;
   font-size: .9rem;
 }
 
-/* Red dots aligned directly on the line */
+/* Grey line spans full width in the middle row */
+.rule {
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
+  height: 3px;
+  background: var(--muted);
+  align-self: center;
+  position: relative;
+}
+
+/* Red dots aligned exactly in line with the grey line */
 .tick {
-  grid-row: 2 / 3;               /* places dots in the same row as the line */
+  grid-row: 2 / 3;           /* same row as the line */
   justify-self: center;
-  align-self: center;            /* centers them vertically */
+  align-self: center;        /* vertically centered */
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: var(--brand);
   position: relative;
-  z-index: 2;                    /* ensures dots appear above the line */
+  z-index: 1;                /* same layer as the line */
 }
+
+/* Position dots per column */
+.tick:nth-of-type(1){ grid-column: 1; }
+.tick:nth-of-type(2){ grid-column: 2; }
+.tick:nth-of-type(3){ grid-column: 3; }
+.tick:nth-of-type(4){ grid-column: 4; }
+.tick:nth-of-type(5){ grid-column: 5; }
 
 .timeline-h .desc {
   text-align: center;
   color: var(--muted);
   font-size: .95rem;
 }
+
 
 
 
