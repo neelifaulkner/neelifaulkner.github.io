@@ -8,17 +8,6 @@
   <meta name="theme-color" content="#A2130C" />
   <link rel="canonical" href="https://neelifaulkner.com/" />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Neeli Faulkner — Investigative Journalist & Podcaster" />
-  <meta property="og:description" content="Founder of Murder Creek Media. Investigative audio with teeth. Truth > everything." />
-  <meta property="og:url" content="https://neelifaulkner.com/" />
-  <meta property="og:image" content="https://neelifaulkner.com/neeli.png?v=2" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Neeli Faulkner — Investigative Journalist & Podcaster" />
-  <meta name="twitter:description" content="Founder of Murder Creek Media. Investigative audio with teeth. Truth > everything." />
-  <meta name="twitter:image" content="https://neelifaulkner.com/neeli.png?v=2" />
-
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -30,591 +19,174 @@
   <link rel="preload" as="image" href="neeli.png?v=2" />
 
   <style>
-    /* =========================
-       Core theme / variables
-       ========================= */
     :root{
-      --fg: #1a1a1a;
-      --bg: #f8f7f5;
-      --muted: #6b6b6b;
-      --brand: #a2130c;
-      --paper-bg: #e9e7e3;
-      --shadow: 0 4px 8px rgba(0,0,0,.08);
-      --shadow-hover: 0 8px 16px rgba(0,0,0,.16);
-      --focus: 2px dashed var(--brand);
-      --maxw: 980px;
+      --fg:#1a1a1a;
+      --bg:#f8f7f5;
+      --muted:#6b6b6b;
+      --brand:#a2130c;
+      --paper-bg:#e9e7e3;
+      --shadow:0 4px 8px rgba(0,0,0,.08);
+      --shadow-hover:0 8px 16px rgba(0,0,0,.16);
+      --focus:2px dashed var(--brand);
+      --maxw:980px;
     }
     @media (prefers-color-scheme: dark){
-      :root{
-        --fg: #f5f5f5;
-        --bg: #1a1a1a;
-        --muted: #c7c7c7;
-        --paper-bg: #262626;
-      }
+      :root{--fg:#f5f5f5;--bg:#1a1a1a;--muted:#c7c7c7;--paper-bg:#262626;}
     }
-
-    html, body { height: 100%; }
+    html,body{height:100%;}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family:"Courier New", Courier, monospace;
-      line-height:1.55;
+      margin:0;background:var(--bg);color:var(--fg);
+      font-family:"Courier New",Courier,monospace;line-height:1.55;
     }
 
-    /* =========================
-       Scroll-snap layout
-       ========================= */
-    .scroller{
-      scroll-snap-type: y mandatory;
-      overflow-y: auto;
-      height: 100dvh;
-    }
-    .screen{
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
-      padding: 24px 18px;
-      scroll-snap-align: start;
-    }
-    .wrap{
-      width:100%;
-      max-width:var(--maxw);
-      margin:0 auto;
-    }
+    .scroller{scroll-snap-type:y mandatory;overflow-y:auto;height:100dvh;}
+    .screen{min-height:100dvh;display:grid;place-items:center;padding:24px 18px;scroll-snap-align:start;}
+    .wrap{width:100%;max-width:var(--maxw);margin:0 auto;}
+    .section-title{text-align:center;margin:0 0 12px;text-transform:uppercase;letter-spacing:.07em;}
+    .muted{color:var(--muted);}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-    .sr-only{
-      position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
-    }
-
-    /* =========================
-       Screen 1 — HERO
-       ========================= */
-    .hero{
-      text-align:center;
-      gap: 18px;
-    }
+    /* --- HERO --- */
     .polaroid{
-      display:inline-block;
-      background:none;
-      border:none;
-      box-shadow:none;
+      display:inline-block;position:relative;background:#fff;
+      border:1px solid rgba(0,0,0,.18);border-radius:4px;
+      padding:12px 12px 38px;box-shadow:0 8px 16px rgba(0,0,0,.12),0 2px 0 rgba(0,0,0,.04) inset;
+      transform:rotate(-2deg);
     }
-    .polaroid img{
-      display:block;
-      width:min(320px, 60vw);
-      height:auto;
-      border-radius: 2px;
-      border: 1px solid rgba(0,0,0,.25);
+    @media (prefers-color-scheme:dark){
+      .polaroid{background:#f1f1f1;border-color:rgba(255,255,255,.18);
+      box-shadow:0 8px 16px rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.08) inset;}
     }
-    .hero h1{
-      margin: 14px 0 0;
-      font-size: clamp(1.8rem, 2.5vw + 1.2rem, 3rem);
-      line-height:1.1;
-    }
+    .polaroid img{display:block;width:min(320px,60vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);}
+    .polaroid::after{content:"";position:absolute;left:14px;right:14px;bottom:12px;height:2px;background:rgba(0,0,0,.08);}
+    .hero h1{margin:14px 0 0;font-size:clamp(1.8rem,2.5vw+1.2rem,3rem);line-height:1.1;text-align:center;}
+    .scroll-indicator{position:absolute;bottom:22px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.95rem;pointer-events:none;}
+    .arrow{width:18px;height:18px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.8;animation:bob 1.6s ease-in-out infinite;}
+    @keyframes bob{0%,100%{transform:translateY(0)rotate(45deg);}50%{transform:translateY(6px)rotate(45deg);}}
 
-    /* Scroll indicator */
-    .scroll-indicator{
-      position:absolute;
-      bottom: 22px;
-      left:0; right:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:6px;
-      color: var(--muted);
-      font-size:.95rem;
-      pointer-events:none;
-      user-select:none;
-    }
-    .arrow{
-      width:18px; height:18px; border-right:2px solid currentColor; border-bottom:2px solid currentColor;
-      transform: rotate(45deg);
-      opacity:.8;
-      animation: bob 1.6s ease-in-out infinite;
-    }
-    @keyframes bob{
-      0%,100%{ transform: translateY(0) rotate(45deg); }
-      50%{ transform: translateY(6px) rotate(45deg); }
-    }
-    @media (prefers-reduced-motion: reduce){
-      .arrow{ animation: none; }
-    }
+    /* --- BLURB --- */
+    .blurb{font-size:clamp(1.05rem,.9rem+.9vw,1.35rem);max-width:900px;color:var(--fg);text-align:center;padding:0 8px;}
+    .circled{position:relative;display:inline-block;padding:0 4px;}
+    .circled::after{content:"";position:absolute;left:-8px;right:-8px;top:-6px;bottom:-6px;border:2px solid var(--brand);border-radius:999px;transform:rotate(-2deg)scale(.98);opacity:0;transition:transform .5s ease,opacity .5s ease;}
+    .circled.is-visible::after{opacity:1;transform:rotate(-2deg)scale(1);}
 
-    /* =========================
-       Screen 2 — BLURB w/ circled words
-       ========================= */
-    .blurb{
-      font-size: clamp(1.05rem, .9rem + .9vw, 1.35rem);
-      max-width: 900px;
-      color: var(--fg);
-      text-align: center;
-      padding: 0 8px;
-    }
-    .circled{
-      position: relative;
-      display: inline-block;
-      padding: 0 4px;
-      z-index: 0;
-    }
-    .circled::after{
-      content:"";
-      position:absolute;
-      left:-8px; right:-8px; top:-6px; bottom:-6px;
-      border: 2px solid var(--brand);
-      border-radius: 999px;
-      transform: rotate(-2deg) scale(.98);
-      opacity: 0;
-      transition: transform .5s ease, opacity .5s ease;
-    }
-    .circled.is-visible::after{
-      opacity: 1;
-      transform: rotate(-2deg) scale(1);
-    }
-    @media (prefers-reduced-motion: reduce){
-      .circled::after{ transition: none; opacity:1; transform: rotate(-2deg) scale(1); }
-    }
+    /* --- ABOUT / DOSSIER --- */
+    .about-split{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:center;}
+    .about-photo{display:flex;justify-content:center;}
+    .about-photo .polaroid{transform:rotate(-3deg);}
+    .caption{font-family:'Caveat',cursive;font-size:1.2rem;text-align:center;margin-top:8px;color:var(--muted);}
+    .about-text{background:var(--paper-bg);border:1px solid rgba(0,0,0,.08);border-radius:4px;box-shadow:var(--shadow);padding:18px;}
+    .about-text h2{text-transform:uppercase;letter-spacing:.08em;font-size:1.1rem;color:var(--brand);margin:0 0 8px;}
+    .about-text p{margin:0 0 12px;}
+    @media(max-width:800px){.about-split{grid-template-columns:1fr}.about-photo{order:-1}}
 
-    /* =========================
-       Screen 3 — FOLDER GRID
-       ========================= */
-    .folders{
-      width:100%;
-    }
-    .folder-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 900px){
-      .folder-grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px){
-      .folder-grid{ grid-template-columns: 1fr; }
-    }
+    /* --- TIMELINE --- */
+    .timeline h2{text-align:center;margin:0 0 14px;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(1.1rem,.6rem+1.4vw,1.6rem);}
+    .timeline-wrap{display:none;}
+    .timeline-h{display:grid;grid-template-rows:auto 40px auto;grid-template-columns:repeat(5,1fr);align-items:center;gap:10px 16px;position:relative;max-width:var(--maxw);margin:0 auto;padding:8px 6px;}
+    .rule{grid-row:2/3;grid-column:1/-1;height:3px;background:var(--fg);transform-origin:left center;transform:scaleX(0);}
+    .timeline-h .date{text-align:center;font-weight:700;letter-spacing:.06em;font-size:.9rem;}
+    .tick{width:12px;height:12px;border-radius:50%;background:var(--brand);justify-self:center;transform:scale(.8);opacity:0;transition:transform .35s ease,opacity .35s ease;}
+    .timeline-h .desc{text-align:center;color:var(--muted);font-size:.95rem;}
+    .timeline-in .rule{transform:scaleX(1);transition:transform 900ms ease;}
+    .timeline-in .tick{opacity:1;transform:scale(1);}
+    .timeline-v{display:grid;gap:10px;max-width:680px;margin:0 auto;}
+    .tcard{background:var(--paper-bg);border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:var(--shadow);padding:12px 14px;position:relative;overflow:hidden;}
+    .tcard h3{margin:0 0 4px;font-size:1rem;}
+    .tcard p{margin:0;color:var(--muted);}
+    .tline{position:absolute;left:0;top:0;height:3px;width:100%;background:var(--fg);transform:scaleX(0);transform-origin:left center;}
+    .tcard.in .tline{transform:scaleX(1);transition:transform 700ms ease;}
+    @media(min-width:801px){.timeline-v{display:none}.timeline-wrap{display:block}}
 
-    .folder{
-      position:relative;
-      display:block;
-      text-decoration:none;
-      color: var(--fg);
-      background: var(--paper-bg);
-      border: 1px solid rgba(0,0,0,.1);
-      border-radius: 8px;
-      height: 150px; /* uniform */
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      outline: none;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .folder:focus-visible{ outline: var(--focus); outline-offset: 3px; }
-    .folder:hover{ transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-
-    .folder-title{
-      position:absolute; left:14px; bottom:12px;
-      font-weight: 700; letter-spacing:.06em; text-transform: uppercase;
-      font-size: .95rem;
-    }
-    .folder-sub{
-      position:absolute; left:14px; bottom: 34px;
-      color: var(--muted); font-size:.85rem;
-    }
-
-    /* Paper slip reveal */
-    .paper{
-      position:absolute;
-      left:0; right:0;
-      top:0;
-      height: 56%;
-      background: #fff8ee;
-      border-bottom: 1px solid rgba(0,0,0,.12);
-      box-shadow: 0 8px 10px rgba(0,0,0,.08);
-      transform: translateY(-100%);
-      transition: transform .2s ease-out;
-    }
-    .folder:hover .paper,
-    .folder:focus .paper,
-    .folder.revealed .paper{
-      transform: translateY(0%);
-    }
-    @media (prefers-color-scheme: dark){
-      .paper{ background: #2d2a26; }
-    }
-
-    /* =========================
-       Screen 4 — TIMELINE OF IMPACT
-       ========================= */
-    .timeline{
-      width:100%;
-    }
-    .timeline h2{
-      text-align:center;
-      margin: 0 0 14px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-size: clamp(1.1rem, .6rem + 1.4vw, 1.6rem);
-    }
-
-    /* Desktop: horizontal */
-    .timeline-wrap{
-      display:none;
-    }
-    .timeline-h{
-      display:grid;
-      grid-template-rows: auto 40px auto;
-      grid-template-columns: repeat(5, 1fr);
-      align-items:center;
-      gap: 10px 16px;
-      position: relative;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 8px 6px;
-    }
-    .rule{
-      grid-row: 2 / 3;
-      grid-column: 1 / -1;
-      height: 3px;
-      background: var(--fg);
-      transform-origin: left center;
-      transform: scaleX(0);
-    }
-    .timeline-h .date{
-      text-align:center; font-weight:700; letter-spacing:.06em; font-size:.9rem;
-    }
-    .tick{
-      width: 12px; height:12px; border-radius: 50%;
-      background: var(--brand);
-      justify-self: center;
-      transform: scale(0.8);
-      opacity: 0;
-      transition: transform .35s ease, opacity .35s ease;
-    }
-    .timeline-h .desc{
-      text-align:center; color: var(--muted); font-size:.95rem;
-    }
-    .timeline-in .rule{ transform: scaleX(1); transition: transform 900ms ease; }
-    .timeline-in .tick{ opacity:1; transform: scale(1); }
-
-    /* Mobile: vertical cards */
-    .timeline-v{
-      display:grid;
-      gap: 10px;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .tcard{
-      background: var(--paper-bg);
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      padding: 12px 14px;
-      position: relative;
-      overflow: hidden;
-    }
-    .tcard h3{ margin:0 0 4px; font-size:1rem; }
-    .tcard p{ margin:0; color: var(--muted); }
-
-    /* animated underline inside each card */
-    .tline{
-      position:absolute; left:0; top:0;
-      height: 3px; width:100%;
-      background: var(--fg);
-      transform: scaleX(0);
-      transform-origin: left center;
-    }
-    .tcard.in .tline{ transform: scaleX(1); transition: transform 700ms ease; }
-
-    /* Switch layouts by width */
-    @media (min-width: 801px){
-      .timeline-v{ display:none; }
-      .timeline-wrap{ display:block; }
-    }
-
-    /* =========================
-       Utility
-       ========================= */
-    .section-title{
-      text-align:center; margin: 0 0 12px;
-      text-transform: uppercase; letter-spacing:.07em;
-    }
-    .muted{ color:var(--muted); }
-
-    /* Ensure reduced-motion users don’t get animations */
-    @media (prefers-reduced-motion: reduce){
-      .timeline-in .rule{ transition: none; transform: scaleX(1); }
-      .tick{ transition: none; opacity:1; transform: none; }
-      .tcard.in .tline{ transition: none; transform: scaleX(1); }
-    }
+    /* --- FOLDERS --- */
+    .folder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    @media(max-width:900px){.folder-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.folder-grid{grid-template-columns:1fr}}
+    .folder{position:relative;display:block;text-decoration:none;color:var(--fg);background:var(--paper-bg);border:1px solid rgba(0,0,0,.1);border-radius:8px;height:150px;box-shadow:var(--shadow);overflow:hidden;outline:none;transition:transform .15s ease,box-shadow .15s ease;}
+    .folder:focus-visible{outline:var(--focus);outline-offset:3px;}
+    .folder:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+    .folder-title{position:absolute;left:14px;bottom:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.95rem;}
+    .folder-sub{position:absolute;left:14px;bottom:34px;color:var(--muted);font-size:.85rem;}
+    .paper{position:absolute;left:0;right:0;top:0;height:56%;background:#fff8ee;border-bottom:1px solid rgba(0,0,0,.12);box-shadow:0 8px 10px rgba(0,0,0,.08);transform:translateY(-100%);transition:transform .2s ease-out;}
+    .folder:hover .paper,.folder:focus .paper,.folder.revealed .paper{transform:translateY(0)}
+    @media(prefers-color-scheme:dark){.paper{background:#2d2a26}}
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Neeli Faulkner",
-    "url": "https://neelifaulkner.com/",
-    "jobTitle": "Investigative Journalist & Podcaster",
-    "affiliation": {"@type":"Organization","name":"Murder Creek Media"},
-    "sameAs": [
-      "https://murdercreekmedia.com",
-      "https://youtube.com/@neelifaulkner",
-      "https://neelifaulkner.substack.com",
-      "https://medium.com/@neelifaulkner",
-      "https://www.tiktok.com/@murdercreekmedia"
-    ]
-  }
-  </script>
-
-  <!-- Google Analytics (kept) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZ6FXS13W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-3HZ6FXS13W');
-  </script>
 </head>
-<body>
-  <div class="scroller" id="scroller">
 
-    <!-- ============ SCREEN 1: HERO ============ -->
-    <section class="screen hero" aria-label="Intro">
+<body>
+  <div class="scroller">
+
+    <!-- 1. WHO I AM -->
+    <section class="screen hero">
       <div class="wrap" style="text-align:center">
-        <div class="polaroid" aria-label="Passport style photo of Neeli">
-          <img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" fetchpriority="high" />
+        <div class="polaroid">
+          <img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" />
         </div>
         <h1>Hi, I’m Neeli.</h1>
       </div>
-
-      <div class="scroll-indicator" aria-hidden="true">
-        <div>scroll</div>
-        <div class="arrow"></div>
-      </div>
+      <div class="scroll-indicator"><div>scroll</div><div class="arrow"></div></div>
     </section>
 
-    <!-- ============ SCREEN 2: BLURB ============ -->
-    <section class="screen" aria-label="About blurb">
+    <!-- 2. WHAT I’VE DONE -->
+    <section class="screen">
       <div class="wrap">
         <p class="blurb" id="about-blurb">
-          i’m an <span class="circled">investigative journalist</span> and podcaster whose work has sparked
-          <span class="circled">post-conviction appeals</span>, surfaced new
-          <span class="circled">cold-case leads</span>, and earned national recognition for investigative audio.
-          i’m also the <span class="circled">founder of murder creek media</span>, an advocate, and a dog lover.
+          I'm an investigative journalist and podcaster whose work has sparked post-conviction appeals,
+          surfaced new cold-case leads, and earned <span class="circled">national recognition</span> for investigative audio.
+          I'm also the founder of <span class="circled">Murder Creek Media</span>, an advocate, and a dog lover.
         </p>
       </div>
     </section>
 
-    <!-- ============ SCREEN 3: FOLDERS ============ -->
-    <section class="screen" aria-label="Links">
-      <div class="wrap folders">
-        <h2 class="section-title">Links</h2>
-        <div class="folder-grid" id="folderGrid">
-          <!-- Podcasts -->
-          <a class="folder" href="https://www.murdercreekmedia.com" target="_blank" rel="noopener" data-sub="Murder Creek Media">
-            <div class="paper" aria-hidden="true"></div>
-            <div class="folder-sub">Murder Creek Media</div>
-            <div class="folder-title">Podcasts</div>
-          </a>
-          <!-- YouTube -->
-          <a class="folder" href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener" data-sub="Video + series">
-            <div class="paper" aria-hidden="true"></div>
-            <div class="folder-sub">Video + series</div>
-            <div class="folder-title">YouTube</div>
-          </a>
-          <!-- Medium -->
-          <a class="folder" href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener" data-sub="Features &amp; essays">
-            <div class="paper" aria-hidden="true"></div>
-            <div class="folder-sub">Features &amp; essays</div>
-            <div class="folder-title">Medium</div>
-          </a>
-          <!-- Substack -->
-          <a class="folder" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener" data-sub="Dispatches">
-            <div class="paper" aria-hidden="true"></div>
-            <div class="folder-sub">Dispatches</div>
-            <div class="folder-title">Substack</div>
-          </a>
-          <!-- TikTok -->
-          <a class="folder" href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener" data-sub="Shorts">
-            <div class="paper" aria-hidden="true"></div>
-            <div class="folder-sub">Shorts</div>
-            <div class="folder-title">TikTok</div>
-          </a>
-          <!-- Collab -->
-          <a class="folder" href="mailto:neeli@murdercreekmedia.com" data-sub="Email Neeli">
-            <div class="paper" aria-hidden="true"></div>
-            <div class="folder-sub">Email Neeli</div>
-            <div class="folder-title">Collab</div>
-          </a>
+    <!-- 3. WHO I AM OFF THE RECORD -->
+    <section class="screen" aria-label="About Neeli">
+      <div class="wrap about-split">
+        <div class="about-photo">
+          <div class="polaroid">
+            <img src="neeli2.png" alt="Neeli working at her desk" />
+          </div>
+        </div>
+        <div class="about-text">
+          <h2>Who I Am Off The Record</h2>
+          <p>I'm the founder of <strong>Murder Creek Media</strong>, where I lead a fully volunteer team of over 15 dedicated researchers, writers, and investigators.</p>
+          <p>My investigative and storytelling work has produced <strong>new evidence in two murder convictions</strong> and surfaced <strong>new leads in an unsolved cold case</strong>, giving families long-overdue hope for answers.</p>
+          <p>Beyond my work in true crime media, I manage <strong>Centralized Services and Cybersecurity</strong> for a premier <strong>Managed Security Service Provider (MSSP)</strong> serving clients across the United States. With a degree in <strong>Information Systems and Cybersecurity</strong> from <strong>Columbia Southern University</strong>, where I graduated <em>summa cum laude</em>, I bring a deeply technical perspective to investigative journalism.</p>
+          <p>I'm a proud member of the <strong>National Society of Leadership and Success (NSLS)</strong> and <strong>Omega Nu Lambda</strong>, and in <strong>2025</strong>, I was nationally recognized by the <strong>Alliance for Women in Media</strong> for my investigative work on <em>Skeptical: An Investigative Podcast</em> — a rare honor for someone in independent media.</p>
+          <p>Outside of my professional work, I dedicate my time to <strong>nonprofit projects supporting children with special needs</strong> and continue to advocate for truth, transparency, and justice through digital storytelling.</p>
         </div>
       </div>
+      <div class="caption">always chasing truth.</div>
     </section>
 
-    <!-- ============ SCREEN 4: TIMELINE OF IMPACT ============ -->
+    <!-- 4. MY IMPACT -->
     <section class="screen" aria-label="Timeline of Impact">
       <div class="wrap timeline">
         <h2>Timeline of Impact</h2>
-
-        <!-- Horizontal timeline (desktop) -->
         <div class="timeline-wrap" id="timelineDesktop">
           <div class="timeline-h" id="timelineH">
-            <!-- Dates row -->
-            <div class="date">MARCH 2018</div>
-            <div class="date">JULY 2019</div>
-            <div class="date">APRIL 2020</div>
-            <div class="date">OCT 2024</div>
-            <div class="date">FEB 2025</div>
-
-            <!-- Rule across -->
+            <div class="date">MARCH 2018</div><div class="date">JULY 2019</div><div class="date">APRIL 2020</div><div class="date">OCT 2024</div><div class="date">FEB 2025</div>
             <div class="rule"></div>
-
-            <!-- Ticks row (centered on rule) -->
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-
-            <!-- Descriptions row -->
-            <div class="desc">Investigation begins</div>
-            <div class="desc">New evidence uncovered</div>
-            <div class="desc">Legal appeals begin using new evidence</div>
-            <div class="desc">New case investigation begins</div>
-            <div class="desc">New leads uncovered</div>
+            <div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div>
+            <div class="desc">Investigation begins</div><div class="desc">New evidence uncovered</div><div class="desc">Legal appeals begin using new evidence</div><div class="desc">New case investigation begins</div><div class="desc">New leads uncovered</div>
           </div>
         </div>
-
-        <!-- Vertical cards (mobile) -->
         <div class="timeline-v" id="timelineMobile">
-          <article class="tcard">
-            <div class="tline" aria-hidden="true"></div>
-            <h3>MARCH 2018</h3>
-            <p>Investigation begins</p>
-          </article>
-          <article class="tcard">
-            <div class="tline" aria-hidden="true"></div>
-            <h3>JULY 2019</h3>
-            <p>New evidence uncovered</p>
-          </article>
-          <article class="tcard">
-            <div class="tline" aria-hidden="true"></div>
-            <h3>APRIL 2020</h3>
-            <p>Legal appeals begin using new evidence</p>
-          </article>
-          <article class="tcard">
-            <div class="tline" aria-hidden="true"></div>
-            <h3>OCTOBER 2024</h3>
-            <p>New case investigation begins</p>
-          </article>
-          <article class="tcard">
-            <div class="tline" aria-hidden="true"></div>
-            <h3>FEBRUARY 2025</h3>
-            <p>New leads uncovered</p>
-          </article>
+          <article class="tcard"><div class="tline"></div><h3>MARCH 2018</h3><p>Investigation begins</p></article>
+          <article class="tcard"><div class="tline"></div><h3>JULY 2019</h3><p>New evidence uncovered</p></article>
+          <article class="tcard"><div class="tline"></div><h3>APRIL 2020</h3><p>Legal appeals begin using new evidence</p></article>
+          <article class="tcard"><div class="tline"></div><h3>OCTOBER 2024</h3><p>New case investigation begins</p></article>
+          <article class="tcard"><div class="tline"></div><h3>FEBRUARY 2025</h3><p>New leads uncovered</p></article>
         </div>
       </div>
     </section>
 
-  </div>
-
-  <script>
-    // Respect reduced motion
-    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // ============ Circled words visibility on scroll ============
-    const circleTargets = document.querySelectorAll('.circled');
-    if ('IntersectionObserver' in window){
-      const circleObs = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){ e.target.classList.add('is-visible'); circleObs.unobserve(e.target); }
-        });
-      }, {threshold: 0.6});
-      circleTargets.forEach(el => circleObs.observe(el));
-    } else {
-      circleTargets.forEach(el => el.classList.add('is-visible'));
-    }
-
-    // ============ Folder: tap-to-reveal on touch ============
-    (function(){
-      const grid = document.getElementById('folderGrid');
-      if(!grid) return;
-
-      let lastRevealed = null;
-      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-      if(isTouch){
-        grid.addEventListener('click', function(e){
-          const link = e.target.closest('.folder');
-          if(!link) return;
-
-          // If not revealed yet, reveal and prevent navigation
-          if(!link.classList.contains('revealed')){
-            e.preventDefault();
-            if(lastRevealed && lastRevealed !== link){
-              lastRevealed.classList.remove('revealed');
-            }
-            link.classList.add('revealed');
-            lastRevealed = link;
-          } else {
-            // second tap follows the link (default)
-            link.classList.remove('revealed'); // optional: reset after leaving
-          }
-        });
-
-        // Tap outside to close
-        document.addEventListener('click', function(e){
-          if(!e.target.closest('.folder')){
-            if(lastRevealed){ lastRevealed.classList.remove('revealed'); lastRevealed = null; }
-          }
-        });
-      }
-    })();
-
-    // ============ Timeline animation ============
-    (function(){
-      const desktop = document.getElementById('timelineH');
-      const mobileCards = document.querySelectorAll('.timeline-v .tcard');
-
-      if('IntersectionObserver' in window){
-        // Desktop line + ticks
-        if(desktop){
-          const rule = desktop.querySelector('.rule');
-          const ticks = desktop.querySelectorAll('.tick');
-
-          const desktopObs = new IntersectionObserver((entries)=>{
-            entries.forEach(e=>{
-              if(e.isIntersecting){
-                desktop.classList.add('timeline-in');
-                // If reduced motion, apply instantly via CSS override
-                if(prefersReduced){
-                  rule.style.transform = 'scaleX(1)';
-                  ticks.forEach(t=>{ t.style.opacity = '1'; t.style.transform = 'scale(1)'; });
-                }
-                desktopObs.unobserve(desktop);
-              }
-            });
-          }, {threshold: 0.35});
-          desktopObs.observe(desktop);
-        }
-
-        // Mobile each card underline
-        mobileCards.forEach(card=>{
-          const mobObs = new IntersectionObserver((entries)=>{
-            entries.forEach(e=>{
-              if(e.isIntersecting){
-                card.classList.add('in');
-                mobObs.unobserve(card);
-              }
-            });
-          }, {threshold: 0.4});
-          mobObs.observe(card);
-        });
-
-      } else {
-        // Fallback: show everything
-        if(desktop) desktop.classList.add('timeline-in');
-        mobileCards.forEach(c=>c.classList.add('in'));
-      }
-    })();
-  </script>
-</body>
-</html>
+    <!-- 5. WHERE TO FIND ME -->
+    <section class="screen" aria-label="Links">
+      <div class="wrap">
+        <h2 class="section-title">Where To Find Me</h2>
+        <div class="folder-grid" id="folderGrid">
+          <a class="folder" href="https://www.murdercreekmedia.com" target="_blank"><div class="paper"></div><div class="folder-sub">Murder Creek Media</div><div class="folder-title">Podcasts</div></a>
+          <a class="folder" href="https://www.youtube.com/@neelifaulkner" target="_blank"><div class="paper"></div><div class="folder-sub">Video + series</div><div class="folder-title">YouTube</div></a>
+          <a class="folder" href="https://www.medium.com/@neelifaulkner" target="_blank"><div class="paper"></div><div class="folder-sub">Features &amp; essays</div><div class="folder-title">Medium</div></a>
+          <a class="folder" href="https://neelifaulkner.substack.com" target="_blank"><div class="paper"></div><div class="folder-sub">Dispatches</div><div class="folder-title">Substack</div></a>
+          <a class="folder" href="https://www.tiktok.com/@murdercreekmedia" target="_blank"><div class="paper"></div><div class="folder-sub">Shorts
