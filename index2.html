@@ -351,6 +351,24 @@
   font-size: 1.05rem;
   color: var(--muted);
 }
+    
+@media (max-width: 640px) {
+  .od-polaroid {
+    max-width: 380px;   /* smaller frame */
+    margin: 0 auto;
+    padding: 8px 8px 24px; /* slightly tighter white border */
+  }
+
+  .od-polaroid img {
+    width: 100%;
+    max-width: 360px;   /* limits image size */
+  }
+
+  .od-caption {
+    font-size: 0.95rem; /* scale down caption */
+  }
+}
+    
 
 
 
