@@ -24,8 +24,8 @@
     :root{
       --fg:#1a1a1a;
       --bg:#f8f7f5;
-      --muted:#6b6b6b;
-      --brand:#a2130c;
+      --muted:#6b6b6b;           /* used for grey timeline line */
+      --brand:#a2130c;           /* red dots */
       --paper-bg:#e9e7e3;
       --shadow:0 4px 8px rgba(0,0,0,.08);
       --shadow-hover:0 8px 16px rgba(0,0,0,.16);
@@ -33,15 +33,13 @@
       --maxw:980px;
     }
     @media (prefers-color-scheme: dark){
-      :root{--fg:#f5f5f5;--bg:#1a1a1a;--muted:#c7c7c7;--paper-bg:#262626;}
+      :root{--fg:#f5f5f5;--bg:#1a1a1a;--muted:#bdbdbd;--paper-bg:#262626;}
     }
     html,body{height:100%;}
-    body{
-      margin:0;background:var(--bg);color:var(--fg);
-      font-family:"Courier New",Courier,monospace;line-height:1.55;
-    }
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:"Courier New",Courier,monospace;line-height:1.55;}
 
-    .scroller{scroll-snap-type:y mandatory;overflow-y:auto;height:100dvh;}
+    /* Scroll-snap container */
+    .scroller{scroll-snap-type:y mandatory;overflow-y:auto;height:100dvh;position:relative;}
     .screen{min-height:100dvh;display:grid;place-items:center;padding:24px 18px;scroll-snap-align:start;}
     .wrap{width:100%;max-width:var(--maxw);margin:0 auto;}
     .section-title{text-align:center;margin:0 0 12px;text-transform:uppercase;letter-spacing:.07em;}
@@ -57,43 +55,58 @@
     }
     @media (prefers-color-scheme:dark){
       .hero .polaroid{background:#f1f1f1;border-color:rgba(255,255,255,.18);
-      box-shadow:0 8px 16px rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.08) inset;}
+        box-shadow:0 8px 16px rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.08) inset;}
     }
     .hero .polaroid img{display:block;width:min(320px,60vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);}
     .hero h1{margin:14px 0 0;font-size:clamp(1.8rem,2.5vw+1.2rem,3rem);line-height:1.1;text-align:center;}
-    .scroll-indicator{position:absolute;bottom:22px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.95rem;pointer-events:none;transition:opacity .3s ease;}
+    .scroll-indicator{position:fixed;bottom:22px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.95rem;pointer-events:none;transition:opacity .3s ease;}
     .arrow{width:18px;height:18px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.8;animation:bob 1.6s ease-in-out infinite;}
     @keyframes bob{0%,100%{transform:translateY(0)rotate(45deg);}50%{transform:translateY(6px)rotate(45deg);}}
 
     /* BLURB */
     .blurb{font-size:clamp(1.05rem,.9rem+.9vw,1.35rem);max-width:900px;color:var(--fg);text-align:center;padding:0 8px;}
     .circled{position:relative;display:inline-block;padding:0 4px;}
-    .circled::after{content:"";position:absolute;left:-8px;right:-8px;top:-6px;bottom:-6px;border:2px solid var(--brand);border-radius:999px;transform:rotate(-2deg)scale(.98);opacity:0;transition:transform .5s ease,opacity .5s ease;}
-    .circled.is-visible::after{opacity:1;transform:rotate(-2deg)scale(1);}
+    .circled::after{
+      content:"";position:absolute;left:-8px;right:-8px;top:-6px;bottom:-6px;
+      border:2px solid var(--brand);border-radius:999px;transform:rotate(-2deg) scale(1);opacity:1;
+    }
 
     /* ABOUT */
     .about-split{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:center;}
     .about-photo{display:flex;justify-content:center;}
-    .about-photo .polaroid{background:#fff;border:1px solid rgba(0,0,0,.18);border-radius:4px;padding:12px 12px 38px;box-shadow:0 8px 16px rgba(0,0,0,.12),0 2px 0 rgba(0,0,0,.04) inset;transform:rotate(-3deg);}
+    .about-photo .polaroid{
+      background:#fff;border:1px solid rgba(0,0,0,.18);border-radius:4px;
+      padding:12px 12px 38px;box-shadow:0 8px 16px rgba(0,0,0,.12),0 2px 0 rgba(0,0,0,.04) inset;transform:rotate(-3deg);
+    }
     .about-photo .polaroid img{display:block;width:min(340px,62vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);}
     .about-text{background:var(--paper-bg);border:1px solid rgba(0,0,0,.08);border-radius:4px;box-shadow:var(--shadow);padding:18px;}
     .about-text h2{text-transform:uppercase;letter-spacing:.08em;font-size:1.1rem;color:var(--brand);margin:0 0 8px;}
     .about-text p{margin:0 0 12px;}
     @media(max-width:800px){.about-split{grid-template-columns:1fr}.about-photo{order:-1}}
 
-    /* TIMELINE */
+    /* TIMELINE (plain) */
     .timeline h2{text-align:center;margin:0 0 14px;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(1.1rem,.6rem+1.4vw,1.6rem);}
     .timeline-wrap{display:none;}
-    .timeline-h{display:grid;grid-template-rows:auto 40px auto;grid-template-columns:repeat(5,1fr);align-items:center;gap:10px 16px;position:relative;max-width:var(--maxw);margin:0 auto;padding:8px 6px;}
-    .rule{grid-row:2/3;grid-column:1/-1;height:3px;width:100%;background:var(--fg);transform-origin:left center;transform:scaleX(0);}
+    .timeline-h{
+      display:grid;grid-template-rows:auto 40px auto;grid-template-columns:repeat(5,1fr);
+      align-items:center;gap:10px 16px;max-width:var(--maxw);margin:0 auto;padding:8px 6px;position:relative;
+    }
+    .rule{
+      grid-row:2/3;grid-column:1/-1;height:3px;width:100%;
+      background: var(--muted); /* grey line */
+    }
     .timeline-h .date{text-align:center;font-weight:700;letter-spacing:.06em;font-size:.9rem;}
-    .tick{width:12px;height:12px;border-radius:50%;background:var(--brand);justify-self:center;opacity:0;transform:scale(.85);transition:opacity .25s ease,transform .25s ease;}
+    .tick{
+      width:12px;height:12px;border-radius:50%;background:var(--brand);
+      justify-self:center; /* red dots always visible */
+    }
     .timeline-h .desc{text-align:center;color:var(--muted);font-size:.95rem;}
+
+    /* Mobile vertical timeline (static) */
     .timeline-v{display:grid;gap:10px;max-width:680px;margin:0 auto;}
-    .tcard{background:var(--paper-bg);border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:var(--shadow);padding:12px 14px;position:relative;overflow:hidden;}
+    .tcard{background:var(--paper-bg);border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:var(--shadow);padding:12px 14px;}
     .tcard h3{margin:0 0 4px;font-size:1rem;}
     .tcard p{margin:0;color:var(--muted);}
-    .tline{position:absolute;left:0;top:0;height:3px;width:100%;background:var(--fg);transform:scaleX(0);transform-origin:left center;}
     @media(min-width:801px){.timeline-v{display:none}.timeline-wrap{display:block}}
 
     /* FOLDERS */
@@ -122,8 +135,8 @@
 <body>
   <div class="scroller" id="scroller">
 
-    <!-- WHO I AM -->
-    <section class="screen hero">
+    <!-- 1) WHO I AM -->
+    <section class="screen hero" aria-label="Intro">
       <div class="wrap" style="text-align:center">
         <div class="polaroid"><img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" /></div>
         <h1>Hi, I’m Neeli.</h1>
@@ -131,8 +144,8 @@
       <div class="scroll-indicator" aria-hidden="true"><div>scroll</div><div class="arrow"></div></div>
     </section>
 
-    <!-- WHAT I’VE DONE -->
-    <section class="screen">
+    <!-- 2) WHAT I’VE DONE -->
+    <section class="screen" aria-label="What I've Done">
       <div class="wrap">
         <p class="blurb" id="about-blurb">
           I'm an investigative journalist and podcaster whose work has sparked post-conviction appeals,
@@ -142,7 +155,7 @@
       </div>
     </section>
 
-    <!-- WHO I AM OFF THE RECORD -->
+    <!-- 3) WHO I AM OFF THE RECORD -->
     <section class="screen" aria-label="Who I Am Off The Record">
       <div class="wrap about-split">
         <div class="about-photo"><div class="polaroid"><img src="neeli2.png" alt="Neeli in a candid, documentary-style portrait" /></div></div>
@@ -156,36 +169,142 @@
       </div>
     </section>
 
-    <!-- TIMELINE -->
+    <!-- 4) MY IMPACT — PLAIN TIMELINE -->
     <section class="screen" aria-label="Timeline of Impact">
       <div class="wrap timeline">
         <h2>Timeline of Impact</h2>
-        <div class="timeline-wrap" id="timelineDesktop">
-          <div class="timeline-h" id="timelineH">
-            <div class="date">MARCH 2018</div><div class="date">JULY 2019</div><div class="date">APRIL 2020</div><div class="date">OCT 2024</div><div class="date">FEB 2025</div>
-            <div class="rule" id="timelineRule"></div>
-            <div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div>
-            <div class="desc">Investigation begins</div><div class="desc">New evidence uncovered</div><div class="desc">Legal appeals begin using new evidence</div><div class="desc">New case investigation begins</div><div class="desc">New leads uncovered</div>
+
+        <!-- Desktop/tablet horizontal timeline (static) -->
+        <div class="timeline-wrap">
+          <div class="timeline-h">
+            <!-- Dates -->
+            <div class="date">MARCH 2018</div>
+            <div class="date">JULY 2019</div>
+            <div class="date">APRIL 2020</div>
+            <div class="date">OCT 2024</div>
+            <div class="date">FEB 2025</div>
+
+            <!-- Grey rule -->
+            <div class="rule"></div>
+
+            <!-- Red dots -->
+            <div class="tick" aria-hidden="true"></div>
+            <div class="tick" aria-hidden="true"></div>
+            <div class="tick" aria-hidden="true"></div>
+            <div class="tick" aria-hidden="true"></div>
+            <div class="tick" aria-hidden="true"></div>
+
+            <!-- Descriptions -->
+            <div class="desc">Investigation begins</div>
+            <div class="desc">New evidence uncovered</div>
+            <div class="desc">Legal appeals begin using new evidence</div>
+            <div class="desc">New case investigation begins</div>
+            <div class="desc">New leads uncovered</div>
           </div>
         </div>
-        <div class="timeline-v" id="timelineMobile">
-          <article class="tcard"><div class="tline"></div><h3>MARCH 2018</h3><p>Investigation begins</p></article>
-          <article class="tcard"><div class="tline"></div><h3>JULY 2019</h3><p>New evidence uncovered</p></article>
-          <article class="tcard"><div class="tline"></div><h3>APRIL 2020</h3><p>Legal appeals begin using new evidence</p></article>
-          <article class="tcard"><div class="tline"></div><h3>OCTOBER 2024</h3><p>New case investigation begins</p></article>
-          <article class="tcard"><div class="tline"></div><h3>FEBRUARY 2025</h3><p>New leads uncovered</p></article>
+
+        <!-- Mobile vertical timeline (static) -->
+        <div class="timeline-v">
+          <article class="tcard"><h3>MARCH 2018</h3><p>Investigation begins</p></article>
+          <article class="tcard"><h3>JULY 2019</h3><p>New evidence uncovered</p></article>
+          <article class="tcard"><h3>APRIL 2020</h3><p>Legal appeals begin using new evidence</p></article>
+          <article class="tcard"><h3>OCTOBER 2024</h3><p>New case investigation begins</p></article>
+          <article class="tcard"><h3>FEBRUARY 2025</h3><p>New leads uncovered</p></article>
         </div>
       </div>
     </section>
 
-    <!-- LINKS -->
+    <!-- 5) WHERE TO FIND ME -->
     <section class="screen" aria-label="Where To Find Me">
       <div class="wrap">
         <h2 class="section-title">Where To Find Me</h2>
         <div class="folder-grid" id="folderGrid">
-          <a class="folder" href="https://www.murdercreekmedia.com" target="_blank"><div class="paper"></div><div class="folder-sub">Murder Creek Media</div><div class="folder-title">Podcasts</div></a>
-          <a class="folder" href="https://www.youtube.com/@neelifaulkner" target="_blank"><div class="paper"></div><div class="folder-sub">Video + series</div><div class="folder-title">YouTube</div></a>
-          <a class="folder" href="https://www.medium.com/@neelifaulkner" target="_blank"><div class="paper"></div><div class="folder-sub">Features &amp; essays</div><div class="folder-title">Medium</div></a>
-          <a class="folder" href="https://neelifaulkner.substack.com" target="_blank"><div class="paper"></div><div class="folder-sub">Dispatches</div><div class="folder-title">Substack</div></a>
-          <a class="folder" href="https://www.tiktok.com/@murdercreekmedia" target="_blank"><div class="paper"></div><div class="folder-sub">Shorts</div><div class="folder-title">TikTok</div></a>
-          <a class="folder" href
+          <!-- Podcasts -->
+          <a class="folder" href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">
+            <div class="paper" aria-hidden="true"></div>
+            <div class="folder-sub">Murder Creek Media</div>
+            <div class="folder-title">Podcasts</div>
+          </a>
+          <!-- YouTube -->
+          <a class="folder" href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">
+            <div class="paper" aria-hidden="true"></div>
+            <div class="folder-sub">Video + series</div>
+            <div class="folder-title">YouTube</div>
+          </a>
+          <!-- Medium -->
+          <a class="folder" href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">
+            <div class="paper" aria-hidden="true"></div>
+            <div class="folder-sub">Features &amp; essays</div>
+            <div class="folder-title">Medium</div>
+          </a>
+          <!-- Substack -->
+          <a class="folder" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
+            <div class="paper" aria-hidden="true"></div>
+            <div class="folder-sub">Dispatches</div>
+            <div class="folder-title">Substack</div>
+          </a>
+          <!-- TikTok -->
+          <a class="folder" href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">
+            <div class="paper" aria-hidden="true"></div>
+            <div class="folder-sub">Shorts</div>
+            <div class="folder-title">TikTok</div>
+          </a>
+          <!-- Collab -->
+          <a class="folder" href="mailto:neeli@murdercreekmedia.com">
+            <div class="paper" aria-hidden="true"></div>
+            <div class="folder-sub">Email Neeli</div>
+            <div class="folder-title">Collab</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Folder tap-to-reveal on touch; keyboard focus support -->
+  <script>
+    (function(){
+      const grid = document.getElementById('folderGrid');
+      if(!grid) return;
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      let last = null;
+
+      if(isTouch){
+        grid.addEventListener('click', (e)=>{
+          const a = e.target.closest('.folder'); if(!a) return;
+          if(!a.classList.contains('revealed')){
+            e.preventDefault();
+            if(last && last!==a){ last.classList.remove('revealed'); }
+            a.classList.add('revealed'); last=a;
+          }
+        });
+        document.addEventListener('click', (e)=>{
+          if(!e.target.closest('.folder') && last){ last.classList.remove('revealed'); last=null; }
+        });
+      }
+      // Keyboard focus also reveals the paper
+      grid.querySelectorAll('.folder').forEach(a=>{
+        a.addEventListener('focus', ()=>a.classList.add('revealed'));
+        a.addEventListener('blur', ()=>a.classList.remove('revealed'));
+      });
+    })();
+  </script>
+
+  <!-- Hide scroll indicator when scroller is at bottom -->
+  <script>
+    (function(){
+      const scroller = document.getElementById('scroller');
+      const indicator = document.querySelector('.scroll-indicator');
+      if(!scroller || !indicator) return;
+
+      function toggleIndicator(){
+        const atBottom = Math.ceil(scroller.scrollTop + scroller.clientHeight) >= scroller.scrollHeight - 2;
+        indicator.style.opacity = atBottom ? '0' : '1';
+      }
+      scroller.addEventListener('scroll', toggleIndicator, {passive:true});
+      window.addEventListener('resize', toggleIndicator, {passive:true});
+      toggleIndicator();
+    })();
+  </script>
+</body>
+</html>
