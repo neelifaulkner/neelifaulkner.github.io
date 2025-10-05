@@ -287,66 +287,6 @@
   font-size: 0.95rem;
 }
 
-/* ——— PODCAST FEATURE SECTION (FULL-WIDTH BLACK BACKGROUND) ——— */
-.podcast-section {
-  background: #000;                 /* full black background */
-  color: #fff;
-  width: 100vw;                     /* full viewport width */
-  margin-left: calc(50% - 50vw);    /* removes body margin constraints */
-  position: relative;
-  overflow: hidden;
-}
-
-.podcast-feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 28px;
-  padding: 100px 20px;              /* more generous top/bottom padding for hero feel */
-  max-width: var(--maxw);
-  margin: 0 auto;
-}
-
-.feature-title {
-  font-family: 'Caveat', cursive;   /* use Caveat or your custom handwriting font */
-  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.04em;
-  color: #fff;
-  max-width: 820px;
-  margin: 0 auto;
-}
-
-.phone-image {
-  width: 340px;
-  height: auto;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.phone-image:hover {
-  transform: scale(1.04);
-  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.5));
-}
-
-@media (max-width: 640px) {
-  .podcast-feature {
-    padding: 70px 14px;
-    gap: 22px;
-  }
-  .feature-title {
-    font-size: 1.6rem;
-    max-width: 95%;
-  }
-  .phone-image {
-    width: 260px;
-  }
-}
-
-
-
 
 /* ——— CURRENT PROJECTS (fresh, compact) ——— */
 .projects-section { background: var(--bg); }
@@ -600,13 +540,7 @@
         </div>
       </div>
     </section>
-    
-<section class="screen podcast-section" aria-label="Podcast Feature">
-  <div class="wrap podcast-feature">
-    <h2 class="feature-title">I am driven by truth, empathy, and the pursuit of justice.</h2>
-    <img src="phoneframe.png" alt="Phone displaying Neeli Faulkner's podcast" class="phone-image" width="600" height="800" loading="lazy">
-  </div>
-</section>
+  
 
 
     
