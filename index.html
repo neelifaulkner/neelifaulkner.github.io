@@ -273,6 +273,26 @@
         animation:none!important;opacity:1;transform:none;
       }
     }
+    /* --- Visibility fallback for mobile & animation-disabled devices --- */
+@media (prefers-reduced-motion: no-preference) {
+  h1, .rule, .lede, .choices {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeUp 1.6s ease forwards;
+  }
+
+  h1 { animation-delay: .1s; }
+  .rule { animation-delay: .55s; }
+  .lede { animation-delay: .9s; }
+  .choices { animation-delay: 1.35s; }
+}
+
+/* Default: visible (so if animation doesn't run, text still shows) */
+h1, .rule, .lede, .choices {
+  opacity: 1;
+  transform: none;
+}
+
   </style>
 </head>
 <body>
