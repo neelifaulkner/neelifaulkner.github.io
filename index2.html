@@ -3,27 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neeli Faulkner — Investigative Journalist & Podcaster</title>
-  <meta name="description" content="Hi, I’m Neeli — investigative journalist & podcaster. Founder of Murder Creek Media. My work has sparked post-conviction appeals and new cold-case leads." />
+  <title>Neeli Faulkner . Investigative Journalist & Podcaster</title>
+  <meta name="description" content="Hi, I’m Neeli . investigative journalist and podcaster . Founder of Murder Creek Media . My work has sparked post-conviction appeals and new cold-case leads." />
   <meta name="theme-color" content="#A2130C" />
   <link rel="canonical" href="https://neelifaulkner.com/" />
-  
-  <!-- Favicon -->
-<link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest">
-
 
   <!-- Icons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="icon" href="/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
 
   <link rel="preload" as="image" href="neeli.png?v=2" />
 
@@ -31,19 +26,34 @@
     :root{
       --fg:#1a1a1a;
       --bg:#f8f7f5;
-      --muted:#6b6b6b;           /* used for grey timeline line */
-      --brand:#a2130c;           /* red dots */
+      --muted:#6b6b6b;
+      --brand:#a2130c;
       --paper-bg:#e9e7e3;
       --shadow:0 4px 8px rgba(0,0,0,.08);
       --shadow-hover:0 8px 16px rgba(0,0,0,.16);
       --focus:2px dashed var(--brand);
       --maxw:980px;
+
+      --font-editorial:"Playfair Display", Georgia, serif;
+      --font-body:"Courier New", Courier, monospace;
     }
     @media (prefers-color-scheme: dark){
       :root{--fg:#f5f5f5;--bg:#1a1a1a;--muted:#bdbdbd;--paper-bg:#262626;}
     }
+
     html,body{height:100%;}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:"Courier New",Courier,monospace;line-height:1.55;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:var(--font-body);
+      line-height:1.55;
+    }
+
+    /* Headings use editorial font */
+    h1,h2,h3,.section-title,.projects-title,.award-head{
+      font-family:var(--font-editorial);
+    }
 
     /* Scroll-snap container */
     .scroller{scroll-snap-type:y mandatory;overflow-y:auto;height:100dvh;position:relative;}
@@ -61,17 +71,43 @@
       transform:rotate(-2.5deg);
     }
     @media (prefers-color-scheme:dark){
-      .hero .polaroid{background:#f1f1f1;border-color:rgba(255,255,255,.18);
-        box-shadow:0 8px 16px rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.08) inset;}
+      .hero .polaroid{
+        background:#f1f1f1;border-color:rgba(255,255,255,.18);
+        box-shadow:0 8px 16px rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.08) inset;
+      }
     }
-    .hero .polaroid img{display:block;width:min(320px,60vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);}
-    .hero h1{margin:14px 0 0;font-size:clamp(1.8rem,2.5vw+1.2rem,3rem);line-height:1.1;text-align:center;}
-    .scroll-indicator{position:fixed;bottom:22px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.95rem;pointer-events:none;transition:opacity .3s ease;}
-    .arrow{width:18px;height:18px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.8;animation:bob 1.6s ease-in-out infinite;}
-    @keyframes bob{0%,100%{transform:translateY(0)rotate(45deg);}50%{transform:translateY(6px)rotate(45deg);}}
+    .hero .polaroid img{
+      display:block;width:min(320px,60vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);
+    }
+    .hero h1{
+      margin:14px 0 0;
+      font-size:clamp(1.8rem,2.5vw+1.2rem,3rem);
+      line-height:1.05;
+      text-align:center;
+      font-weight:800;
+      letter-spacing:-0.01em;
+    }
+
+    .scroll-indicator{
+      position:fixed;bottom:22px;left:0;right:0;
+      display:flex;flex-direction:column;align-items:center;gap:6px;
+      color:var(--muted);font-size:.95rem;pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .arrow{
+      width:18px;height:18px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+      transform:rotate(45deg);opacity:.8;animation:bob 1.6s ease-in-out infinite;
+    }
+    @keyframes bob{
+      0%,100%{transform:translateY(0)rotate(45deg);}
+      50%{transform:translateY(6px)rotate(45deg);}
+    }
 
     /* BLURB */
-    .blurb{font-size:clamp(1.05rem,.9rem+.9vw,1.35rem);max-width:900px;color:var(--fg);text-align:center;padding:0 8px;}
+    .blurb{
+      font-size:clamp(1.05rem,.9rem+.9vw,1.35rem);
+      max-width:900px;color:var(--fg);text-align:center;padding:0 8px;
+    }
     .circled{position:relative;display:inline-block;padding:0 4px;}
     .circled::after{
       content:"";position:absolute;left:-8px;right:-8px;top:-6px;bottom:-6px;
@@ -83,380 +119,155 @@
     .about-photo{display:flex;justify-content:center;}
     .about-photo .polaroid{
       background:#fff;border:1px solid rgba(0,0,0,.18);border-radius:4px;
-      padding:12px 12px 38px;box-shadow:0 8px 16px rgba(0,0,0,.12),0 2px 0 rgba(0,0,0,.04) inset;transform:rotate(-3deg);
+      padding:12px 12px 38px;
+      box-shadow:0 8px 16px rgba(0,0,0,.12),0 2px 0 rgba(0,0,0,.04) inset;
+      transform:rotate(-3deg);
     }
-    .about-photo .polaroid img{display:block;width:min(340px,62vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);}
-    .about-text{background:var(--paper-bg);border:1px solid rgba(0,0,0,.08);border-radius:4px;box-shadow:var(--shadow);padding:18px;}
-    .about-text h2{text-transform:uppercase;letter-spacing:.08em;font-size:1.1rem;color:var(--brand);margin:0 0 8px;}
+    .about-photo .polaroid img{
+      display:block;width:min(340px,62vw);height:auto;border-radius:2px;border:1px solid rgba(0,0,0,.22);
+    }
+    .about-text{
+      background:var(--paper-bg);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:4px;
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .about-text h2{
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:1.1rem;
+      color:var(--brand);
+      margin:0 0 8px;
+      font-weight:700;
+    }
     .about-text p{margin:0 0 12px;}
     @media(max-width:800px){.about-split{grid-template-columns:1fr}.about-photo{order:-1}}
 
- /* === TIMELINE — desktop/tablet only === */
-@media (min-width: 801px){
-  .timeline-wrap{ display:block !important; }
-  .timeline-v{ display:none !important; }
+    /* ——— LINK BOXES ——— */
+    .links-wrap{max-width:720px;margin:0 auto;}
+    .links-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    @media (max-width: 900px){.links-list{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width: 640px){.links-list{grid-template-columns:1fr;}}
 
-  .timeline-h{
-    display:grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto 16px auto; /* middle row = the line */
-    align-items:center;
-    gap:10px 16px;
-    max-width: var(--maxw);
-    margin:0 auto;
-    padding:8px 6px;
-  }
+    .link-item{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--fg);
+      background:#ffffff;
+      border:1px solid rgba(0, 0, 0, 0.15);
+      border-radius:0;
+      padding:10px 12px;
+      box-shadow:var(--shadow);
+      transition:transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      overflow:hidden;
+    }
+    .link-item::before{
+      content:"";position:absolute;left:0;top:0;width:4px;height:0%;
+      background:var(--brand);transition:height 0.2s ease;
+    }
+    .link-item:hover::before,
+    .link-item:focus-visible::before{height:100%;}
+    .link-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);}
+    .link-item:focus-visible{outline:var(--focus);outline-offset:3px;}
 
-  .timeline-h .date{
-    text-align:center; font-weight:700; letter-spacing:.06em; font-size:.9rem;
-  }
+    .link-icon{
+      width:22px;height:22px;flex:0 0 22px;object-fit:contain;transition:filter 0.2s ease;
+    }
+    .link-item:hover .link-icon,
+    .link-item:focus-visible .link-icon{filter:brightness(1.15);}
 
-  /* grey line across middle row */
-  .rule{
-    grid-row: 2 / 3;
-    grid-column: 1 / -1;
-    height: 3px;
-    background: var(--muted);
-    align-self: center;
-  }
+    .link-label{font-weight:700;letter-spacing:0.03em;font-size:0.95rem;}
 
-  /* red dots embedded IN the line */
-  .timeline-h > .tick{
-    grid-row: 2 / 3;            /* same row as line */
-    align-self: center;          /* vertical center = inline with line */
-    justify-self: center;
-    width: 12px; height: 12px;
-    border-radius: 50%;
-    background: var(--brand);
-    z-index: 1;
-  }
+    /* . AWARDS & PRESS . */
+    .awards-wrap{max-width:980px;margin:0 auto;}
 
-  /* place dots per column (matches your child order) */
-  .timeline-h > .tick:nth-child(7){ grid-column: 1; }
-  .timeline-h > .tick:nth-child(8){ grid-column: 2; }
-  .timeline-h > .tick:nth-child(9){ grid-column: 3; }
-  .timeline-h > .tick:nth-child(10){ grid-column: 4; }
-  .timeline-h > .tick:nth-child(11){ grid-column: 5; }
+    .awards-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    @media (max-width: 800px){.awards-grid{grid-template-columns:1fr;}}
 
-  .timeline-h .desc{
-    text-align:center; color: var(--muted); font-size:.95rem;
-  }
-}
+    .award-col{
+      background:var(--paper-bg);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
 
-/* === TIMELINE — mobile vertical spine (≤800px) === */
-@media (max-width: 800px){
-  .timeline-wrap{ display:none !important; }   /* hide desktop timeline */
-  .timeline-v{
-    display:block !important;
-    position: relative;
-    max-width: 680px;
-    margin: 0 auto;
-    padding-left: 28px;   /* room for spine + dots */
-  }
-  /* grey spine */
-  .timeline-v::before{
-    content:"";
-    position:absolute;
-    left: 12px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--muted);
-  }
-  .tcard{
-    position: relative;
-    background: var(--paper-bg);
-    border: 1px solid rgba(0,0,0,.08);
-    box-shadow: var(--shadow);
-    border-radius: 4px;
-    padding: 12px 14px;
-    margin: 12px 0;
-  }
-  /* red dot on the spine, vertically centered near the date */
-  .tcard::before{
-    content:"";
-    position:absolute;
-    left: -18px;          /* lines up over the spine */
-    top: 22px;            /* sits near the date text */
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--brand);
-  }
-  .tcard h3{
-    margin: 0 0 4px;
-    font-size: .95rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-  }
-  .tcard p{
-    margin: 0;
-    color: var(--muted);
-    font-size: .95rem;
-    line-height: 1.45;
-  }
-}
+    .award-head{
+      margin:0 0 10px;
+      font-size:1.05rem;
+      letter-spacing:.02em;
+      text-transform:none;
+      color:var(--fg);
+      font-weight:800;
+    }
 
+    .award-list{list-style:none;padding:0;margin:0;}
+    .award-list li{
+      margin:0 0 14px;
+      font-size:.95rem;
+      line-height:1.45;
+      color:var(--fg);
+    }
 
-/* ——— LINK BOXES ——— */
-.links-wrap {
-  max-width: 720px;
-  margin: 0 auto;
-}
+    .award-meta{color:var(--muted);}
 
-.links-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-  gap: 12px;
-}
+    .award-desc{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
 
-@media (max-width: 900px) {
-  .links-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-  }
-}
+    .award-list a{
+      color:inherit;
+      text-decoration:underline;
+      text-decoration-thickness:1px;
+      text-underline-offset:3px;
+    }
+    .award-list a:hover{color:var(--brand);}
+    .award-link{margin-left:6px;white-space:nowrap;}
 
-@media (max-width: 640px) {
-  .links-list {
-    grid-template-columns: 1fr; /* 1 column on mobile */
-  }
-}
-
-.link-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--fg);
-  background: #ffffff; /* white background */
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0; /* straight corners */
-  padding: 10px 12px;
-  box-shadow: var(--shadow);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-  overflow: hidden;
-}
-
-/* Red accent bar */
-.link-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 0%;
-  background: var(--brand);
-  transition: height 0.2s ease;
-}
-
-.link-item:hover::before,
-.link-item:focus-visible::before {
-  height: 100%;
-}
-
-/* Hover lift */
-.link-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
-}
-
-.link-item:focus-visible {
-  outline: var(--focus);
-  outline-offset: 3px;
-}
-
-/* Icon styling */
-.link-icon {
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
-  object-fit: contain;
-  transition: filter 0.2s ease;
-}
-
-/* Slight icon brighten on hover */
-.link-item:hover .link-icon,
-.link-item:focus-visible .link-icon {
-  filter: brightness(1.15);
-}
-
-.link-label {
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  font-size: 0.95rem;
-}
-
-
-/* ——— CURRENT PROJECTS (fresh, compact) ——— */
-.projects-section { background: var(--bg); }
-.projects-wrap {
-  /* contained width so cards don't stretch edge-to-edge */
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 20px;
-  --thumb: 140px; /* square thumbnail size */
-}
-
-.projects-title {
-  text-align: center;
-  margin: 0 0 22px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  font-size: clamp(1.1rem, .6rem + 1.4vw, 1.6rem);
-}
-
-/* Grid: 4 = desktop, 2 = tablet, 1 = mobile */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  justify-items: center; /* centers each card within its grid cell */
-}
-
-@media (max-width: 1024px){
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px){
-  .projects-grid { grid-template-columns: 1fr; }
-  .projects-wrap { --thumb: 120px; } /* slightly smaller thumbs on phones */
-}
-
-/* Card */
-.project-card {
-  background: #fff;
-  color: var(--fg);
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: 0; /* straight edges */
-  box-shadow: var(--shadow);
-  width: 100%;
-  max-width: 240px;          /* keeps cards compact */
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-
-/* Small square thumbnail, centered */
-.project-thumb {
-  width: var(--thumb);
-  height: var(--thumb);      /* perfect square */
-  border: 1px solid rgba(0,0,0,.12);
-  background: #f2f2f2;
-  overflow: hidden;
-  align-self: center;        /* center the thumb in the card */
-}
-.project-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Text */
-.project-card h3 {
-  margin: 0;
-  font-size: .95rem;
-  font-weight: 700;
-  letter-spacing: .03em;
-}
-.project-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: .9rem;
-  line-height: 1.45;
-}
-
-
-
-
-
-
-
-
-/* ——— OFF DUTY POLAROIDS ——— */
-.offduty-wrap {
-  max-width: var(--maxw);
-  margin: 0 auto;
-}
-
-.offduty-title {
-  text-align: center;
-  margin: 0 0 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: clamp(1.1rem, 0.6rem + 1.4vw, 1.6rem);
-}
-
-.offduty-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-  align-items: start;
-}
-
-@media (max-width: 800px) {
-  .offduty-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.od-polaroid {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  border-radius: 4px;
-  padding: 10px 10px 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12), 0 2px 0 rgba(0, 0, 0, 0.04) inset;
-  transform: rotate(-2deg);
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-@media (prefers-color-scheme: dark) {
-  .od-polaroid {
-    background: #f1f1f1;
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.08) inset;
-  }
-}
-
-.od-polaroid img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1; /* keep them square */
-  object-fit: cover;
-  border-radius: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.22);
-}
-
-.od-caption {
-  margin-top: 8px;
-  text-align: center;
-  font-family: 'Caveat', cursive;
-  font-size: 1.05rem;
-  color: var(--muted);
-}
-
-
-
-
-
-
+    /* Slightly lighter heading weight in dark mode */
+    @media (prefers-color-scheme: dark){
+      h1,h2,h3,.section-title,.projects-title,.award-head{font-weight:700;}
+    }
   </style>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Neeli Faulkner","url":"https://neelifaulkner.com/","jobTitle":"Investigative Journalist & Podcaster","affiliation":{"@type":"Organization","name":"Murder Creek Media"},"sameAs":["https://murdercreekmedia.com","https://youtube.com/@neelifaulkner","https://neelifaulkner.substack.com","https://medium.com/@neelifaulkner","https://www.tiktok.com/@murdercreekmedia"]}
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Neeli Faulkner",
+    "url":"https://neelifaulkner.com/",
+    "jobTitle":"Investigative Journalist & Podcaster",
+    "description":"Investigative journalist and podcaster focused on wrongful convictions, cold cases, and accountability reporting.",
+    "image":"https://neelifaulkner.com/neeli.png?v=2",
+    "affiliation":{"@type":"Organization","name":"Murder Creek Media"},
+    "sameAs":[
+      "https://murdercreekmedia.com",
+      "https://youtube.com/@neelifaulkner",
+      "https://neelifaulkner.substack.com",
+      "https://medium.com/@neelifaulkner",
+      "https://www.tiktok.com/@murdercreekmedia"
+    ]
+  }
   </script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZ6FXS13W"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3HZ6FXS13W');</script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-3HZ6FXS13W');
+  </script>
 </head>
 
 <body>
@@ -465,10 +276,15 @@
     <!-- 1) WHO I AM -->
     <section class="screen hero" aria-label="Intro">
       <div class="wrap" style="text-align:center">
-        <div class="polaroid"><img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" /></div>
+        <div class="polaroid">
+          <img src="neeli.png?v=2" alt="Portrait of Neeli Faulkner" width="480" height="600" />
+        </div>
         <h1>Hi, I’m Neeli Faulkner.</h1>
       </div>
-      <div class="scroll-indicator" aria-hidden="true"><div>scroll</div><div class="arrow"></div></div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <div>scroll</div>
+        <div class="arrow"></div>
+      </div>
     </section>
 
     <!-- 2) WHAT I’VE DONE -->
@@ -485,175 +301,152 @@
     <!-- 3) WHO I AM OFF THE RECORD -->
     <section class="screen" aria-label="Who I Am Off The Record">
       <div class="wrap about-split">
-        <div class="about-photo"><div class="polaroid"><img src="neeli2.png" alt="Neeli in a candid, documentary-style portrait" /></div></div>
+        <div class="about-photo">
+          <div class="polaroid">
+            <img src="neeli2.png" alt="Neeli in a candid, documentary-style portrait" />
+          </div>
+        </div>
         <div class="about-text">
           <h2>Who I Am Off The Record</h2>
-          <p>I'm the founder of Murder Creek Media, where I lead a fully volunteer team of over 15 dedicated researchers, writers, and investigators.</p>
-          <p>My investigative and storytelling work has produced new evidence in two murder convictions and surfaced new leads in an unsolved cold case, giving families long-overdue hope for answers.</p>
-          <p>I'm a proud member of the National Society of Leadership and Success (NSLS) and Omega Nu Lambda, and in 2025, I was nationally recognized by the Alliance for Women in Media for my investigative work on <em>Skeptical: An Investigative Podcast</em> — a rare honor for someone in independent media.</p>
+          <p>I am an independent investigative journalist reporting on wrongful convictions, cold cases, and failures of the criminal justice system. I am also the founder of Murder Creek Media, where my investigations have contributed to post-conviction appeals, uncovered new evidence in unsolved homicides, and brought renewed scrutiny to cases long considered closed.</p>
+           <p>I'm a proud member of the National Society of Leadership and Success (NSLS) and Omega Nu Lambda, and in 2025, I was nationally recognized by the Alliance for Women in Media for my investigative work on <em>Skeptical: An Investigative Podcast</em>, a rare honor for someone in independent media.</p>
           <p>Outside of my professional work, I dedicate my time to nonprofit projects supporting children with special needs and continue to advocate for truth, transparency, and justice through digital storytelling.</p>
         </div>
       </div>
     </section>
 
-    <!-- 4) MY IMPACT — PLAIN TIMELINE -->
-    <section class="screen" aria-label="Timeline of Impact">
-      <div class="wrap timeline">
-        <h2>Timeline of Impact</h2>
+    <!-- 4) AWARDS & PRESS -->
+    <section class="screen" aria-label="Awards and Press">
+      <div class="wrap awards-wrap">
+        <h2 class="section-title">Awards &amp; Press</h2>
 
-        <!-- Desktop/tablet horizontal timeline (static) -->
-        <div class="timeline-wrap">
-          <div class="timeline-h">
-            <!-- Dates -->
-            <div class="date">MARCH 2018</div>
-            <div class="date">JULY 2019</div>
-            <div class="date">APRIL 2020</div>
-            <div class="date">OCT 2024</div>
-            <div class="date">FEB 2025</div>
-
-            <!-- Grey rule -->
-            <div class="rule"></div>
-
-            <!-- Red dots -->
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-            <div class="tick" aria-hidden="true"></div>
-
-            <!-- Descriptions -->
-            <div class="desc">First case investigation begins into potential wrongful conviction</div>
-            <div class="desc">New evidence uncovered supporting claim of wrongful conviction</div>
-            <div class="desc">Legal appeals begin using new evidence for defendants in two cases</div>
-            <div class="desc">New case investigation begins into unsolved homicide</div>
-            <div class="desc">New viable lead uncovered and provided to law enforcement</div>
+        <div class="awards-grid">
+          <!-- Awards -->
+          <div class="award-col">
+            <h3 class="award-head">Awards &amp; Recognition</h3>
+            <ul class="award-list">
+              <li>
+                <strong>Honorable Mention</strong>. 50th Annual Gracie Awards.
+                Audio Podcast. Investigative (National). <em>Skeptical: An Investigative Podcast</em>. 2025.
+                <a class="award-link" href="https://allwomeninmedia.org/app/uploads/2025/03/2025-Honorable-Mention-List.pdf" target="_blank" rel="noopener">View list</a>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Mobile vertical timeline (static) -->
-        <div class="timeline-v">
-          <article class="tcard"><h3>MARCH 2018</h3><p>Investigation begins</p></article>
-          <article class="tcard"><h3>JULY 2019</h3><p>New evidence uncovered</p></article>
-          <article class="tcard"><h3>APRIL 2020</h3><p>Legal appeals begin using new evidence</p></article>
-          <article class="tcard"><h3>OCTOBER 2024</h3><p>New case investigation begins</p></article>
-          <article class="tcard"><h3>FEBRUARY 2025</h3><p>New leads uncovered</p></article>
+          <!-- Press -->
+          <div class="award-col">
+            <h3 class="award-head">Press &amp; Media</h3>
+            <ul class="award-list">
+            
+              <li>
+                <a href="https://www.gulfcoastmedia.com/stories/baldwin-county-based-true-crime-podcast-focuses-on-unsolved-crimes-and-potential-wrongful%2C253014" target="_blank" rel="noopener">
+                  Gulf Coast Media
+                </a>
+                <span class="award-meta">. Feb 28, 2025</span>
+                <div class="award-desc">Feature examining ongoing cold case reporting and the early development of Murder in Mobile County, including new investigative leads in the 1981 murder of Brenda Peters and the role independent journalism plays in reviving long-dormant cases.</div>
+              </li>
+
+              <li>
+                <a href="https://www.yahoo.com/news/former-annistonian-turned-podcaster-investigates-045900759.html" target="_blank" rel="noopener">
+                  The Anniston Star (syndicated via Yahoo News)
+                </a>
+                <span class="award-meta">. Feb 10, 2025</span>
+                <div class="award-desc">Profile highlighting investigative reporting focused on wrongful convictions and cold cases, including work uncovering new witness recantations and renewed post-conviction efforts tied to the Daniel Blan and Tony Quince cases.</div>
+              </li>
+              <li>
+                <a href="https://www.thecoosacountynews.com/2025/01/03/podcast-sheds-light-on-new-evidence-more-in-1994-coosa-murder/" target="_blank" rel="noopener">
+                  The Coosa County News
+                </a>
+                <span class="award-meta">. Jan 3, 2025</span>
+                <div class="award-desc">Front-page coverage detailing newly uncovered evidence and renewed investigative and legal attention in a 1994 Coosa County, Alabama murder case.</div>
+              </li>
+
+
+                            <li>
+                <a href="https://www.murdercreekmedia.com/post/murder-creek-media-and-skeptical-podcast-featured-in-inaugural-issue-of-splash-magazine" target="_blank" rel="noopener">
+                  Splash Magazine
+                </a>
+                <span class="award-meta">. Oct 14, 2024</span>
+                <div class="award-desc">Feature mention in Splash Magazine's inaugural issue highlighting Skeptical and its mission to pursue accountability, ethical storytelling, and justice-driven investigative reporting.</div>
+              </li>
+               <li>
+                <a href="https://www.montgomeryadvertiser.com/story/news/2018/09/24/skeptical-podcast-looks-into-coosa-county-murder-eye-proving-mens-innocence/1350596002/" target="_blank" rel="noopener">
+                  Montgomery Advertiser
+                </a>
+                <span class="award-meta">. Sep 24, 2018</span>
+                <div class="award-desc">Early coverage examining Skeptical and its investigation into a murder case, outlining the podcast's initial findings and investigative approach.</div>
+              </li>
+
+              <!-- Optional. Add when you have a link -->
+              <!--
+              <li>
+                <a href="PASTE_SOCIAL_COASTAL_LINK_HERE" target="_blank" rel="noopener">Social Coastal Magazine</a>
+                <span class="award-meta">. [Month Day, Year]</span>
+                <div class="award-desc">Feature interview on your origins, Alabama roots, and approach to investigative storytelling.</div>
+              </li>
+              -->
+            </ul>
+          </div>
         </div>
       </div>
     </section>
-  
 
+   
+    <!-- 6) WHERE TO FIND ME -->
+    <section class="screen" aria-label="Where To Find Me">
+      <div class="wrap links-wrap">
+        <h2 class="section-title">Where To Find Me</h2>
 
-    
-    
-<section class="screen projects-section" aria-label="Current Projects">
-  <div class="wrap projects-wrap">
-    <h2 class="projects-title">Current Projects</h2>
+        <div class="links-list">
+          <a class="link-item" href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">
+            <img class="link-icon" src="mcmicon.png" alt="" />
+            <span class="link-label">Murder Creek Media</span>
+          </a>
 
-    <div class="projects-grid">
-      <!-- 1) Murder in Mobile County -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="mobilecounty.png" alt="Murder in Mobile County artwork" width="500" height="500">
+          <a class="link-item" href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">
+            <img class="link-icon" src="youtubeicon.png" alt="" />
+            <span class="link-label">YouTube</span>
+          </a>
+
+          <a class="link-item" href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">
+            <img class="link-icon" src="mediumicon.png" alt="" />
+            <span class="link-label">Medium</span>
+          </a>
+
+          <a class="link-item" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
+            <img class="link-icon" src="substackicon.png" alt="" />
+            <span class="link-label">Substack</span>
+          </a>
+
+          <a class="link-item" href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">
+            <img class="link-icon" src="tiktokicon.png" alt="" />
+            <span class="link-label">Tiktok</span>
+          </a>
+
+          <a class="link-item" href="https://www.facebook.com/neeli.faulkner" target="_blank" rel="noopener">
+            <img class="link-icon" src="facebookicon.png" alt="" />
+            <span class="link-label">Facebook</span>
+          </a>
+
+          <a class="link-item" href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener">
+            <img class="link-icon" src="instagramicon.png" alt="" />
+            <span class="link-label">Instagram</span>
+          </a>
+
+          <a class="link-item" href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener">
+            <img class="link-icon" src="linkedinicon.png" alt="" />
+            <span class="link-label">LinkedIn</span>
+          </a>
+
+          <a class="link-item" href="mailto:neeli@murdercreekmedia.com">
+            <img class="link-icon" src="emailicon.png" alt="" />
+            <span class="link-label">Collab</span>
+          </a>
         </div>
-        <h3>Murder in Mobile County</h3>
-        <p>Investigative serial podcast exploring the unsolved murder of Brenda Peters from Mobile, AL in May of 1981.</p>
-      </article>
+      </div>
+    </section>
 
-      <!-- 2) Care Playbook -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="careplaybook.png" alt="Care Playbook brand graphic" width="500" height="500">
-        </div>
-        <h3>Care Playbook</h3>
-        <p>Collection of resources for parents &amp; caregivers of special-needs children in South Alabama.</p>
-      </article>
-
-      <!-- 3) Dead Diary -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="deaddiarya.png" alt="Dead Diary podcast cover art" width="500" height="500">
-        </div>
-        <h3>Dead Diary</h3>
-        <p>Weekly podcast recapping trending true crime cases.</p>
-      </article>
-
-      <!-- 4) The Ultimate Investigative Toolkit -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="toolkit.png" alt="Ultimate Investigative Toolkit graphic" width="500" height="500">
-        </div>
-        <h3>The Ultimate Investigative Toolkit</h3>
-        <p>Multilayered learning course designed to give amateur sleuths and creators the proven strategies to find, analyze, and verify information.</p>
-      </article>
-    </div>
   </div>
-</section>
-
-
-
-
-    
- <section class="screen" aria-label="Where To Find Me">
-  <div class="wrap links-wrap">
-    <h2 class="section-title">Where To Find Me</h2>
-
-    <div class="links-list">
-      <!-- 1) Murder Creek Media -->
-      <a class="link-item" href="https://www.murdercreekmedia.com" target="_blank" rel="noopener">
-        <img class="link-icon" src="mcmicon.png" alt="" />
-        <span class="link-label">Murder Creek Media</span>
-      </a>
-
-      <!-- 2) YouTube -->
-      <a class="link-item" href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener">
-        <img class="link-icon" src="youtubeicon.png" alt="" />
-        <span class="link-label">YouTube</span>
-      </a>
-
-      <!-- 3) Medium -->
-      <a class="link-item" href="https://www.medium.com/@neelifaulkner" target="_blank" rel="noopener">
-        <img class="link-icon" src="mediumicon.png" alt="" />
-        <span class="link-label">Medium</span>
-      </a>
-
-      <!-- 4) Substack -->
-      <a class="link-item" href="https://neelifaulkner.substack.com" target="_blank" rel="noopener">
-        <img class="link-icon" src="substackicon.png" alt="" />
-        <span class="link-label">Substack</span>
-      </a>
-
-      <!-- 5) TikTok -->
-      <a class="link-item" href="https://www.tiktok.com/@murdercreekmedia" target="_blank" rel="noopener">
-        <img class="link-icon" src="tiktokicon.png" alt="" />
-        <span class="link-label">Tiktok</span>
-      </a>
-
-      <!-- 6) Facebook -->
-      <a class="link-item" href="https://www.facebook.com/neeli.faulkner" target="_blank" rel="noopener">
-        <img class="link-icon" src="facebookicon.png" alt="" />
-        <span class="link-label">Facebook</span>
-      </a>
-
-      <!-- 7) Instagram -->
-      <a class="link-item" href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener">
-        <img class="link-icon" src="instagramicon.png" alt="" />
-        <span class="link-label">Instagram</span>
-      </a>
-
-      <!-- 8) LinkedIn -->
-      <a class="link-item" href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener">
-        <img class="link-icon" src="linkedinicon.png" alt="" />
-        <span class="link-label">LinkedIn</span>
-      </a>
-
-      <!-- 9) Email (last) -->
-      <a class="link-item" href="mailto:neeli@murdercreekmedia.com">
-        <img class="link-icon" src="emailicon.png" alt="" />
-        <span class="link-label">Collab</span>
-      </a>
-    </div>
-  </div>
-</section>
 
   <!-- Folder tap-to-reveal on touch; keyboard focus support -->
   <script>
@@ -676,7 +469,7 @@
           if(!e.target.closest('.folder') && last){ last.classList.remove('revealed'); last=null; }
         });
       }
-      // Keyboard focus also reveals the paper
+
       grid.querySelectorAll('.folder').forEach(a=>{
         a.addEventListener('focus', ()=>a.classList.add('revealed'));
         a.addEventListener('blur', ()=>a.classList.remove('revealed'));
