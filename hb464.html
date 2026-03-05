@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HB 464 . DHR Central Registry and Due Process Act</title>
+  <meta name="description" content="HB 464 in plain English. The problem, what the bill does, and how to contact the House Judiciary Committee." />
+  <meta name="theme-color" content="#A2130C" />
+  <link rel="canonical" href="https://neelifaulkner.com/hb464" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --fg:#1a1a1a;
+      --bg:#f8f7f5;
+      --muted:#6b6b6b;
+      --brand:#a2130c;
+      --paper-bg:#e9e7e3;
+      --shadow:0 4px 8px rgba(0,0,0,.08);
+      --shadow-hover:0 8px 16px rgba(0,0,0,.16);
+      --focus:2px dashed var(--brand);
+      --maxw:980px;
+
+      --font-editorial:"Playfair Display", Georgia, serif;
+      --font-body:"Courier New", Courier, monospace;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--fg:#f5f5f5;--bg:#1a1a1a;--muted:#bdbdbd;--paper-bg:#262626;}
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:var(--font-body);
+      line-height:1.55;
+    }
+
+    /* Headings use editorial font */
+    h1,h2,h3,.section-title{
+      font-family:var(--font-editorial);
+    }
+
+    /* Scroll-snap container */
+    .scroller{scroll-snap-type:y mandatory;overflow-y:auto;height:100dvh;position:relative;}
+    .screen{min-height:100dvh;display:grid;place-items:center;padding:24px 18px;scroll-snap-align:start;}
+    .wrap{width:100%;max-width:var(--maxw);margin:0 auto;}
+    .section-title{text-align:center;margin:0 0 12px;text-transform:uppercase;letter-spacing:.07em;}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+    /* HERO */
+    .hero-inner{display:grid;place-items:center;text-align:center;gap:14px;}
+    .hero .polaroid{
+      display:inline-block;position:relative;background:#fff;
+      border:1px solid rgba(0,0,0,.18);border-radius:4px;
+      padding:12px 12px 22px;
+      box-shadow:0 8px 16px rgba(0,0,0,.12),0 2px 0 rgba(0,0,0,.04) inset;
+      transform:rotate(-2.5deg);
+    }
+    @media (prefers-color-scheme:dark){
+      .hero .polaroid{
+        background:#f1f1f1;border-color:rgba(255,255,255,.18);
+        box-shadow:0 8px 16px rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.08) inset;
+      }
+    }
+    .hero h1{
+      margin:0;
+      font-size:clamp(1.8rem,2.5vw+1.2rem,3rem);
+      line-height:1.05;
+      font-weight:800;
+      letter-spacing:-0.01em;
+    }
+    .lead{
+      max-width:900px;
+      font-size:clamp(1.05rem,.9rem+.9vw,1.3rem);
+      margin:0;
+    }
+    .kicker{color:var(--muted);font-size:.95rem;letter-spacing:.03em;}
+
+    /* CARDS */
+    .card{
+      background:var(--paper-bg);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .card h2{
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:1.05rem;
+      color:var(--brand);
+      margin:0 0 10px;
+      font-weight:800;
+    }
+    .card ul{margin:10px 0 0;padding-left:18px;}
+    .card li{margin:0 0 10px;}
+    .muted{color:var(--muted);}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width: 860px){.grid{grid-template-columns:1fr;}}
+
+    .note{
+      border-left:4px solid var(--brand);
+      padding:10px 12px;
+      background:rgba(255,255,255,.45);
+      margin-top:12px;
+    }
+
+    /* Committee grid */
+    .committee-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    @media (max-width:900px){.committee-grid{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:600px){.committee-grid{grid-template-columns:1fr;}}
+
+    .member{
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.15);
+      padding:12px;
+      box-shadow:var(--shadow);
+      font-size:.95rem;
+    }
+    .member a{
+      color:inherit;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+    .member a:hover{color:var(--brand);}
+
+    /* CTA buttons + copybox */
+    .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;
+      border:1px solid rgba(0,0,0,.22);
+      background:#fff;color:var(--fg);
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      transition:transform 0.12s ease, box-shadow 0.12s ease;
+      font-family:var(--font-body);
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);}
+    .btn:focus-visible{outline:var(--focus);outline-offset:3px;}
+    .btn.primary{background:var(--brand);color:#fff;border-color:rgba(0,0,0,.18);}
+    @media (prefers-color-scheme: dark){
+      .btn{background:#1f1f1f;border-color:rgba(255,255,255,.18);}
+      .btn.primary{border-color:rgba(255,255,255,.12);}
+    }
+
+    .copybox{
+      width:100%;
+      min-height:150px;
+      resize:vertical;
+      font-family:var(--font-body);
+      font-size:.95rem;
+      line-height:1.45;
+      padding:12px;
+      border:1px solid rgba(0,0,0,.2);
+      background:#fff;
+      color:var(--fg);
+      box-sizing:border-box;
+      margin-top:10px;
+    }
+    @media (prefers-color-scheme: dark){
+      .copybox{background:#111;border-color:rgba(255,255,255,.18);color:var(--fg);}
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator{
+      position:fixed;bottom:22px;left:0;right:0;
+      display:flex;flex-direction:column;align-items:center;gap:6px;
+      color:var(--muted);font-size:.95rem;pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .arrow{
+      width:18px;height:18px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+      transform:rotate(45deg);opacity:.8;animation:bob 1.6s ease-in-out infinite;
+    }
+    @keyframes bob{
+      0%,100%{transform:translateY(0)rotate(45deg);}
+      50%{transform:translateY(6px)rotate(45deg);}
+    }
+
+    @media (prefers-color-scheme: dark){
+      h1,h2,h3,.section-title{font-weight:700;}
+    }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZ6FXS13W"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-3HZ6FXS13W');
+  </script>
+</head>
+
+<body>
+  <div class="scroller" id="scroller">
+
+    <!-- HERO -->
+    <section class="screen hero" aria-label="HB 464 Intro">
+      <div class="wrap hero-inner">
+        <h1>HB 464.</h1>
+        <p class="lead">
+          The DHR Central Registry and Due Process Act.
+          This bill is about registry accuracy, staff training, and basic due process.
+        </p>
+        <p class="kicker">Scroll for the plain breakdown.</p>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <div>scroll</div>
+        <div class="arrow"></div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="screen" aria-label="The problem">
+      <div class="wrap">
+        <div class="card">
+          <h2>The problem</h2>
+          <ul>
+            <li>People are being placed on the statewide registry without first receiving a formal “indicated” finding. Due process concerns.</li>
+            <li>Registry placement can cause reputational harm and social stigma, even when allegations are unsubstantiated.</li>
+            <li>It can lead to job loss, professional disqualification, and licensing barriers, especially for positions involving children or vulnerable people.</li>
+            <li>It may also impact custody determinations and family court proceedings.</li>
+            <li>Alabama law does not require a training program before DHR employees conduct investigations.</li>
+            <li>Alabama law does not clearly require an annual legislative report on investigation outcomes and child placement data.</li>
+          </ul>
+
+          <div class="note">
+            Bottom line: People should not face life changing consequences without clear standards and a fair process.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT THE BILL DOES -->
+    <section class="screen" aria-label="What this bill does">
+      <div class="wrap">
+        <div class="card">
+          <h2>What HB 464 does</h2>
+
+          <div class="grid">
+            <div>
+              <ul>
+                <li>Prohibits DHR from putting <strong>not indicated</strong> reports, or related information, on the registry. Requires removal of not indicated reports already on the registry. Retroactive.</li>
+                <li>Prohibits an <strong>indicated</strong> report from being placed on the registry unless confirmed by an investigative hearing, or the subject waives the hearing.</li>
+                <li>Requires DHR to notify the subject they are under investigation, with limited safety exemptions.</li>
+                <li>After a preliminary indicated finding, requires notice and the opportunity for an investigative hearing.</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul>
+                <li>Requires a training program for DHR employees involved in investigations, and requires employees to undergo that training.</li>
+                <li>Requires an annual report to key House and Senate committees on investigation outcomes and child placement data.</li>
+                <li>Establishes due process rights at the hearing. Counsel, evidence review, witnesses, cross-examination, subpoenas, and an impartial hearing officer.</li>
+                <li>Revises definitions of abuse and neglect and revises standards for indicated findings.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note">
+            It protects children while strengthening due process, registry accuracy, staff training, and accountability within DHR.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRONGER REMOVAL + WARRANT LIMITS -->
+    <section class="screen" aria-label="Stronger standards and limits">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card">
+            <h2>Child removal standards</h2>
+            <ul>
+              <li>Strengthens the standard for removal by requiring credible evidence.</li>
+              <li>Requires investigators to consider family-preservation factors before removal.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>Criminal warrant limits</h2>
+            <ul>
+              <li>Limits use of DHR indicated reports for criminal warrants and requires law enforcement corroboration.</li>
+              <li>Restricts service of warrants relying on DHR records unless a grand jury indictment has been returned.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOUSE JUDICIARY COMMITTEE -->
+    <section class="screen" aria-label="House Judiciary Committee">
+      <div class="wrap">
+        <div class="card">
+          <h2>Contact the House Judiciary Committee</h2>
+
+          <p>
+            HB 464 is in the House Judiciary Committee.
+            If you want this bill to move, this is the group to contact.
+          </p>
+
+          <p class="muted">
+            Be respectful. Keep it short. Ask them to schedule HB 464 for a hearing.
+          </p>
+
+          <div class="committee-grid">
+
+            <div class="member">
+              <strong>Jim Hill</strong><br />
+              Chairman<br />
+              <a href="mailto:brandy.allen@alhouse.gov">brandy.allen@alhouse.gov</a><br />
+              <a href="tel:+13342610494">(334) 261-0494</a>
+            </div>
+
+            <div class="member">
+              <strong>Tim Wadsworth</strong><br />
+              Vice Chair<br />
+              <a href="mailto:wadsworth.tim654321@gmail.com">wadsworth.tim654321@gmail.com</a><br />
+              <a href="tel:+12053004008">(205) 300-4008</a>
+            </div>
+
+            <div class="member">
+              <strong>Russell Bedsole</strong><br />
+              <a href="mailto:russell.bedsole@alhouse.gov">russell.bedsole@alhouse.gov</a><br />
+              <a href="tel:+13342610491">(334) 261-0491</a>
+            </div>
+
+            <div class="member">
+              <strong>Bryan Brinyark</strong><br />
+              <a href="mailto:bryan.brinyark@alhouse.gov">bryan.brinyark@alhouse.gov</a><br />
+              <a href="tel:+13342610482">(334) 261-0482</a>
+            </div>
+
+            <div class="member">
+              <strong>Prince Chestnut</strong><br />
+              <a href="mailto:chestnut4house@gmail.com">chestnut4house@gmail.com</a><br />
+              <a href="tel:+13342610598">(334) 261-0598</a>
+            </div>
+
+            <div class="member">
+              <strong>Chris England</strong><br />
+              <a href="mailto:cengland1@hotmail.com">cengland1@hotmail.com</a><br />
+              <a href="tel:+13342610503">(334) 261-0503</a>
+            </div>
+
+            <div class="member">
+              <strong>David Faulkner</strong><br />
+              <a href="mailto:David@DavidFaulknerAL46.com">David@DavidFaulknerAL46.com</a><br />
+              <a href="tel:+13342610442">(334) 261-0442</a>
+            </div>
+
+            <div class="member">
+              <strong>Patrice McClammy</strong><br />
+              <a href="mailto:patrice.mcclammy@alhouse.gov">patrice.mcclammy@alhouse.gov</a><br />
+              <a href="tel:+13342610580">(334) 261-0580</a>
+            </div>
+
+            <div class="member">
+              <strong>Phillip Pettus</strong><br />
+              <a href="mailto:phillip.pettus@alhouse.gov">phillip.pettus@alhouse.gov</a><br />
+              <a href="tel:+13342610591">(334) 261-0591</a>
+            </div>
+
+            <div class="member">
+              <strong>Ben Robbins</strong><br />
+              <a href="mailto:ben.robbins@alhouse.gov">ben.robbins@alhouse.gov</a><br />
+              <a href="tel:+13342610477">(334) 261-0477</a>
+            </div>
+
+            <div class="member">
+              <strong>Chad Robertson</strong><br />
+              <a href="mailto:ChadrobertsonD40@gmail.com">ChadrobertsonD40@gmail.com</a><br />
+              <a href="tel:+13342610496">(334) 261-0496</a>
+            </div>
+
+            <div class="member">
+              <strong>Matt Simpson</strong><br />
+              <a href="mailto:MattSimpsonAL96@gmail.com">MattSimpsonAL96@gmail.com</a><br />
+              <a href="tel:+13342610424">(334) 261-0424</a>
+            </div>
+
+            <div class="member">
+              <strong>Jerry Starnes</strong><br />
+              <a href="mailto:jerry.starnes@alhouse.gov">jerry.starnes@alhouse.gov</a><br />
+              <a href="tel:+13342610499">(334) 261-0499</a>
+            </div>
+
+            <div class="member">
+              <strong>Shane Stringer</strong><br />
+              <a href="mailto:shane.stringer@alhouse.gov">shane.stringer@alhouse.gov</a><br />
+              <a href="tel:+13342610594">(334) 261-0594</a>
+            </div>
+
+            <div class="member">
+              <strong>Ontario Tillman</strong><br />
+              <a href="mailto:ojtillman@gmail.com">ojtillman@gmail.com</a><br />
+              <a href="tel:+13342610529">(334) 261-0529</a>
+            </div>
+
+          </div>
+
+          <div class="note">
+            Tip. Emailing both the Chair and Vice Chair helps. One short paragraph. One clear ask. Please schedule HB 464 for a hearing.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAKE ACTION -->
+    <section class="screen" aria-label="Take action">
+      <div class="wrap">
+        <div class="card">
+          <h2>What you can do</h2>
+          <ul>
+            <li>Share this page with anyone who works with children, volunteers, or holds a license.</li>
+            <li>Email the committee and ask for a hearing on HB 464.</li>
+            <li>If you have lived experience, share it in one or two factual sentences.</li>
+          </ul>
+
+          <textarea class="copybox" id="emailText" readonly>
+Subject: Please schedule HB 464 for a hearing
+
+Hello Representative [Name],
+
+I am writing to respectfully ask that HB 464, the DHR Central Registry and Due Process Act, be scheduled for a hearing in the House Judiciary Committee.
+
+This bill protects children while strengthening due process, registry accuracy, staff training, and accountability within DHR.
+
+Thank you,
+[Your Name] . [City]
+          </textarea>
+
+          <div class="btn-row" role="group" aria-label="Actions">
+            <button class="btn primary" type="button" id="copyBtn">Copy email</button>
+            <a class="btn" href="https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB464-int.pdf" target="_blank" rel="noopener">Read the bill PDF</a>
+            <a class="btn" href="https://www.neelifaulkner.com" rel="noopener">Back to homepage</a>
+          </div>
+
+          <div class="note">
+            This page is for public information and civic engagement. It is not legal advice.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Copy email button -->
+  <script>
+    (function(){
+      const btn = document.getElementById('copyBtn');
+      const box = document.getElementById('emailText');
+      if(!btn || !box) return;
+
+      btn.addEventListener('click', async ()=>{
+        try{
+          await navigator.clipboard.writeText(box.value.trim());
+          const original = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(()=>btn.textContent = original, 1100);
+        }catch(e){
+          box.focus();
+          box.select();
+          document.execCommand('copy');
+        }
+      });
+    })();
+  </script>
+
+  <!-- Hide scroll indicator when scroller is at bottom -->
+  <script>
+    (function(){
+      const scroller = document.getElementById('scroller');
+      const indicator = document.querySelector('.scroll-indicator');
+      if(!scroller || !indicator) return;
+
+      function toggleIndicator(){
+        const atBottom = Math.ceil(scroller.scrollTop + scroller.clientHeight) >= scroller.scrollHeight - 2;
+        indicator.style.opacity = atBottom ? '0' : '1';
+      }
+      scroller.addEventListener('scroll', toggleIndicator, {passive:true});
+      window.addEventListener('resize', toggleIndicator, {passive:true});
+      toggleIndicator();
+    })();
+  </script>
+</body>
+</html>
