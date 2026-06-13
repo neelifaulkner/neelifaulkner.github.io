@@ -25,7 +25,7 @@
     }
 
     html {
-      scroll-snap-type: y proximity;
+      scroll-snap-type: y mandatory;
     }
 
     body {
@@ -74,6 +74,8 @@
     #faq,
     #booking {
       scroll-snap-align: start;
+      scroll-snap-stop: always;
+      min-height:100vh;
     }
 
     .hero {
@@ -262,6 +264,10 @@
         display: block;
         text-align: center;
         padding: 15px 4%;
+      }
+
+      html {
+        scroll-snap-type:none;
       }
 
       .brand {
