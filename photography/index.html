@@ -24,6 +24,10 @@
       scroll-behavior: smooth;
     }
 
+    html {
+      scroll-snap-type: y proximity;
+    }
+
     body {
       margin: 0;
       background: var(--background);
@@ -62,6 +66,16 @@
       text-transform: uppercase;
     }
 
+    .hero,
+    .statement,
+    #about,
+    #signature-session,
+    #location,
+    #faq,
+    #booking {
+      scroll-snap-align: start;
+    }
+
     .hero {
       height: 100vh;
       width: 100%;
@@ -83,6 +97,7 @@
       padding: 90px 7%;
       max-width: 1200px;
       margin: auto;
+      scroll-margin-top: 100px;
     }
 
     #about {
@@ -180,14 +195,42 @@
 
     .faq-item {
       border-top: 1px solid var(--line);
-      padding: 28px 0;
+      padding: 22px 0;
     }
 
-    .faq-item h3 {
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
       font-family: Georgia, serif;
       font-size: 28px;
       font-weight: normal;
-      margin: 0 0 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 26px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-item p {
+      margin-top: 16px;
     }
 
     .booking-box {
@@ -267,7 +310,7 @@
         font-size: 16px;
       }
 
-      .faq-item h3 {
+      .faq-item summary {
         font-size: 22px;
       }
 
@@ -297,6 +340,7 @@
     <div>
       <a href="#about">About</a>
       <a href="#signature-session">Session</a>
+      <a href="#location">Location</a>
       <a href="#faq">FAQ</a>
       <a href="#booking">Book</a>
     </div>
@@ -371,61 +415,61 @@
 
     <h2>Good things to know.</h2>
 
-    <div class="faq-item">
-      <h3>How do I reserve my session?</h3>
+    <details class="faq-item">
+      <summary>How do I reserve my session?</summary>
       <p>
         Full payment is required at the time of booking to reserve your session date and time. Because I accept a limited number of sessions, bookings are non-refundable unless weather conditions prevent your session from taking place and a new date cannot be arranged.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Where do sessions take place?</h3>
+    <details class="faq-item">
+      <summary>Where do sessions take place?</summary>
       <p>
         Sessions take place at one beach location in Orange Beach or Gulf Shores, Alabama.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>What happens if the weather is bad?</h3>
+    <details class="faq-item">
+      <summary>What happens if the weather is bad?</summary>
       <p>
         Beach sessions depend on weather. If rain, high winds, or unsafe conditions prevent your session from taking place, we'll work together to find a new date. If rescheduling isn't possible, your session fee will be refunded.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Do you help with posing?</h3>
+    <details class="faq-item">
+      <summary>Do you help with posing?</summary>
       <p>
         Yes. I will guide you enough so you do not feel awkward, but the goal is still natural and relaxed.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>How many photos do I receive?</h3>
+    <details class="faq-item">
+      <summary>How many photos do I receive?</summary>
       <p>
         The Signature Session includes at least 10 fully edited digital images delivered through an online gallery.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>What should we wear?</h3>
+    <details class="faq-item">
+      <summary>What should we wear?</summary>
       <p>
         Neutral colors, soft textures, and comfortable clothing tend to photograph best. Most importantly, wear something that feels like you.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>How long does a session last?</h3>
+    <details class="faq-item">
+      <summary>How long does a session last?</summary>
       <p>
         Most Signature Sessions last about 30 to 45 minutes. Beach light changes quickly around sunset, so we'll make the most of that beautiful golden hour.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>When will I receive my photos?</h3>
+    <details class="faq-item">
+      <summary>When will I receive my photos?</summary>
       <p>
         Your gallery will be delivered within 2 weeks of your session date. You'll receive a link to download your edited images directly from your online gallery.
       </p>
-    </div>
+    </details>
   </section>
 
   <section id="booking">
