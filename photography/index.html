@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neeli Faulkner| Orange Beach & Gulf Shores Beach Photography</title>
+
+  <title>Neeli Faulkner | Orange Beach & Gulf Shores Beach Photography</title>
+
   <meta name="description" content="Beach photography in Orange Beach and Gulf Shores, Alabama. Relaxed, documentary-inspired photography for families, couples, maternity, seniors, and vacation memories." />
 
-<meta name="keywords" content="Orange Beach photographer, Gulf Shores photographer, beach photography, beach photos, Orange Beach family photographer, Gulf Shores family photographer, beach portraits, Orange Beach photography, Gulf Shores photography" />
+  <meta name="keywords" content="Orange Beach photographer, Gulf Shores photographer, beach photography, beach photos, Orange Beach family photographer, Gulf Shores family photographer, beach portraits, Orange Beach photography, Gulf Shores photography" />
 
   <style>
     :root {
@@ -82,10 +84,10 @@
       max-width: 1200px;
       margin: auto;
     }
-    
+
     #about {
-  max-width: 800px;
-}
+      max-width: 800px;
+    }
 
     .statement {
       min-height: 70vh;
@@ -163,6 +165,17 @@
       font-size: 13px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .button-group .button {
+      margin-top: 0;
     }
 
     .faq-item {
@@ -263,10 +276,15 @@
         padding: 30px;
       }
 
-      .button {
+      .button,
+      .button-group .button {
         display: block;
         text-align: center;
         width: 100%;
+      }
+
+      .button-group {
+        flex-direction: column;
       }
     }
   </style>
@@ -293,29 +311,30 @@
   </section>
 
   <section id="about">
-  <div class="eyebrow">About</div>
+    <div class="eyebrow">About</div>
 
-  <h2>Hi, I’m Neeli.</h2>
+    <h2>Hi, I’m Neeli.</h2>
 
-  <p>
-    Curiosity has always been at the center of what I do.
-  </p>
+    <p>
+      Curiosity has always been at the center of what I do.
+    </p>
 
-  <p>
-    As a reporter, my job is paying attention. Photography is not much different.
-  </p>
+    <p>
+      As a reporter based on Alabama's Gulf Coast, my job is paying attention. Photography is not much different.
+    </p>
 
-  <p>
-    My style blends documentary storytelling with an editorial eye. I offer gentle guidance when needed, but my favorite images are usually the ones that happen naturally. Rather than making people the sole focus of every frame, I'm drawn to the relationship between people and the world around them. The landscape, the light, the movement, and the small in-between moments all become part of the story.
-  </p>
+    <p>
+      My style blends documentary storytelling with an editorial eye. I offer gentle guidance when needed, but my favorite images are usually the ones that happen naturally. Rather than making people the sole focus of every frame, I'm drawn to the relationship between people and the world around them. The landscape, the light, the movement, and the small in-between moments all become part of the story.
+    </p>
 
-  <p>
-    The goal isn't perfection. It's creating photographs that feel honest, timeless, and unmistakably yours.
-  </p>
-</section>
+    <p>
+      The goal isn't perfection. It's creating photographs that feel honest, timeless, and unmistakably yours.
+    </p>
+  </section>
 
   <section id="signature-session">
     <div class="eyebrow">Working Together</div>
+
     <h2>The Signature Session</h2>
 
     <div class="card">
@@ -336,25 +355,26 @@
       <a class="button" href="#booking">Start Booking</a>
     </div>
   </section>
-  
+
   <section id="location">
-  <div class="eyebrow">Location</div>
+    <div class="eyebrow">Location</div>
 
-  <h2>Orange Beach & Gulf Shores Photography</h2>
+    <h2>Beach Photography on Alabama's Gulf Coast</h2>
 
-  <p>
-    Based on Alabama's Gulf Coast, I offer beach photography sessions in Orange Beach and Gulf Shores. Whether you're visiting on vacation, celebrating a milestone, or simply wanting updated family photos, sessions are designed to feel relaxed, natural, and true to you.
-  </p>
-</section>
+    <p>
+      Based on Alabama's Gulf Coast, I offer beach photography sessions in Orange Beach and Gulf Shores. Whether you're visiting on vacation, celebrating a milestone, or simply wanting updated family photos, sessions are designed to feel relaxed, natural, and true to you.
+    </p>
+  </section>
 
   <section id="faq">
     <div class="eyebrow">FAQ</div>
+
     <h2>Good things to know.</h2>
 
     <div class="faq-item">
       <h3>How do I reserve my session?</h3>
       <p>
-        Full payment is required at the time of booking to reserve your session date and time. Because I accept a limited number of sessions, bookings are non-refundable. If weather conditions prevent your session from taking place, we'll work together to reschedule your session or discuss a refund if a new date cannot be arranged.
+        Full payment is required at the time of booking to reserve your session date and time. Because I accept a limited number of sessions, bookings are non-refundable unless weather conditions prevent your session from taking place and a new date cannot be arranged.
       </p>
     </div>
 
@@ -411,17 +431,25 @@
   <section id="booking">
     <div class="booking-box">
       <div class="eyebrow">Booking</div>
-      <h2>No Perfect Poses Required</h2>
+
+      <h2>Reserve Your Session</h2>
 
       <p>
-        To book a Signature Session, send me a message with your preferred date, who will be photographed, and whether you have a specific beach location in mind.
+        Ready to book? Reserve your session online or reach out if you have questions. I'll personally follow up to coordinate the details and choose a date that works for you.
       </p>
 
-      <p>
-        <strong>Email:</strong> neeli.faulkner@gmail.com
-      </p>
+      <div class="button-group">
+        <a class="button"
+           href="mailto:neeli.faulkner@gmail.com?subject=Photography Session Inquiry">
+           Ask a Question
+        </a>
 
-      <a class="button" href="mailto:neeli.faulkner@gmail.com?subject=Photography Session Inquiry">Email Me</a>
+        <a class="button"
+           href="https://book.stripe.com/test_eVq3cn8gmeRz4uH3or1gs00"
+           target="_blank">
+           Reserve Your Session
+        </a>
+      </div>
     </div>
   </section>
 
