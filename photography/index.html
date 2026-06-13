@@ -54,10 +54,16 @@
     }
 
     .brand {
-      font-family: Georgia, serif;
-      font-size: 20px;
-      letter-spacing: 0.5px;
-    }
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand img {
+  height: 75px;
+  width: auto;
+  display: block;
+}
 
     nav a {
       color: var(--ink);
@@ -338,18 +344,21 @@
   </style>
 </head>
 
-<body>
+<body id="top">
 
-  <nav>
-    <div class="brand">Neeli Faulkner</div>
-    <div>
-      <a href="#about">About</a>
-      <a href="#signature-session">Session</a>
-      <a href="#location">Location</a>
-      <a href="#faq">FAQ</a>
-      <a href="#booking">Book</a>
-    </div>
-  </nav>
+ <nav>
+  <a href="#top" class="brand">
+    <img src="nflogo.png" alt="Neeli Faulkner Photography">
+  </a>
+
+  <div>
+    <a href="#about">About</a>
+    <a href="#signature-session">Session</a>
+    <a href="#location">Location</a>
+    <a href="#faq">FAQ</a>
+    <a href="#booking">Book</a>
+  </div>
+</nav>
 
   <header class="hero">
     <img src="Portfolio Header.png" alt="Beach photography portfolio featuring families, couples, and coastal portraits in Orange Beach and Gulf Shores, Alabama">
