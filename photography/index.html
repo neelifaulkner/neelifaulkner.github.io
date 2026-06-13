@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neeli Faulkner</title>
+
+  <style>
+    :root {
+      --background: #fcfaf7;
+      --paper: #ffffff;
+      --ink: #252525;
+      --muted: #77716b;
+      --line: rgba(37, 37, 37, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(252, 250, 247, 0.88);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 4% 40px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    section {
+      padding: 90px 7%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .statement {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .statement h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: normal;
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: 0.95;
+      max-width: 1000px;
+      margin: 0;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: normal;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 0.95;
+      margin: 0 0 28px;
+    }
+
+    p {
+      font-size: 18px;
+      color: var(--ink);
+      max-width: 760px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .pullquote {
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 42px;
+      border-radius: 28px;
+      box-shadow: 0 24px 70px rgba(37, 37, 37, 0.07);
+    }
+
+    .price {
+      font-family: Georgia, serif;
+      font-size: 58px;
+      line-height: 1;
+      margin: 0 0 18px;
+    }
+
+    .details {
+      margin-top: 24px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .details li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 24px;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+    }
+
+    .faq-item h3 {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: normal;
+      margin: 0 0 8px;
+    }
+
+    .booking-box {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 52px;
+      border-radius: 32px;
+    }
+
+    .booking-box p,
+    .booking-box h2 {
+      color: var(--paper);
+    }
+
+    .booking-box .button {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    footer {
+      padding: 40px 7%;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        display: block;
+        text-align: center;
+      }
+
+      nav div:last-child {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 115px;
+      }
+
+      section {
+        padding: 70px 7%;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .card,
+      .booking-box {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="brand">Neeli Faulkner</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#signature-session">Session</a>
+      <a href="#faq">FAQ</a>
+      <a href="#booking">Book</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <img src="portfolio-header.png" alt="Editorial collage of photography by Neeli Faulkner">
+  </header>
+
+  <section class="statement">
+    <h1>Photography for people who want to feel like themselves.</h1>
+  </section>
+
+  <section id="about">
+    <div class="about-grid">
+      <div class="pullquote">
+        The best photos usually happen between poses.
+      </div>
+
+      <div>
+        <div class="eyebrow">About</div>
+        <h2>Hi, I’m Neeli.</h2>
+        <p>
+          Curiosity has always been at the center of what I do.
+        </p>
+        <p>
+          As a reporter, my job is paying attention. Photography is not much different.
+        </p>
+        <p>
+         My style blends documentary storytelling with an editorial eye. I offer gentle guidance when needed, but my favorite images are usually the ones that happen naturally. Rather than making people the sole focus of every frame, I'm drawn to the relationship between people and the world around them. The landscape, the light, the movement, and the small in-between moments all become part of the story.</p><p></p>The goal isn't perfection. It's creating photographs that feel honest, timeless, and unmistakably yours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="signature-session">
+    <div class="eyebrow">Working Together</div>
+    <h2>The Signature Session</h2>
+
+    <div class="card">
+      <p class="price">$275</p>
+      <p>
+        A simple beach session designed for families, couples, maternity, seniors,
+        celebrations, or anyone who wants beautiful images without overcomplicating the experience.
+      </p>
+
+      <ul class="details">
+        <li>One beach location</li>
+        <li>Sunset session time</li>
+        <li>Relaxed direction and natural posing</li>
+        <li>10 edited digital images</li>
+        <li>Online gallery for downloading</li>
+      </ul>
+
+      <p>
+        Simple. Relaxed. Intentional.
+      </p>
+
+      <a class="button" href="#booking">Start Booking</a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="eyebrow">FAQ</div>
+    <h2>Good things to know.</h2>
+
+    <div class="faq-item">
+      <h3>Where do sessions take place?</h3>
+      <p>Sessions take place at one beach location in the Orange Beach area.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What happens if the weather is bad?</h3>
+      <p>Beach sessions depend on weather. If conditions are not workable, we will reschedule or you will receive a full refund.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do you help with posing?</h3>
+      <p>Yes. I will guide you enough so you do not feel awkward, but the goal is still natural and relaxed.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How many photos do I receive?</h3>
+      <p>The Signature Session includes at least 10 fully edited digital images delivered through an online gallery.</p>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="booking-box">
+      <div class="eyebrow">Booking</div>
+      <h2>No Perfect Poses Required</h2>
+      <p>
+        To book a Signature Session, send me a message with your preferred date,
+        who will be photographed, and whether you have a specific beach location in mind.
+      </p>
+
+      <p>
+        <strong>Email:</strong> your-email@example.com<br>
+        <strong>Location:</strong> Orange Beach, Alabama
+      </p>
+
+      <a class="button" href="mailto:neeli.faulkner@gmail.com?subject=Photography Session Inquiry">Email Me</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Neeli Faulkner
+  </footer>
+
+</body>
+</html>
