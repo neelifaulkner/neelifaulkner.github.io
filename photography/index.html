@@ -211,23 +211,49 @@
       nav {
         display: block;
         text-align: center;
+        padding: 15px 4%;
+      }
+
+      .brand {
+        margin-bottom: 10px;
       }
 
       nav div:last-child {
-        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
       }
 
       nav a {
-        margin: 0 8px;
-        font-size: 11px;
+        margin: 0;
+        font-size: 10px;
+        letter-spacing: 1px;
       }
 
       .hero {
-        padding-top: 115px;
+        height: 85vh;
+        padding: 115px 3% 0;
+      }
+
+      .hero img {
+        width: 110%;
+        max-width: 110%;
       }
 
       section {
         padding: 70px 7%;
+      }
+
+      .statement {
+        min-height: 45vh;
+        padding: 0 8%;
+        margin-top: -40px;
+      }
+
+      .statement h1 {
+        font-size: clamp(36px, 9vw, 52px);
+        line-height: 1.05;
       }
 
       .about-grid {
@@ -235,9 +261,27 @@
         gap: 30px;
       }
 
+      .pullquote {
+        font-size: clamp(30px, 9vw, 44px);
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .faq-item h3 {
+        font-size: 22px;
+      }
+
       .card,
       .booking-box {
         padding: 30px;
+      }
+
+      .button {
+        display: block;
+        text-align: center;
+        width: 100%;
       }
     }
   </style>
@@ -272,14 +316,21 @@
       <div>
         <div class="eyebrow">About</div>
         <h2>Hi, I’m Neeli.</h2>
+
         <p>
           Curiosity has always been at the center of what I do.
         </p>
+
         <p>
           As a reporter, my job is paying attention. Photography is not much different.
         </p>
+
         <p>
-         My style blends documentary storytelling with an editorial eye. I offer gentle guidance when needed, but my favorite images are usually the ones that happen naturally. Rather than making people the sole focus of every frame, I'm drawn to the relationship between people and the world around them. The landscape, the light, the movement, and the small in-between moments all become part of the story.</p><p></p>The goal isn't perfection. It's creating photographs that feel honest, timeless, and unmistakably yours.
+          My style blends documentary storytelling with an editorial eye. I offer gentle guidance when needed, but my favorite images are usually the ones that happen naturally. Rather than making people the sole focus of every frame, I'm drawn to the relationship between people and the world around them. The landscape, the light, the movement, and the small in-between moments all become part of the story.
+        </p>
+
+        <p>
+          The goal isn't perfection. It's creating photographs that feel honest, timeless, and unmistakably yours.
         </p>
       </div>
     </div>
@@ -291,16 +342,16 @@
 
     <div class="card">
       <p class="price">$250</p>
+
       <p>
-        A simple beach session designed for families, couples, maternity, seniors,
-        celebrations, or anyone who wants beautiful images without overcomplicating the experience.
+        A simple beach session designed for families, couples, maternity, seniors, celebrations, or anyone who wants beautiful images without overcomplicating the experience.
       </p>
 
       <ul class="details">
         <li>One beach location</li>
         <li>Sunset session time</li>
         <li>Relaxed direction and natural posing</li>
-        <li>10 edited digital images</li>
+        <li>At least 10 edited digital images</li>
         <li>Online gallery for downloading</li>
       </ul>
 
@@ -314,39 +365,58 @@
 
     <div class="faq-item">
       <h3>How do I reserve my session?</h3>
-      <p>Full payment is required at the time of booking to reserve your session date and time. Because I accept a limited number of sessions, bookings are non-refundable. If weather conditions prevent your session from taking place, we'll work together to reschedule your session or discuss a refund if a new date cannot be arranged.</p>
+      <p>
+        Full payment is required at the time of booking to reserve your session date and time. Because I accept a limited number of sessions, bookings are non-refundable. If weather conditions prevent your session from taking place, we'll work together to reschedule your session or discuss a refund if a new date cannot be arranged.
+      </p>
     </div>
+
     <div class="faq-item">
       <h3>Where do sessions take place?</h3>
-      <p>Sessions take place at one beach location in the Orange Beach area.</p>
+      <p>
+        Sessions take place at one beach location in the Orange Beach area.
+      </p>
     </div>
 
     <div class="faq-item">
       <h3>What happens if the weather is bad?</h3>
-      <p>Beach sessions depend on weather. If rain, high winds, or unsafe conditions prevent your session from taking place, we'll work togeter to find a new date. If rescheduling isn't possible, your session fee will be refunded.</p>
+      <p>
+        Beach sessions depend on weather. If rain, high winds, or unsafe conditions prevent your session from taking place, we'll work together to find a new date. If rescheduling isn't possible, your session fee will be refunded.
+      </p>
     </div>
 
     <div class="faq-item">
       <h3>Do you help with posing?</h3>
-      <p>Yes. I will guide you enough so you do not feel awkward, but the goal is still natural and relaxed.</p>
+      <p>
+        Yes. I will guide you enough so you do not feel awkward, but the goal is still natural and relaxed.
+      </p>
     </div>
 
     <div class="faq-item">
       <h3>How many photos do I receive?</h3>
-      <p>The Signature Session includes at least 10 fully edited digital images delivered through an online gallery.</p>
-  
+      <p>
+        The Signature Session includes at least 10 fully edited digital images delivered through an online gallery.
+      </p>
     </div>
+
     <div class="faq-item">
       <h3>What should we wear?</h3>
-      <p>Neutral colors, soft textures, and comfortable clothing tend to photograph best. Most importantly, wear something that feels like you.</p>
+      <p>
+        Neutral colors, soft textures, and comfortable clothing tend to photograph best. Most importantly, wear something that feels like you.
+      </p>
     </div>
+
     <div class="faq-item">
       <h3>How long does a session last?</h3>
-      <p>Most Signature Sessions last about 30 to 45 minutes. Beach light changes quickly aorund sunset, so we'll make the most of that beautiful golden hour.</p>
+      <p>
+        Most Signature Sessions last about 30 to 45 minutes. Beach light changes quickly around sunset, so we'll make the most of that beautiful golden hour.
+      </p>
     </div>
+
     <div class="faq-item">
       <h3>When will I receive my photos?</h3>
-      <p>Your gallery will be delivered within 2 weeks of your session date. You'll receive a link to download your edited images directly from your only gallery.</p>
+      <p>
+        Your gallery will be delivered within 2 weeks of your session date. You'll receive a link to download your edited images directly from your online gallery.
+      </p>
     </div>
   </section>
 
@@ -354,13 +424,13 @@
     <div class="booking-box">
       <div class="eyebrow">Booking</div>
       <h2>No Perfect Poses Required</h2>
+
       <p>
-        To book a Signature Session, send me a message with your preferred date,
-        who will be photographed, and whether you have a specific beach location in mind.
+        To book a Signature Session, send me a message with your preferred date, who will be photographed, and whether you have a specific beach location in mind.
       </p>
 
       <p>
-        <strong>Email:</strong> neeli.faulkner@gmail.com<br>
+        <strong>Email:</strong> neeli.faulkner@gmail.com
       </p>
 
       <a class="button" href="mailto:neeli.faulkner@gmail.com?subject=Photography Session Inquiry">Email Me</a>
