@@ -585,6 +585,125 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================
+   ARCADE LEVELS / FULL-BLEED BONUS ROOMS
+   The site's content remains centered while backgrounds
+   reach the edges of the browser.
+   ========================================================== */
+html { scroll-snap-type: y proximity; scroll-padding-top: 16px; }
+body { overflow-x: clip; }
+.site { overflow: clip; }
+.section, .hero, .easter-section { scroll-snap-align: start; }
+.section { position: relative; isolation: isolate; padding: 88px 0 100px; }
+.section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0; bottom: 0;
+  left: 50%; width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.hero { padding: 80px 0 30px; }
+#bag::before { background: linear-gradient(145deg,#1a1128 0%,#251532 55%,#160e21 100%); }
+#projects::before { background: linear-gradient(135deg,#271638,#1b102b 70%); }
+#links::before { background: linear-gradient(145deg,#211330,#120d1f); }
+#mini-game::before { background: linear-gradient(145deg,#311a49,#1a102a 70%); }
+#bag::after, #projects::after, #links::after, #mini-game::after {
+  content: "";
+  position: absolute; left: 50%; top: 0;
+  width: 100vw; height: 3px; transform: translateX(-50%);
+  background: linear-gradient(90deg,transparent,#ff71b8 35%,#c99cff 65%,transparent);
+  pointer-events: none;
+}
+.sectiontitle { text-shadow: 0 2px 16px #ff71b828; }
+/* Secret rooms: almost black, bold borders, and arcade grid */
+.easter-section {
+  position: relative;
+  isolation: isolate;
+  padding: 85px 20px 92px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.easter-section::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  left: 50%; width: 100vw;
+  transform: translateX(-50%);
+  background-color: #08060d;
+  background-image: linear-gradient(#b48cd012 1px,transparent 1px),linear-gradient(90deg,#b48cd012 1px,transparent 1px),radial-gradient(ellipse at 50% 45%,#3d1a4d66,transparent 65%);
+  background-size: 32px 32px,32px 32px,auto;
+}
+.easter-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%; top: 0; bottom: 0;
+  width: 100vw;
+  transform: translateX(-50%);
+  border-top: 7px solid var(--egg-border,#a2130c);
+  border-bottom: 7px solid var(--egg-border,#a2130c);
+  box-shadow: inset 0 24px 40px #0007, inset 0 -24px 40px #0007;
+  pointer-events: none;
+}
+.easter-section.receipt-room { --egg-border:#ff71b8; }
+.egg-eyebrow {
+  display: inline-block;
+  background: var(--egg-border,#a2130c);
+  color: #fff;
+  padding: 9px 16px;
+  font: 900 11px/1.2 monospace;
+  letter-spacing: 2px;
+  text-align: center;
+  box-shadow: 4px 4px 0 #000;
+}
+.receipt-room .egg-eyebrow { color: #180b1c; }
+.egg-title {
+  margin: 0;
+  color: #ffb7e8;
+  font: 900 clamp(30px,5vw,53px)/1.1 Arial,Helvetica,sans-serif;
+  letter-spacing: -1px;
+  text-align: center;
+  text-shadow: 4px 4px 0 #3e1a50;
+}
+.egg-subtitle {
+  margin: 0;
+  color: #e8ddc7;
+  font: 700 12px/1.6 monospace;
+  text-align: center;
+  letter-spacing: .8px;
+}
+.easter-scene { width: min(100%,600px); background: radial-gradient(ellipse at center,#4b275c,transparent 75%); }
+.egg-object { background: #24152e; border: 2px solid #9462a9; }
+.egg-folder { border-color: #e8ddc7; box-shadow: 0 0 22px #a2130c88; }
+.egg-window { width: min(100%,390px); }
+.printer-scene { flex: 0 0 auto; }
+.printer-hint { color: #f4d1ef; }
+.arcade-game-frame {
+  border: 2px solid #b785d7;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 5px #110a1b,0 0 36px #ff71b82b;
+  background: #0c0814;
+}
+.arcade-game-frame iframe { display: block; width: 100%; height: 570px; border: 0; }
+@media (max-width: 750px) {
+  .section { padding: 65px 0 75px; }
+  .hero { padding-top: 55px; }
+  .easter-section { padding: 75px 15px; min-height: 390px; }
+  .arcade-game-frame iframe { height: 590px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-snap-type: none; }
+}
+
 </style>
 </head>
 
@@ -667,6 +786,9 @@ footer {
 
 <!-- EASTER EGG 1: AFTER PLAYER INVENTORY -->
 <section class="easter-section" aria-label="Animated evidence trail">
+  <div class="egg-eyebrow">SECRET AREA UNLOCKED</div>
+  <h2 class="egg-title">CLASSIFIED FILES</h2>
+  <p class="egg-subtitle">SOMETHING IS HIDDEN HERE // CLICK TO INVESTIGATE</p>
   <div class="easter-scene">
     <span class="egg-object" aria-hidden="true">👣</span>
     <button type="button" class="egg-object egg-folder" id="folder" aria-label="Open hidden case file" aria-expanded="false">📁</button>
@@ -714,7 +836,10 @@ footer {
 </section>
 
 <!-- EASTER EGG 2: AFTER ORIGINAL WORK -->
-<section class="easter-section" aria-label="Interactive receipt printer">
+<section class="easter-section receipt-room" aria-label="Interactive receipt printer">
+  <div class="egg-eyebrow">BONUS INTERACTION</div>
+  <h2 class="egg-title">RECEIPTS.exe</h2>
+  <p class="egg-subtitle">CLICK THE PRINTER // YOU KNOW I BROUGHT RECEIPTS</p>
   <div class="printer-scene">
     <div class="receipt-paper" id="paper">
       <span>I BROUGHT<br>RECEIPTS.</span>
@@ -742,13 +867,14 @@ footer {
   <div class="micro">BONUS LEVEL / PLAYER ONE</div>
   <h2 class="sectiontitle">THE PAPER TRAIL</h2>
 
+  <div class="arcade-game-frame">
   <iframe
     src="game.html"
     title="The Paper Trail — Play as Pixel Neeli"
-    style="width:100%;height:570px;border:0;border-radius:12px;"
     loading="lazy"
     allow="fullscreen">
   </iframe>
+  </div>
 </section>
 
 <footer>
