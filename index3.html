@@ -1,96 +1,1069 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c0814">
-<meta name="description" content="Neeli Faulkner. Investigative journalist, founder, storyteller, and creative. Select a character to explore.">
-<title>Neeli Faulkner.exe | Select Your Character</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100b19">
+<meta name="description" content="Neeli Faulkner — investigative journalist, founder, storyteller, and creative. Choose your character.">
+<title>NEELI FAULKNER.exe</title>
 <style>
-:root{--bg:#0c0814;--ink:#f8f2ff;--muted:#c9b5d5;--pink:#ff5bc7;--edge:#74507e;--active:#ff5bc7}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(ellipse at 52% 14%,#37143d 0%,transparent 48%),linear-gradient(150deg,#0a0811,#160b22 55%,#080a13);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}body:before{content:"";pointer-events:none;position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px 4px);opacity:.025;z-index:8}a{color:inherit}button{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:4px}.shell{width:min(1460px,calc(100% - 44px));margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #66406f;padding:18px 0}.brand{font-size:clamp(1rem,2vw,1.45rem);font-weight:950;letter-spacing:-.05em;text-decoration:none;text-shadow:0 0 18px #ff58cf88}.brand span{color:#ff7cda}.nav{display:flex;gap:clamp(10px,2vw,28px);flex-wrap:wrap}.nav a{font:700 .75rem ui-monospace,SFMono-Regular,Consolas,monospace;text-decoration:none;letter-spacing:.12em}.nav a:hover{color:var(--pink)}.status{color:#b7a1c9;font:700 .68rem ui-monospace,monospace}.status b{color:#75ffad}.intro{text-align:center;padding:42px 0 12px}.eyebrow{font:700 .75rem ui-monospace,monospace;letter-spacing:.22em;color:#ff8ae0}.intro h1{font-size:clamp(2.4rem,6vw,6.5rem);letter-spacing:-.075em;line-height:1;margin:14px 0 12px;text-transform:uppercase;text-shadow:4px 4px 0 #6e266b,0 0 36px #ff4cb15b}.intro p{margin:0;color:#d8c2e3}.mini{font:700 .7rem ui-monospace,monospace;color:#ad90be;letter-spacing:.11em}.roster{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.2vw,34px);padding:24px 4px 0;align-items:stretch}.character{position:relative;min-width:0;border:1px solid #5e456c;background:linear-gradient(160deg,#24152eaa,#100d1e 70%);border-radius:5px;padding:8px 8px 14px;cursor:pointer;color:inherit;isolation:isolate;transition:transform .32s ease,border-color .32s ease,box-shadow .32s ease,background .32s ease;display:flex;flex-direction:column;align-items:center}.character:before{content:"";position:absolute;inset:5px;border:1px dashed #ffffff16;pointer-events:none}.character:hover{transform:translateY(-9px);border-color:var(--tone);box-shadow:0 0 28px color-mix(in srgb,var(--tone) 35%,transparent)}.character[aria-pressed="true"]{transform:translateY(-12px);border-color:var(--tone);box-shadow:0 0 0 2px var(--tone),0 0 34px color-mix(in srgb,var(--tone) 50%,transparent);background:linear-gradient(160deg,color-mix(in srgb,var(--tone) 19%,#15101e),#110d1e 75%)}.player-tag{align-self:flex-start;z-index:1;color:var(--tone);font:800 .68rem ui-monospace,monospace;letter-spacing:.15em;padding:4px 6px}.character img{width:100%;height:clamp(235px,34vw,470px);object-fit:contain;object-position:center bottom;filter:drop-shadow(0 12px 10px #0008);transition:transform .35s ease}.character:hover img,.character[aria-pressed="true"] img{transform:scale(1.035)}.card-label{font:800 clamp(.67rem,1vw,.85rem) ui-monospace,monospace;letter-spacing:.08em;text-align:center;color:#f9eafa;padding:10px 0 1px}.character[aria-pressed="true"] .card-label{color:var(--tone)}.prompt{text-align:center;margin:30px auto 0;padding:14px;color:#d8b7e5;font:700 .8rem ui-monospace,monospace;letter-spacing:.11em}.blink{animation:blink 1.5s step-end infinite}@keyframes blink{50%{opacity:.2}}.profile-space{margin-top:34px;margin-bottom:90px;scroll-margin-top:24px}.profile{--tone:#ff5bc7;border:1px solid var(--tone);box-shadow:0 0 35px color-mix(in srgb,var(--tone) 18%,transparent);background:#100d1cf5;overflow:hidden;animation:reveal .5s cubic-bezier(.2,.8,.2,1) both}@keyframes reveal{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}.windowbar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,color-mix(in srgb,var(--tone) 45%,#200f2a),#20182d);padding:10px 14px;border-bottom:1px solid var(--tone);gap:12px;font:800 .75rem ui-monospace,monospace}.windowbar button{cursor:pointer;color:#fff;background:#2c2037;border:1px solid #c2a2c8;padding:1px 9px}.profile-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,1fr);gap:clamp(20px,3vw,46px);padding:clamp(20px,3vw,38px)}.role{color:var(--tone);font:800 .75rem ui-monospace,monospace;letter-spacing:.16em}.profile h2{font-size:clamp(1.6rem,3vw,3rem);line-height:1.12;margin:8px 0 10px}.tagline{font-weight:650;color:#ffe7fa}.profile p{color:#e5d8e9}.section-heading{color:var(--tone);font:850 .82rem ui-monospace,monospace;letter-spacing:.13em;margin:0 0 12px}.strengths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:0;padding:0;list-style:none}.strengths li{border:1px solid #54405d;background:#211a2c;padding:10px;font-size:.85rem}.achievements{list-style:none;margin:0;padding:0;display:grid;gap:12px}.achievements li{padding-left:30px;position:relative;font-size:.92rem}.achievements li:before{content:'★';color:#ffdc84;position:absolute;left:2px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.action{display:inline-block;text-decoration:none;background:var(--tone);color:#130b18;font-weight:900;padding:10px 16px;border:1px solid #fff4}.action.secondary{background:transparent;color:#fff;border-color:#876891}.empty-state{border:1px dashed #825b8e;padding:27px;text-align:center;color:#cfb7db;background:#1a1024}.footer{border-top:1px solid #54335f;padding:24px 0 40px;color:#b9a3c9;font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.footer a{color:#f8c1ef}@media(max-width:850px){.status{display:none}.profile-body{grid-template-columns:1fr}.character img{height:clamp(220px,37vw,360px)}}@media(max-width:640px){.shell{width:min(100% - 26px,540px)}.topbar{align-items:flex-start}.nav{gap:12px;justify-content:flex-end}.nav a{font-size:.65rem}.intro{padding-top:30px}.intro h1{font-size:clamp(2.15rem,10vw,3.8rem)}.roster{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:12px;gap:16px;padding:25px 10px 20px;margin:0 -10px;scrollbar-color:#e76bc5 #26192e}.character{flex:0 0 min(67vw,265px);scroll-snap-align:center}.character img{height:310px}.card-label{font-size:.8rem}.profile-space{margin-top:18px}.strengths{grid-template-columns:1fr}.profile-body{padding:19px}.prompt{font-size:.72rem}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
-.series-area{padding:0 clamp(20px,3vw,38px) clamp(20px,3vw,38px)}.series-grid{display:grid;gap:10px}.series-item{border:1px solid #654d77;background:#20152b}.series-item summary{cursor:pointer;display:flex;align-items:center;gap:14px;padding:15px;font-weight:800}.series-item summary>span:nth-child(2){flex:1}.series-item summary small{display:block;color:#c4a6d3;font:700 .68rem ui-monospace,monospace;letter-spacing:.1em;margin-top:4px}.series-number{color:#ce78ff;font:900 1.15rem ui-monospace,monospace}.series-item p{padding:0 15px 16px;margin:0}.series-item[open]{border-color:#ce78ff}
+:root {
+  --bg: #100b19;
+  --panel: #21152e;
+  --pink: #ffa0e1;
+  --purple: #c99cff;
+  --white: #f9edff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; cursor: pointer; }
+a { color: #f5d7ff; text-decoration: none; }
+button:focus-visible, a:focus-visible {
+  outline: 3px solid #ffb3eb;
+  outline-offset: 4px;
+}
+[hidden] { display: none !important; }
+.site {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 85% 0%, #42234d, transparent 45%), #100b19;
+}
+.wrap { max-width: 1120px; margin: auto; padding: 0 20px; }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 22px 0;
+  border-bottom: 1px solid #704e80;
+}
+.logo { font-size: 17px; font-weight: 950; color: #fff; }
+.logo span { color: #ff9ada; }
+nav { display: flex; gap: 15px; flex-wrap: wrap; }
+nav a {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #f2d9ff;
+}
+nav a:hover { color: #ffa0e1; }
+.online {
+  color: #c4ffda;
+  font-size: 10px;
+  border: 1px solid #59876c;
+  background: #24402f;
+  border-radius: 20px;
+  padding: 7px 10px;
+}
+.hero { text-align: center; padding: 58px 0 22px; }
+.hero h1 {
+  font-size: clamp(34px, 7vw, 69px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 0;
+  text-shadow: 0 4px #582c64;
+}
+.hero h1 span { color: var(--pink); }
+.characters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 19px;
+  margin-bottom: 16px;
+}
+.character {
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  min-width: 0;
+  position: relative;
+  transition: transform .2s;
+  color: #fff;
+}
+.character:hover, .character.selected { transform: translateY(-6px); }
+.character .art {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 24%, transparent), transparent 73%);
+  border: 2px solid transparent;
+  border-radius: 12px;
+}
+.character.selected .art {
+  border-color: var(--accent);
+  box-shadow: 0 0 25px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.character img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 8px 9px #0009);
+}
+.character .fallback { position: absolute; font-size: 80px; }
+.character .select {
+  display: block;
+  text-align: center;
+  margin: 11px auto 0;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: #fff;
+  padding: 9px 5px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: #32223e;
+}
+.character.selected .select { background: #6a3c76; }
+.window {
+  margin: 15px 0 28px;
+  border: 1px solid #9565a8;
+  background: #21152e;
+  border-radius: 11px;
+  overflow: hidden;
+}
+.windowtop {
+  background: #552c68;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: #fff;
+}
+.close {
+  background: #6a3b79;
+  border: 1px solid #b984c9;
+  color: #fff;
+  padding: 5px 9px;
+  border-radius: 5px;
+}
+.profile {
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+.profile h2 { font-size: 25px; margin: 5px 0 10px; }
+.profile p { font-size: 13px; color: #f1e2f6; line-height: 1.8; }
+.label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  color: #ffb2e7;
+}
+.tags { display: flex; gap: 7px; flex-wrap: wrap; margin: 12px 0; }
+.tag {
+  font-size: 10px;
+  color: #fff;
+  background: #4b3459;
+  border: 1px solid #9171a2;
+  border-radius: 5px;
+  padding: 7px 9px;
+}
+.achievements { font-size: 12px; color: #f4e5fa; line-height: 1.8; }
+.achievements div { margin: 5px 0; }
+.jump {
+  display: inline-block;
+  background: #653c76;
+  border: 1px solid #bd87d1;
+  color: #fff;
+  padding: 11px 15px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-top: 12px;
+}
+.section { padding: 38px 0 5px; scroll-margin-top: 20px; }
+.micro {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  color: #e4b7f4;
+}
+h2.sectiontitle { font-size: 25px; margin: 6px 0 16px; }
 
-/* PLAYER INVENTORY + NETWORK */
-.module{margin:72px 0 85px;scroll-margin-top:22px}.module-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}.module-heading h2{font-size:clamp(2rem,4.5vw,4.2rem);line-height:1;letter-spacing:-.065em;margin:7px 0 10px;text-shadow:3px 3px #6d286c}.module-heading p{margin:0;color:#d6bddf}.module-kicker{font:800 .73rem ui-monospace,monospace;letter-spacing:.15em;color:#ff8bda}.module-window{border:1px solid #795289;background:#130d21;box-shadow:0 12px 50px #0005}.module-bar{background:linear-gradient(90deg,#673170,#261833);border-bottom:1px solid #9861a0;display:flex;align-items:center;justify-content:space-between;padding:10px 15px;font:800 .75rem ui-monospace,monospace;gap:12px}.module-inner{padding:clamp(16px,3vw,28px)}.inventory-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}.inventory-slot{cursor:pointer;background:#251930;border:1px solid #65486f;color:#fff;min-width:0;min-height:105px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;padding:13px 5px;transition:transform .2s,border-color .2s,box-shadow .2s}.inventory-slot:hover,.inventory-slot[aria-pressed="true"]{transform:translateY(-4px);border-color:var(--tone);box-shadow:0 0 16px color-mix(in srgb,var(--tone) 35%,transparent)}.slot-symbol{font-size:2rem;line-height:1}.slot-name{font:800 .65rem ui-monospace,monospace;text-align:center;letter-spacing:.04em}.item-panel{--tone:#d58aff;border:1px solid var(--tone);background:#1d142b;padding:clamp(17px,3vw,28px);margin-top:18px}.item-panel h3{margin:0;font-size:clamp(1.35rem,2.7vw,2.2rem)}.item-panel .item-type{font:700 .72rem ui-monospace,monospace;color:var(--tone);letter-spacing:.12em}.inventory-search,.network-search{background:#110d1d;border:1px solid #755785;border-radius:2px;color:white;padding:12px 14px;width:100%;font:inherit;margin:17px 0}.keyword-list{display:flex;flex-wrap:wrap;gap:9px;list-style:none;margin:0;padding:0}.keyword-list li{background:#30213f;border:1px solid #634977;padding:7px 11px;font-size:.85rem}.proof{margin:22px 0 0;padding:15px;border-left:3px solid var(--tone);background:#2a1c38;color:#e9d7f0}.copy-skills{margin-top:17px;background:#332344;color:#fff;border:1px solid #9a75aa;padding:10px 15px;cursor:pointer}.directory-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.directory-tab{cursor:pointer;min-width:0;text-align:left;background:#251930;border:1px solid #65486f;color:white;padding:15px;font:800 .74rem ui-monospace,monospace;transition:border-color .2s,background .2s}.directory-tab[aria-pressed="true"],.directory-tab:hover{border-color:var(--tone);background:#3a2447}.directory-panel{border:1px solid #b36bb1;background:#1b1329;padding:clamp(15px,3vw,25px);margin-top:17px}.directory-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.directory-link{display:flex;align-items:center;gap:12px;text-decoration:none;background:#2b1d3a;border:1px solid #674d79;padding:15px;min-width:0;transition:transform .2s,border-color .2s}.directory-link:hover{transform:translateY(-3px);border-color:#ff85d5}.directory-icon{font-size:1.4rem}.directory-link strong{display:block;font-size:.95rem}.directory-link small{display:block;color:#cbb3d7;overflow-wrap:anywhere}.directory-arrow{margin-left:auto;color:#f4a4e2}.footer-links{display:flex;gap:13px;flex-wrap:wrap}.footer-links a{text-decoration:none}.footer-links a:hover{text-decoration:underline}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}
-@media(max-width:1050px){.inventory-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:700px){.inventory-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.directory-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-list{grid-template-columns:1fr}.module{margin:55px 0}.topbar{flex-wrap:wrap}.nav{justify-content:flex-start}.slot-name{font-size:.62rem}}@media(max-width:400px){.inventory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* BACKPACK */
+.bag {
+  background: #20172b;
+  border: 1px solid #806090;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.baghead { background: #442951; padding: 18px; }
+.baghead h2 { font-size: 24px; margin: 6px 0; }
+.baghead p { font-size: 12px; color: #f1dff8; margin: 0; }
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 14px;
+  border-bottom: 1px solid #765683;
+}
+.tabs button {
+  border: 1px solid #9d7cac;
+  background: #40304e;
+  color: #fff;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 900;
+}
+.tabs button.active { background: #775087; border-color: #d99ee9; }
+.baggrid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 15px;
+  padding: 15px;
+}
+.slotswrap {
+  background: #302639;
+  border: 1px solid #8b7295;
+  border-radius: 10px;
+  padding: 13px;
+}
+.slothead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.slots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.slot {
+  aspect-ratio: 1;
+  background: #514158;
+  border: 2px solid #9d86a5;
+  border-radius: 8px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+  color: #fff;
+}
+.slot.active { border-color: var(--rarity); background: #6a5074; }
+.slot .emoji { font-size: clamp(23px, 4vw, 37px); }
+.slot .name {
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+  color: #fff;
+}
+.slot.empty {
+  border: 1px dashed #766780;
+  background: #29232e;
+  color: #a08eaa;
+  font-size: 24px;
+}
+.legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.legend span { font-size: 9px; color: #f0e1f5; }
+.legend i {
+  display: inline-block;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.inspect {
+  background: #382843;
+  border: 1px solid #a382b3;
+  border-radius: 10px;
+  padding: 18px;
+}
+.inspect .big {
+  font-size: 75px;
+  text-align: center;
+  background: radial-gradient(ellipse, #725282, transparent 68%);
+  padding: 8px;
+}
+.inspect h3 { font-size: 23px; margin: 10px 0; color: #fff; }
+.inspect p { font-size: 12px; line-height: 1.75; color: #f8eafd; }
+.rarity { font-size: 10px; letter-spacing: 1.2px; font-weight: 900; }
+.collect {
+  display: block;
+  width: 100%;
+  border: 1px solid #dba8ea;
+  background: #6d427d;
+  color: #fff;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-top: 15px;
+}
+.collect.got { background: #315846; border-color: #7cd7a1; color: #e4ffed; }
+
+/* EASTER EGG 1: FOLDER */
+.easter-section { padding: 45px 0 20px; }
+.easter-scene {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 135px;
+  background: radial-gradient(ellipse at center, #2a1a3c, transparent 75%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+}
+.easter-scene:before {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 50%;
+  border-top: 2px dashed #76518d;
+}
+.egg-object {
+  position: relative;
+  z-index: 1;
+  font-size: 34px;
+  background: #261935;
+  border: 1px solid #694783;
+  border-radius: 8px;
+  padding: 12px;
+  animation: eggFloat 3s ease-in-out infinite alternate;
+}
+.egg-object:nth-child(2) { animation-delay: .5s; }
+.egg-object:nth-child(3) { animation-delay: 1s; }
+.egg-object:nth-child(4) { animation-delay: 1.5s; }
+.egg-folder {
+  cursor: pointer;
+  border-color: #d3a16e;
+  animation: folderWiggle 3s ease-in-out infinite;
+}
+.egg-folder:hover {
+  box-shadow: 0 0 25px #ffa0dc77;
+  background: #48304f;
+}
+.egg-window {
+  max-width: 390px;
+  margin: 0 auto 10px;
+  background: #e1d2ea;
+  color: #2b193a;
+  border: 2px solid #a16fba;
+  box-shadow: 5px 5px 0 #08050d;
+}
+.egg-bar {
+  background: #6d3a90;
+  color: #fff;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 900 11px monospace;
+}
+.egg-close {
+  background: #f0e4f6;
+  color: #29173a;
+  border: 1px solid #6a4981;
+  padding: 3px 8px;
+}
+.egg-content { text-align: center; padding: 24px 18px; }
+.egg-content .stamp {
+  font: 900 10px monospace;
+  letter-spacing: 2px;
+  color: #8a4778;
+  margin-bottom: 13px;
+}
+.egg-content p {
+  font: 800 19px/1.5 Arial, sans-serif;
+  color: #24142d;
+  margin: 0;
+}
+
+/* ORIGINAL WORK */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.project {
+  background: #30203f;
+  border: 1px solid #89669a;
+  border-radius: 11px;
+  padding: 18px;
+}
+.project .symbol { font-size: 33px; }
+.project h3 { font-size: 17px; color: #fff; }
+.project p {
+  font-size: 12px;
+  color: #f0dff7;
+  line-height: 1.7;
+  min-height: 110px;
+}
+.project a {
+  display: inline-block;
+  border: 1px solid #b782c7;
+  background: #59376a;
+  color: #fff;
+  padding: 10px 13px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* EASTER EGG 2: PRINTER */
+.printer-scene { position: relative; width: 250px; height: 210px; margin: auto; }
+.printer-btn {
+  position: absolute;
+  top: 20px;
+  left: 49px;
+  width: 152px;
+  height: 116px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+}
+.printer-top {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  width: 120px;
+  height: 46px;
+  background: #bba7d3;
+  border: 5px solid #4c345e;
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+.printer-body {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 152px;
+  height: 59px;
+  background: #a88bc4;
+  border: 5px solid #4c345e;
+  box-shadow: 5px 6px 0 #090611;
+}
+.printer-slot {
+  position: absolute;
+  top: 77px;
+  left: 22px;
+  width: 109px;
+  height: 9px;
+  background: #281a36;
+  border: 2px solid #4c345e;
+}
+.printer-light {
+  position: absolute;
+  top: 65px;
+  right: 12px;
+  width: 9px;
+  height: 9px;
+  background: #92f8ad;
+  box-shadow: 0 0 9px #92f8ad;
+  animation: blink 2s infinite;
+}
+.receipt-paper {
+  position: absolute;
+  top: 102px;
+  left: 82px;
+  width: 88px;
+  height: 85px;
+  background: #f7e9dc;
+  border: 3px solid #bc9ba4;
+  color: #2c1a35;
+  z-index: 2;
+  transform: translateY(-67px);
+  transition: transform 1.5s steps(18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 5px;
+  box-shadow: 3px 3px 0 #0c0713;
+}
+.receipt-paper.printed { transform: translateY(20px); }
+.receipt-paper span {
+  font: 900 12px/1.4 monospace;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.receipt-paper.printed span { opacity: 1; transition-delay: 1.3s; }
+.printer-hint {
+  text-align: center;
+  font: 10px monospace;
+  letter-spacing: 2px;
+  color: #e2b7ef;
+}
+
+/* SOCIAL LINKS */
+.links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 17px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #322141;
+  border: 1px solid #8d6a9d;
+  border-radius: 10px;
+  padding: 13px;
+  min-width: 0;
+}
+.link:hover { border-color: #ffb5e9; }
+.link img { width: 42px; height: 42px; object-fit: contain; flex-shrink: 0; }
+.link .fallback {
+  display: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: #593c68;
+  border-radius: 8px;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.link span:last-child { font-size: 13px; font-weight: 900; color: #fff; }
+footer {
+  margin-top: 45px;
+  border-top: 1px solid #765685;
+  padding: 23px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  color: #e2cde9;
+}
+.hidden { display: none !important; }
+
+@keyframes eggFloat { to { transform: translateY(-8px); } }
+@keyframes folderWiggle {
+  0%, 85%, 100% { transform: rotate(0); }
+  89% { transform: rotate(-9deg); }
+  94% { transform: rotate(7deg); }
+}
+@keyframes blink { 50% { opacity: .25; } }
+
+@media (max-width: 750px) {
+  .characters { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .character { flex: 0 0 44%; scroll-snap-align: center; }
+  .character .art { height: 205px; }
+  .profile, .baggrid { grid-template-columns: 1fr; }
+  .projects { grid-template-columns: 1fr; }
+  .project p { min-height: 0; }
+  .links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  header { justify-content: center; }
+  nav { justify-content: center; }
+}
+@media (max-width: 440px) {
+  .wrap { padding: 0 13px; }
+  .character { flex-basis: 65%; }
+  .links { grid-template-columns: 1fr; }
+  .online { display: none; }
+  .profile { padding: 16px; }
+  .egg-object { font-size: 24px; padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="shell">
-<header class="topbar"><a class="brand" href="#top">NEELI FAULKNER<span>.exe</span></a><nav class="nav" aria-label="Main navigation"><a href="#top">HOME</a><a href="#character-profile">PROFILE</a><a href="#inventory">INVENTORY</a><a href="#network">NETWORK</a><a href="mailto:neeli@murdercreekmedia.com">CONTACT</a></nav><span class="status">● <b>ONLINE</b></span></header>
-<main id="top">
-<section class="intro" aria-labelledby="main-heading"><div class="eyebrow">WELCOME, PLAYER ONE // NEW GAME</div><h1 id="main-heading">SELECT YOUR<br>CHARACTER</h1><p>Same player. Different skill sets.</p></section>
-<section class="roster" aria-label="Choose one of four character roles">
-<button type="button" class="character" style="--tone:#ff525d" data-character="investigator" aria-pressed="false"><span class="player-tag">P1 // 01</span><img src="investigator.webp" alt="The Investigator holding case files, surrounded by red investigative collage art" loading="eager"><span class="card-label">THE INVESTIGATOR</span></button>
-<button type="button" class="character" style="--tone:#ff62c6" data-character="founder" aria-pressed="false"><span class="player-tag">P1 // 02</span><img src="founder.webp" alt="The Founder with notebook and press camera, surrounded by pink Y2K art" loading="eager"><span class="card-label">THE FOUNDER</span></button>
-<button type="button" class="character" style="--tone:#ce78ff" data-character="storyteller" aria-pressed="false"><span class="player-tag">P1 // 03</span><img src="storyteller.webp" alt="The Storyteller with laptop, microphone and purple audio collage" loading="eager"><span class="card-label">THE STORYTELLER</span></button>
-<button type="button" class="character" style="--tone:#5edbff" data-character="creative" aria-pressed="false"><span class="player-tag">P1 // 04</span><img src="creative.webp" alt="The Creative with camera and tablet, surrounded by cyan Y2K collage" loading="eager"><span class="card-label">THE CREATIVE</span></button>
-</section>
-<p class="prompt" id="selection-prompt"><span class="blink">▶</span> CHOOSE A CHARACTER TO UNLOCK THEIR PROFILE <span aria-hidden="true">✦</span><br><span class="mini">SWIPE TO EXPLORE ON MOBILE</span></p>
-<section id="character-profile" class="profile-space" aria-label="Selected character profile" aria-live="polite"><div class="empty-state" id="empty-state">[ CHARACTER PROFILE LOCKED ]<br>Choose a character above to begin.</div><div id="profile-container" hidden></div></section>
+<div class="site">
+<div class="wrap">
 
-<section class="module" id="inventory" aria-labelledby="inventory-heading">
- <div class="module-heading"><div><div class="module-kicker">EQUIPMENT MENU // 07 ITEMS UNLOCKED</div><h2 id="inventory-heading">PLAYER INVENTORY</h2><p>Professional skills, tools, and technical abilities. Select an item to inspect.</p></div></div>
- <div class="module-window"><div class="module-bar"><span>▣ INVENTORY.exe / SKILLS DATABASE</span><span>07 / 07</span></div><div class="module-inner"><div id="inventory-slots" class="inventory-grid" role="group" aria-label="Inventory categories"></div><div id="inventory-details" class="item-panel" aria-live="polite"></div></div></div>
+<header>
+  <a href="#top" class="logo">NEELI FAULKNER<span>.exe</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#top">CHARACTERS</a>
+    <a href="#bag">BACKPACK</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#links">LINKS</a>
+  </nav>
+  <span class="online">● PLAYER ONLINE</span>
+</header>
+
+<!-- SECTION 1: CHARACTER SELECTION -->
+<section class="hero" id="top">
+  <h1>CHOOSE YOUR <span>CHARACTER.</span></h1>
 </section>
-<section class="module" id="network" aria-labelledby="network-heading">
- <div class="module-heading"><div><div class="module-kicker">CONNECTION MANAGER // 09 LINKS ONLINE</div><h2 id="network-heading">THE NETWORK</h2><p>Find me elsewhere on the internet. Yes, I'm still here.</p></div></div>
- <div class="module-window"><div class="module-bar"><span>▣ NETWORK.exe / EXTERNAL CONNECTIONS</span><span>● ONLINE</span></div><div class="module-inner"><div id="network-tabs" class="directory-tabs" role="group" aria-label="Link categories"></div><div id="network-details" class="directory-panel" aria-live="polite"></div></div></div>
-</section>
-</main>
-<footer class="footer"><span>© <span id="year"></span> NEELI FAULKNER // ALL SKILLS UNLOCKABLE</span><span class="footer-links"><a href="https://www.youtube.com/@neelifaulkner" target="_blank" rel="noopener noreferrer">YOUTUBE</a><a href="https://www.linkedin.com/in/neeliafaulkner" target="_blank" rel="noopener noreferrer">LINKEDIN</a><a href="https://www.instagram.com/neelilauren" target="_blank" rel="noopener noreferrer">INSTAGRAM</a><a href="mailto:neeli@murdercreekmedia.com">CONTACT ↗</a></span></footer>
+
+<div class="characters" id="characters"></div>
+
+<div class="window hidden" id="profile">
+  <div class="windowtop">
+    <span>CHARACTER_PROFILE.exe</span>
+    <button type="button" class="close" id="close-profile" aria-label="Close profile">✕</button>
+  </div>
+  <div class="profile">
+    <div>
+      <div class="label">CHARACTER PROFILE</div>
+      <h2 id="profile-name"></h2>
+      <div id="profile-bio"></div>
+      <a class="jump" href="#bag">🎒 INSPECT BACKPACK ↓</a>
+    </div>
+    <div>
+      <div class="label">SPECIAL ABILITIES</div>
+      <div class="tags" id="abilities"></div>
+      <div class="label" style="margin-top:20px">ACHIEVEMENTS UNLOCKED</div>
+      <div class="achievements" id="achievements"></div>
+    </div>
+  </div>
 </div>
-<script>
-const characters={
- investigator:{tone:'#ff525d',title:'INVESTIGATIVE JOURNALIST',name:'THE INVESTIGATOR',tagline:'Professional question asker. Occasional pain in the ass.',description:"I'm an independent investigative journalist dedicated to exposing wrongful convictions, reopening cold cases, and holding the criminal justice system accountable. My work has contributed to multiple post-conviction appeals, uncovered new evidence in unsolved homicides, and brought renewed public scrutiny to cases long presumed closed.",strengths:['Investigative research','OSINT & public records','Source development','Accountability reporting'],achievements:['Uncovered evidence contributing to post-conviction appeals','Developed new leads in cold-case investigations','Reported on local government and public accountability'],work:'Investigative reporting'},
- founder:{tone:'#ff62c6',title:'FOUNDER & ORGANIZATION BUILDER',name:'THE FOUNDER',tagline:'Big ideas. Limited resources. Still building.',description:'I founded Murder Creek Media, an independent investigative media organization focused on truth, justice, and accountability. I build teams, workflows, and creative systems that help ambitious work happen, even without a corporate-sized budget.',strengths:['Leadership & strategy','Operations & systems','Community building','Creative problem-solving'],achievements:['Founded Murder Creek Media','Built a multistate volunteer investigative team','Developed independent investigative media projects'],work:'Murder Creek Media'},
- storyteller:{tone:'#ce78ff',title:'PODCASTER & INVESTIGATIVE AUDIO JOURNALIST',name:'THE STORYTELLER',tagline:'I have a microphone, and I have questions.',description:"I'm the creator and host of Skeptical: An Investigative Podcast, a deep-dive investigative series examining an Alabama man's claim of wrongful conviction in a 1994 homicide. I also co-host Make It Make Sense, Alabama, a podcast driving conversations about accountability, justice, and transparency through candid interviews with changemakers, policymakers, nonprofit leaders, and other influential voices shaping the state's future. I'm currently developing Murder in Mobile County, an investigative series examining the unsolved 1981 murder of Brenda Peters in Mobile, Alabama.",strengths:['Investigative audio production','Long-form storytelling','Interviewing','Podcast development','Audio editing & post-production'],achievements:['Gracie Awards Honorable Mention for Skeptical','Creator and host of Skeptical','Co-host of Make It Make Sense, Alabama','Developing Murder in Mobile County'],series:[{name:'Skeptical: An Investigative Podcast',status:'RELEASED',description:'An investigative deep dive into a claim of wrongful conviction in a 1994 Alabama homicide.'},{name:'Make It Make Sense, Alabama',status:'ONGOING',description:'Candid conversations on justice, accountability and transparency with voices shaping Alabama.'},{name:'Murder in Mobile County',status:'IN DEVELOPMENT',description:'An investigative series about the unsolved 1981 murder of Brenda Peters in Mobile, Alabama.'}],work:'Audio investigations'},
- creative:{tone:'#5edbff',title:'CREATOR, DIGITAL DESIGNER & MULTIMEDIA PRODUCER',name:'THE CREATIVE',tagline:"I don't just have the ideas. I make the damn things.",description:"I bring ideas to life through digital design, multimedia production, and technology. From branding and web design to audio engineering and video production, I handle the creative and technical work behind the finished product. I edit, mix, master, and produce audio content, edit and produce video, and create the visual assets that bring everything together. Whether I'm building a website, developing a brand identity, or turning hours of raw footage and recordings into something worth watching or listening to, I'm just as comfortable behind the editing timeline as I am behind the creative vision.",strengths:['Audio editing, mixing & mastering','Video editing & post-production','Multimedia content production','Graphic design & branding','Web design & development','Creative direction & digital storytelling'],achievements:['Nearly two decades of experience across digital media and technology','Produced original investigative audio and video content','Earned a B.S. in Information Systems & Cybersecurity, summa cum laude'],work:'Creative projects'}
-};
-const buttons=[...document.querySelectorAll('.character')];const holder=document.querySelector('#profile-container');const empty=document.querySelector('#empty-state');const prompt=document.querySelector('#selection-prompt');const profileSection=document.querySelector('#character-profile');
-function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function selectCharacter(key){const data=characters[key];if(!data)return;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.character===key)));empty.hidden=true;holder.hidden=false;prompt.textContent='✦ CHARACTER UNLOCKED // SELECT ANOTHER TO SWITCH ✦';holder.innerHTML=`<article class="profile" style="--tone:${data.tone}"><div class="windowbar"><span>▣ PLAYER_PROFILE.exe / ${escapeHtml(data.name)}</span><button type="button" id="close-profile" aria-label="Close character profile">×</button></div><div class="profile-body"><div><div class="role">CHARACTER CLASS // ACTIVE</div><h2>${escapeHtml(data.title)}</h2><div class="tagline">${escapeHtml(data.tagline)}</div><p>${escapeHtml(data.description)}</p><div class="actions"><a class="action" href="mailto:neeli@murdercreekmedia.com?subject=${encodeURIComponent('Hello from '+data.name)}">START A CONVERSATION ↗</a><a class="action secondary" href="#top">CHANGE CHARACTER ↑</a></div></div><div><h3 class="section-heading">✧ SPECIAL ABILITIES</h3><ul class="strengths">${data.strengths.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul><h3 class="section-heading" style="margin-top:27px">★ ACHIEVEMENTS UNLOCKED</h3><ul class="achievements">${data.achievements.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div></div>${data.series?`<div class="series-area"><h3 class="section-heading">♫ SELECT A SERIES</h3><div class="series-grid">${data.series.map((series,i)=>`<details class="series-item"><summary><span class="series-number">0${i+1}</span><span>${escapeHtml(series.name)}<small>${escapeHtml(series.status)}</small></span><span aria-hidden="true">＋</span></summary><p>${escapeHtml(series.description)}</p></details>`).join('')}</div></div>`:''}</article>`;document.querySelector('#close-profile').addEventListener('click',()=>{buttons.forEach(b=>b.setAttribute('aria-pressed','false'));holder.hidden=true;holder.innerHTML='';empty.hidden=false;prompt.innerHTML='<span class="blink">▶</span> CHOOSE A CHARACTER TO UNLOCK THEIR PROFILE';});if(window.matchMedia('(max-width:640px)').matches){requestAnimationFrame(()=>profileSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'}));}}
-buttons.forEach((b,i)=>{b.addEventListener('click',()=>selectCharacter(b.dataset.character));b.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const next=buttons[(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length];next.focus();next.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}})});document.querySelector('#year').textContent=new Date().getFullYear();
 
-const inventoryItems=[
- {name:'INVESTIGATION',symbol:'⌕',tone:'#ff606a',type:'RESEARCH / JOURNALISM',skills:['Investigative Journalism','Investigative Research','Open-Source Intelligence (OSINT)','Public Records Research','FOIA Requests','Legal Research','Witness Interviews','Source Development','Evidence Analysis','Fact-Checking','Information Verification','Accountability Reporting','Research Documentation','Case File Management'],proof:'Investigative reporting that has surfaced new evidence in cold cases and contributed to post-conviction appeals.'},
- {name:'AUDIO',symbol:'♫',tone:'#d58aff',type:'AUDIO PRODUCTION / POST-PRODUCTION',skills:['Audio Editing','Audio Mixing','Audio Mastering','Podcast Production','Audio Engineering','Dialogue Editing','Multitrack Editing','Audio Restoration','Noise Reduction','Sound Design','Narrative Audio Production','Interview Editing','Recording Workflows','Audio Quality Control','Descript','Riverside'],proof:'Creator and host of Skeptical, with hands-on audio production, editing, mixing, and mastering experience.'},
- {name:'VIDEO',symbol:'▣',tone:'#65dcff',type:'VIDEO PRODUCTION / DIGITAL MEDIA',skills:['Video Editing','Video Post-Production','Digital Media Production','Multimedia Production','Short-Form Video','Long-Form Video','Social Media Video','Visual Storytelling','Content Repurposing','Digital Asset Management','Video Quality Control','Creative Production'],proof:'Hands-on editing and production of original multimedia content, including investigative video.'},
- {name:'DESIGN',symbol:'✎',tone:'#ff78ca',type:'CREATIVE / DIGITAL DESIGN',skills:['Graphic Design','Digital Design','Brand Identity','Brand Development','Creative Direction','Visual Communication','Web Design','Website Development','UI Design','Content Design','Marketing Collateral','Social Media Graphics','Canva','Figma','Digital Illustration','Procreate'],proof:'Brand development, digital design, web projects, and original visual assets for independent media and creative clients.'},
- {name:'TECHNOLOGY',symbol:'⌘',tone:'#83efc0',type:'INFORMATION SYSTEMS / TECHNICAL OPERATIONS',skills:['Information Systems','Cybersecurity','Systems Administration','Technical Support','IT Operations','Managed Services','SaaS Administration','Technical Troubleshooting','Systems Design','Workflow Optimization','Technical Documentation','Microsoft 365','Google Workspace','SharePoint','Process Automation'],proof:'B.S. in Information Systems & Cybersecurity, summa cum laude, with professional experience managing centralized technical services.'},
- {name:'OPERATIONS',symbol:'⚙',tone:'#ffcb82',type:'LEADERSHIP / ORGANIZATIONAL OPERATIONS',skills:['Operations Management','Project Management','Strategic Planning','Team Leadership','Remote Team Coordination','Volunteer Management','Cross-Functional Collaboration','Process Improvement','Standard Operating Procedures (SOPs)','Workflow Development','Stakeholder Communication','Knowledge Management','Notion','Microsoft Teams','Organizational Development'],proof:'Founded Murder Creek Media and developed workflows supporting a multistate volunteer investigative team.'},
- {name:'COMMUNICATIONS',symbol:'✉',tone:'#ff9ca9',type:'EDITORIAL / COMMUNICATIONS',skills:['Editorial Strategy','Investigative Writing','Content Strategy','Copywriting','Professional Writing','Media Relations','Public Relations','Interviewing','Social Media Management','Digital Communications','Community Engagement','Organic Audience Growth','Content Marketing','Brand Messaging','Story Development'],proof:'Freelance investigative reporting, public-facing editorial projects, and audience development through independent media.'}
+<!-- SECTION 2: PLAYER INVENTORY -->
+<section class="section" id="bag">
+  <div class="micro">PLAYER INVENTORY / COLLECTED EQUIPMENT</div>
+  <h2 class="sectiontitle">THE BACKPACK 🎒</h2>
+
+  <div class="bag">
+    <div class="baghead">
+      <div class="micro" style="color:#ffd0f2">NEELI FAULKNER.exe / STORAGE</div>
+      <h2>COLLECTED TOOLS</h2>
+      <p>Choose a character and inspect their professional toolkit.</p>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+
+    <div class="baggrid">
+      <div class="slotswrap">
+        <div class="slothead">
+          <span id="bag-name"></span>
+          <span id="item-count"></span>
+        </div>
+        <div class="slots" id="slots"></div>
+        <div class="legend">
+          <span><i style="background:#c5b5d0"></i>COMMON</span>
+          <span><i style="background:#79cbff"></i>RARE</span>
+          <span><i style="background:#d7a2ff"></i>EPIC</span>
+          <span><i style="background:#ffd078"></i>LEGENDARY</span>
+        </div>
+      </div>
+      <div class="inspect" id="inspect"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EASTER EGG 1: AFTER PLAYER INVENTORY -->
+<section class="easter-section" aria-label="Animated evidence trail">
+  <div class="easter-scene">
+    <span class="egg-object" aria-hidden="true">👣</span>
+    <button type="button" class="egg-object egg-folder" id="folder" aria-label="Open hidden case file" aria-expanded="false">📁</button>
+    <span class="egg-object" aria-hidden="true">🔎</span>
+    <span class="egg-object" aria-hidden="true">🗝️</span>
+  </div>
+
+  <div class="egg-window" id="folder-window" hidden>
+    <div class="egg-bar">
+      <span>📁 CLASSIFIED_CASE_FILE.txt</span>
+      <button type="button" class="egg-close" id="folder-close" aria-label="Close case file">✕</button>
+    </div>
+    <div class="egg-content">
+      <div class="stamp">CONFIDENTIAL // EYES ONLY</div>
+      <p>Nothing to see here.<br>Which is usually when I start looking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: ORIGINAL WORK -->
+<section class="section" id="projects">
+  <div class="micro">INVESTIGATIVE AUDIO / ORIGINAL WORK</div>
+  <h2 class="sectiontitle">SELECT A SERIES</h2>
+
+  <div class="projects">
+    <div class="project">
+      <div class="symbol">🎙️</div>
+      <h3>Skeptical</h3>
+      <p>An investigative podcast examining an Alabama man's claim of wrongful conviction in a 1994 homicide.</p>
+      <a href="https://www.murdercreekmedia.com/" target="_blank" rel="noopener noreferrer">EXPLORE ↗</a>
+    </div>
+    <div class="project">
+      <div class="symbol">📡</div>
+      <h3>Make It Make Sense, Alabama</h3>
+      <p>Candid conversations about accountability, justice, transparency, and the people shaping Alabama's future.</p>
+      <a href="https://www.murdercreekmedia.com/" target="_blank" rel="noopener noreferrer">EXPLORE ↗</a>
+    </div>
+    <div class="project">
+      <div class="symbol">🗂️</div>
+      <h3>Murder in Mobile County</h3>
+      <p>An investigative series examining the unsolved 1981 murder of Brenda Peters in Mobile, Alabama.</p>
+      <a href="https://www.murdercreekmedia.com/" target="_blank" rel="noopener noreferrer">EXPLORE ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- EASTER EGG 2: AFTER ORIGINAL WORK -->
+<section class="easter-section" aria-label="Interactive receipt printer">
+  <div class="printer-scene">
+    <div class="receipt-paper" id="paper">
+      <span>I BROUGHT<br>RECEIPTS.</span>
+    </div>
+
+    <button type="button" class="printer-btn" id="printer" aria-label="Print a receipt" aria-pressed="false">
+      <div class="printer-top"></div>
+      <div class="printer-body"></div>
+      <div class="printer-slot"></div>
+      <div class="printer-light"></div>
+    </button>
+  </div>
+  <div class="printer-hint" id="printer-hint">PRINTER READY // CLICK TO PRINT</div>
+</section>
+
+<!-- SECTION 4: LINKS -->
+<section class="section" id="links">
+  <div class="micro">CONNECTION MANAGER</div>
+  <h2 class="sectiontitle">Where To Find Me</h2>
+  <div class="links" id="link-list"></div>
+</section>
+
+<footer>
+  <span>© 2026 NEELI FAULKNER</span>
+  <span>BUILT BY PLAYER ONE ✦</span>
+</footer>
+
+</div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const gear = (name, emoji, rarity, kind, desc, skills) =>
+  ({name, emoji, rarity, kind, desc, skills});
+
+const chars = [
+  {
+    name: 'THE INVESTIGATOR',
+    short: 'INVESTIGATOR',
+    color: '#ff7287',
+    emoji: '🕵️‍♀️',
+    image: 'investigator.webp',
+    bio: "I'm an independent investigative journalist dedicated to exposing wrongful convictions, reopening cold cases, and holding the criminal justice system accountable. My work has contributed to multiple post-conviction appeals, uncovered new evidence in unsolved homicides, and brought renewed public scrutiny to cases long presumed closed.",
+    abilities: ['Investigative Research','Witness Interviews','OSINT & Public Records','Source Development','Accountability Reporting'],
+    achievements: [
+      'Contributed to post-conviction appeals',
+      'Uncovered new evidence in unsolved homicides',
+      'Renewed scrutiny of cases long presumed closed'
+    ],
+    items: [
+      gear('WITNESS INTERVIEW KIT','🎤','EPIC','Field Reporting','Interviews witnesses, gathers firsthand accounts, identifies contradictions, and develops follow-up leads.',['Witness Interviews','Interview Preparation','Source Development','Testimony Review']),
+      gear('RESEARCH ARCHIVE','📚','EPIC','Investigative Research','Searches historical records, archived reporting, court filings, and other materials to reconstruct events.',['Investigative Research','Background Research','Historical Research','Fact-Checking']),
+      gear('FOIA KEY','🗝️','RARE','Records Access','Obtains and analyzes public records and government documents.',['FOIA Requests','Public Records Research','Government Transparency']),
+      gear('OSINT LAPTOP','💻','EPIC','Digital Investigation','Uses open-source methods to locate, cross-reference, and verify information.',['OSINT','Digital Research','Information Verification']),
+      gear('CASE FILES','🗂️','COMMON','Case Documentation','Organizes investigative records, evidence, legal documents, and case notes.',['Case File Management','Evidence Review','Legal Research']),
+      gear('EVIDENCE BOARD','🧷','LEGENDARY','Analysis Station','Connects witness accounts, timelines, records, and discrepancies across a case.',['Evidence Analysis','Timeline Reconstruction','Critical Thinking']),
+      gear('SOURCE CONTACTS','📇','RARE','Source Development','Builds and maintains relationships with sources while evaluating credibility and corroboration.',['Source Development','Source Verification','Interviewing']),
+      gear('COURT RECORDS','⚖️','RARE','Legal Research','Reviews court dockets, filings, transcripts, and relevant legal proceedings.',['Court Records Research','Legal Documentation','Case Analysis']),
+      gear('REPORTER NOTEBOOK','📓','COMMON','Field Notes','Captures questions, observations, leads, and reporting assignments.',['Investigative Writing','Reporting','Documentation']),
+      gear('DOCUMENT SCANNER','📠','COMMON','Records Processing','Digitizes, organizes, and reviews research materials.',['Document Review','Records Organization']),
+      gear('FACT-CHECK KIT','🔎','EPIC','Verification','Corroborates claims, checks sources, and identifies inconsistencies.',['Fact-Checking','Verification','Research Accuracy']),
+      gear('RED STRING','🧶','LEGENDARY','Special Ability','Connects details that initially appear unrelated.',['Pattern Recognition','Investigative Analysis'])
+    ]
+  },
+  {
+    name: 'THE FOUNDER',
+    short: 'FOUNDER',
+    color: '#ff94d4',
+    emoji: '👩‍💼',
+    image: 'founder.webp',
+    bio: "I founded Murder Creek Media, an independent investigative media organization focused on truth, justice, and accountability. I build teams, workflows, and creative systems that help ambitious work happen, even without a corporate-sized budget.",
+    abilities: ['Operations Management','Team Leadership','Workflow Design','Strategic Planning'],
+    achievements: [
+      'Founded Murder Creek Media',
+      'Built a multistate volunteer investigative team',
+      'Developed independent investigative media projects'
+    ],
+    items: [
+      gear('NOTION WORKSPACE','📓','EPIC','Knowledge Management','Organizes project databases, documentation, and team resources.',['Notion','Knowledge Management','Workflow Design']),
+      gear('MICROSOFT TEAMS','🎧','RARE','Collaboration','Supports remote meetings, team communication, and coordination.',['Microsoft Teams','Remote Team Management']),
+      gear('SHAREPOINT VAULT','🗄️','EPIC','Document Management','Organizes shared documents and project files.',['SharePoint','Document Management']),
+      gear('MISSION BOARD','📋','RARE','Project Management','Tracks assignments, deadlines, and priorities.',['Project Management','Task Coordination']),
+      gear('SOP BINDER','📚','COMMON','Operations','Documents repeatable processes and procedures.',['SOP Development','Process Improvement']),
+      gear('TEAM RADIO','📻','RARE','People Operations','Coordinates volunteers and team leads.',['Volunteer Management','Team Leadership']),
+      gear('WORKFLOW ENGINE','⚙️','LEGENDARY','Systems','Connects people, processes, and technology.',['Operations Management','Systems Design']),
+      gear('GOOGLE WORKSPACE','☁️','COMMON','Productivity','Supports shared documents and cloud collaboration.',['Google Workspace','Google Drive']),
+      gear('MEETING PLANNER','🗓️','COMMON','Scheduling','Coordinates meetings, agendas, and follow-ups.',['Scheduling','Meeting Facilitation']),
+      gear('COMMAND CENTER','🖥️','LEGENDARY','Leadership','Tracks organizational priorities and projects.',['Strategic Planning','Project Oversight'])
+    ]
+  },
+  {
+    name: 'THE STORYTELLER',
+    short: 'STORYTELLER',
+    color: '#c99cff',
+    emoji: '🎧',
+    image: 'storyteller.webp',
+    bio: "I'm the creator and host of Skeptical: An Investigative Podcast, a deep-dive investigative series examining an Alabama man's claim of wrongful conviction in a 1994 homicide. I also co-host Make It Make Sense, Alabama, a podcast driving conversations about accountability, justice, and transparency through candid interviews with changemakers, policymakers, nonprofit leaders, and other influential voices shaping the state's future. I'm currently developing Murder in Mobile County, an investigative series examining the unsolved 1981 murder of Brenda Peters in Mobile, Alabama.",
+    abilities: ['Investigative Audio Production','Long-Form Storytelling','Interviewing','Audio Editing & Mastering'],
+    achievements: [
+      'Gracie Awards Honorable Mention for Skeptical',
+      'Creator and host of Skeptical',
+      'Co-host of Make It Make Sense, Alabama'
+    ],
+    items: [
+      gear('STUDIO MIC','🎙️','RARE','Audio Equipment','Captures narration and interviews.',['Recording','Interview Production']),
+      gear('HEADPHONES','🎧','COMMON','Audio Equipment','Supports critical listening and audio quality checks.',['Audio Editing','Quality Control']),
+      gear('EDITING CONSOLE','🎛️','EPIC','Audio Post-Production','Edits, mixes, and masters audio.',['Audio Mixing','Mastering']),
+      gear('STORY NOTEBOOK','📓','RARE','Writing','Builds scripts, outlines, and narratives.',['Narrative Development','Scriptwriting']),
+      gear('RIVERSIDE KIT','💻','COMMON','Software','Supports remote recording.',['Riverside','Remote Recording']),
+      gear('DESCRIPT SUITE','🖥️','RARE','Software','Supports audio editing and production.',['Descript','Audio Editing']),
+      gear('FIELD RECORDER','📼','RARE','Field Equipment','Captures interviews outside the studio.',['Field Recording','Interviewing']),
+      gear('FINAL MIX','💿','LEGENDARY','Production','Represents a finished audio episode.',['Audio Engineering','Mastering'])
+    ]
+  },
+  {
+    name: 'THE CREATIVE',
+    short: 'CREATIVE',
+    color: '#78e3f6',
+    emoji: '🎨',
+    image: 'creative.webp',
+    bio: "I bring ideas to life through digital design, multimedia production, and technology. From branding and web design to audio engineering and video production, I handle the creative and technical work behind the finished product. I edit, mix, master, and produce audio content, edit and produce video, and create the visual assets that bring everything together. Whether I'm building a website, developing a brand identity, or turning hours of raw footage and recordings into something worth watching or listening to, I'm just as comfortable behind the editing timeline as I am behind the creative vision.",
+    abilities: ['Audio Editing, Mixing & Mastering','Video Post-Production','Graphic Design & Branding','Web Development'],
+    achievements: [
+      'B.S. Information Systems & Cybersecurity, summa cum laude',
+      'Produced original investigative multimedia content',
+      'Developed branding and web projects'
+    ],
+    items: [
+      gear('DESIGN TABLET','✍️','EPIC','Illustration','Creates digital illustrations.',['Procreate','Digital Illustration']),
+      gear('CANVA KIT','🎨','COMMON','Design Software','Creates graphics and digital content.',['Canva','Graphic Design']),
+      gear('VIDEO EDITOR','🎬','RARE','Video Production','Edits and produces video content.',['Video Editing','Post-Production']),
+      gear('CODE TERMINAL','💻','EPIC','Web Development','Builds websites and digital experiences.',['HTML','CSS','Web Development']),
+      gear('CYBER TOOLKIT','🛡️','LEGENDARY','Technical','Information systems and cybersecurity foundations.',['Information Systems','Cybersecurity']),
+      gear('BRAND PALETTE','🌈','RARE','Branding','Develops visual identities.',['Brand Identity','Creative Direction']),
+      gear('AUDIO WORKSTATION','🎚️','EPIC','Audio Engineering','Edits, mixes, and masters audio.',['Audio Engineering','Mastering']),
+      gear('FIGMA BOARD','📐','RARE','Digital Design','Designs and plans interfaces.',['Figma','UI Design'])
+    ]
+  }
 ];
-let selectedInventory=1;
-const slotContainer=document.getElementById('inventory-slots');
-const itemDetails=document.getElementById('inventory-details');
-function renderInventory(){
- slotContainer.innerHTML=inventoryItems.map((x,i)=>`<button type="button" class="inventory-slot" style="--tone:${x.tone}" data-slot="${i}" aria-pressed="${i===selectedInventory}"><span class="slot-symbol" aria-hidden="true">${x.symbol}</span><span class="slot-name">${x.name}</span></button>`).join('');
- slotContainer.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{selectedInventory=Number(b.dataset.slot);renderInventory()}));
- const x=inventoryItems[selectedInventory];
- itemDetails.style.setProperty('--tone',x.tone);
- itemDetails.innerHTML=`<div class="item-type">ITEM EQUIPPED // SLOT ${String(selectedInventory+1).padStart(2,'0')}</div><h3>${escapeHtml(x.name)}</h3><div class="mini">${escapeHtml(x.type)}</div><label class="visually-hidden" for="inventory-filter">Search skills in this category</label><input id="inventory-filter" class="inventory-search" type="search" placeholder="Search unlocked skills..."><h4 class="section-heading">✧ SKILLS UNLOCKED</h4><ul class="keyword-list" id="skill-keywords">${x.skills.map(k=>`<li>${escapeHtml(k)}</li>`).join('')}</ul><div class="proof"><strong>★ EQUIPMENT VERIFIED</strong><div>${escapeHtml(x.proof)}</div></div><button class="copy-skills" type="button" id="copy-skills">COPY SKILL KEYWORDS</button>`;
- itemDetails.querySelector('#inventory-filter').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase();itemDetails.querySelector('#skill-keywords').innerHTML=x.skills.filter(k=>k.toLowerCase().includes(q)).map(k=>`<li>${escapeHtml(k)}</li>`).join('')||'<li>No matching skills.</li>'});
- itemDetails.querySelector('#copy-skills').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(x.skills.join(' • '));e.currentTarget.textContent='COPIED ✓'}catch{e.currentTarget.textContent='SELECT KEYWORDS ABOVE TO COPY'}});
-}
-renderInventory();
-const networkGroups=[
- {name:'SOCIAL CHANNELS',tone:'#ff79c9',items:[{name:'YouTube',handle:'@neelifaulkner',symbol:'▶',url:'https://www.youtube.com/@neelifaulkner'},{name:'TikTok',handle:'@murdercreekmedia',symbol:'♪',url:'https://www.tiktok.com/@murdercreekmedia'},{name:'Facebook',handle:'neeli.faulkner',symbol:'f',url:'https://www.facebook.com/neeli.faulkner'},{name:'Instagram',handle:'@neelilauren',symbol:'◎',url:'https://www.instagram.com/neelilauren'},{name:'LinkedIn',handle:'neeliafaulkner',symbol:'in',url:'https://www.linkedin.com/in/neeliafaulkner'}]},
- {name:'WRITING & PUBLISHING',tone:'#d28cff',items:[{name:'Medium',handle:'@neelifaulkner',symbol:'M',url:'https://www.medium.com/@neelifaulkner'},{name:'Substack',handle:'neelifaulkner.substack.com',symbol:'✎',url:'https://neelifaulkner.substack.com/'}]},
- {name:'WEBSITES & PROJECTS',tone:'#68dfff',items:[{name:'Murder Creek Media',handle:'Independent investigative media',symbol:'⌘',url:'https://www.murdercreekmedia.com/'}]},
- {name:'CONTACT PLAYER ONE',tone:'#ffca86',items:[{name:'Professional Inquiries',handle:'neeli@murdercreekmedia.com',symbol:'✉',url:'mailto:neeli@murdercreekmedia.com'}]}
+
+const links = [
+  ['Murder Creek Media','mcmicon.png','🌐','https://www.murdercreekmedia.com/'],
+  ['YouTube','youtubeicon.png','▶️','https://www.youtube.com/@neelifaulkner'],
+  ['Medium','mediumicon.png','✍️','https://www.medium.com/@neelifaulkner'],
+  ['Substack','substackicon.png','📰','https://neelifaulkner.substack.com/'],
+  ['TikTok','tiktokicon.png','🎵','https://www.tiktok.com/@murdercreekmedia'],
+  ['Facebook','facebookicon.png','👥','https://www.facebook.com/neeli.faulkner'],
+  ['Instagram','instagramicon.png','📸','https://www.instagram.com/neelilauren'],
+  ['LinkedIn','linkedinicon.png','💼','https://www.linkedin.com/in/neeliafaulkner'],
+  ['Collab','emailicon.png','✉️','mailto:neeli@murdercreekmedia.com']
 ];
-let selectedNetwork=0;
-const networkTabs=document.getElementById('network-tabs');
-const networkDetails=document.getElementById('network-details');
-function renderNetwork(){
- networkTabs.innerHTML=networkGroups.map((g,i)=>`<button class="directory-tab" type="button" style="--tone:${g.tone}" data-network="${i}" aria-pressed="${i===selectedNetwork}">${escapeHtml(g.name)}<br><small>${g.items.length} CONNECTIONS</small></button>`).join('');
- networkTabs.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{selectedNetwork=Number(b.dataset.network);renderNetwork()}));
- const group=networkGroups[selectedNetwork];
- networkDetails.innerHTML=`<h3 class="section-heading">${escapeHtml(group.name)}</h3><label class="visually-hidden" for="network-filter">Search connections</label><input id="network-filter" class="network-search" type="search" placeholder="Search connections..."><div id="network-links" class="directory-list"></div>`;
- const links=networkDetails.querySelector('#network-links');
- function showLinks(q=''){links.innerHTML=group.items.filter(i=>(i.name+' '+i.handle).toLowerCase().includes(q.toLowerCase())).map(i=>`<a class="directory-link" href="${i.url}" ${i.url.startsWith('mailto:')?'':'target="_blank" rel="noopener noreferrer"'}><span class="directory-icon" aria-hidden="true">${escapeHtml(i.symbol)}</span><span><strong>${escapeHtml(i.name)}</strong><small>${escapeHtml(i.handle)}</small></span><span class="directory-arrow" aria-hidden="true">↗</span></a>`).join('')||'<p>No matching connections.</p>'}
- showLinks();networkDetails.querySelector('#network-filter').addEventListener('input',e=>showLinks(e.target.value));
+
+const rarity = {
+  COMMON: '#c5b5d0',
+  RARE: '#79cbff',
+  EPIC: '#d7a2ff',
+  LEGENDARY: '#ffd078'
+};
+
+let selected = -1;
+let active = 0;
+let selectedGear = 0;
+const collected = new Set();
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[c]));
 }
-renderNetwork();
+
+function renderChars() {
+  $('characters').innerHTML = chars.map((c,i) => `
+    <button type="button" class="character ${selected === i ? 'selected' : ''}"
+      style="--accent:${c.color}"
+      data-char="${i}"
+      aria-label="Select ${c.name}"
+      aria-pressed="${selected === i}">
+      <div class="art">
+        <span class="fallback">${c.emoji}</span>
+        <img src="${c.image}" alt="" onerror="this.style.display='none'">
+      </div>
+      <span class="select">${selected === i ? 'SELECTED ✓' : 'SELECT CHARACTER'}</span>
+    </button>
+  `).join('');
+
+  document.querySelectorAll('[data-char]').forEach(b => {
+    b.addEventListener('click', () => {
+      selected = +b.dataset.char;
+      active = selected;
+      selectedGear = 0;
+      renderChars();
+      renderProfile();
+      renderBag();
+    });
+  });
+}
+
+function renderProfile() {
+  const el = $('profile');
+
+  if (selected < 0) {
+    el.classList.add('hidden');
+    return;
+  }
+
+  el.classList.remove('hidden');
+  const c = chars[selected];
+
+  $('profile-name').textContent = c.name;
+  $('profile-bio').innerHTML =
+    '<p>' + esc(c.bio) + '</p>' +
+    (selected === 3
+      ? '<p style="font-weight:900;color:#ffb6e8">I don’t just have the ideas. I make the damn things.</p>'
+      : '');
+
+  $('abilities').innerHTML = c.abilities
+    .map(x => '<span class="tag">' + esc(x) + '</span>')
+    .join('');
+
+  $('achievements').innerHTML = c.achievements
+    .map(x => '<div>★ ' + esc(x) + '</div>')
+    .join('');
+}
+
+function renderBag() {
+  $('tabs').innerHTML = chars.map((c,i) => `
+    <button type="button" class="${active === i ? 'active' : ''}" data-tab="${i}">
+      ${c.short}
+    </button>
+  `).join('');
+
+  document.querySelectorAll('[data-tab]').forEach(b => {
+    b.addEventListener('click', () => {
+      active = +b.dataset.tab;
+      selectedGear = 0;
+      renderBag();
+    });
+  });
+
+  const c = chars[active];
+  $('bag-name').textContent = c.short + ' / BACKPACK';
+  $('item-count').textContent = c.items.length + ' ITEMS';
+
+  $('slots').innerHTML = Array.from(
+    {length: Math.max(12, Math.ceil(c.items.length / 4) * 4)},
+    (_,i) => {
+      const x = c.items[i];
+      return x ? `
+        <button type="button" class="slot ${selectedGear === i ? 'active' : ''}"
+          style="--rarity:${rarity[x.rarity]}"
+          data-item="${i}"
+          aria-pressed="${selectedGear === i}">
+          <span class="emoji">${x.emoji}</span>
+          <span class="name">${esc(x.name)}</span>
+        </button>
+      ` : '<div class="slot empty" aria-hidden="true">+</div>';
+    }
+  ).join('');
+
+  document.querySelectorAll('[data-item]').forEach(b => {
+    b.addEventListener('click', () => {
+      selectedGear = +b.dataset.item;
+      renderBag();
+    });
+  });
+
+  const x = c.items[selectedGear];
+  const key = active + '-' + selectedGear;
+  const got = collected.has(key);
+
+  $('inspect').innerHTML = `
+    <div class="rarity" style="color:${rarity[x.rarity]}">
+      ${x.rarity} ITEM / ${esc(x.kind).toUpperCase()}
+    </div>
+    <div class="big">${x.emoji}</div>
+    <h3>${esc(x.name)}</h3>
+    <p>${esc(x.desc)}</p>
+    <div class="label">SKILLS UNLOCKED</div>
+    <div class="tags">
+      ${x.skills.map(s => '<span class="tag">' + esc(s) + '</span>').join('')}
+    </div>
+    <button type="button" class="collect ${got ? 'got' : ''}" id="collect">
+      ${got ? '✓ ITEM COLLECTED' : '＋ COLLECT ITEM'}
+    </button>
+  `;
+
+  $('collect').addEventListener('click', () => {
+    if (got) collected.delete(key);
+    else collected.add(key);
+    renderBag();
+  });
+}
+
+function renderLinks() {
+  $('link-list').innerHTML = links.map(l => `
+    <a class="link" href="${l[3]}"
+      ${l[3].startsWith('mailto:') ? '' : 'target="_blank" rel="noopener noreferrer"'}>
+      <img src="${l[1]}" alt=""
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="fallback" aria-hidden="true">${l[2]}</span>
+      <span>${esc(l[0])}</span>
+    </a>
+  `).join('');
+}
+
+$('close-profile').addEventListener('click', () => {
+  selected = -1;
+  renderChars();
+  renderProfile();
+});
+
+/* CLASSIFIED FOLDER EASTER EGG */
+const folder = $('folder');
+const folderWindow = $('folder-window');
+
+function toggleFolder(open) {
+  folderWindow.hidden = !open;
+  folder.setAttribute('aria-expanded', String(open));
+}
+
+folder.addEventListener('click', () => toggleFolder(folderWindow.hidden));
+
+$('folder-close').addEventListener('click', () => {
+  toggleFolder(false);
+  folder.focus();
+});
+
+/* RECEIPT PRINTER EASTER EGG */
+const printer = $('printer');
+const paper = $('paper');
+const hint = $('printer-hint');
+
+printer.addEventListener('click', () => {
+  const printed = paper.classList.toggle('printed');
+  printer.setAttribute('aria-pressed', String(printed));
+  hint.textContent = printed
+    ? 'DOCUMENT PRINTED // RECEIPTS VERIFIED'
+    : 'PRINTER READY // CLICK TO PRINT';
+});
+
+/* INITIALIZE WEBSITE */
+renderChars();
+renderProfile();
+renderBag();
+renderLinks();
 </script>
-</body></html>
+</body>
+</html>
