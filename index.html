@@ -787,12 +787,128 @@ body { overflow-x: clip; }
   }
 }
 
+
+/* ==========================================================
+   INTRO SCREEN — STANDALONE FIRST IMPRESSION
+   No scroll snapping; the next section begins naturally below.
+   ========================================================== */
+.intro-screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 20px 80px;
+}
+.intro-screen::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse at 50% 40%, #55215b 0%, #261330 36%, transparent 68%),
+    linear-gradient(145deg, #120c1d 0%, #090712 100%);
+}
+.intro-screen::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  opacity: .28;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#b48cd018 1px, transparent 1px),
+    linear-gradient(90deg, #b48cd018 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+}
+.intro-kicker {
+  color: #ff9bdc;
+  font: 900 12px/1.5 monospace;
+  letter-spacing: 3px;
+  margin: 0 0 24px;
+}
+.intro-title {
+  margin: 0;
+  color: #fff0ff;
+  font: 950 clamp(45px, 8vw, 106px)/.98 Arial, Helvetica, sans-serif;
+  letter-spacing: -.055em;
+  text-shadow: 4px 5px 0 #a5288f, 0 0 30px #ff71b86b;
+  overflow-wrap: anywhere;
+}
+.intro-title .exe { color: #ff83d6; }
+.intro-rule {
+  width: 72px;
+  height: 3px;
+  background: #ff83d6;
+  box-shadow: 0 0 14px #ff83d6;
+  margin: 32px auto 25px;
+}
+.intro-description {
+  max-width: 850px;
+  color: #f5e7fb;
+  font: 400 clamp(14px, 1.55vw, 19px)/1.9 'Courier New', monospace;
+  margin: 0;
+  text-wrap: pretty;
+}
+.intro-description strong { color: #ffb5e7; }
+.intro-next {
+  margin-top: 55px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: #ffa0e1;
+  font: 900 12px monospace;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: transform .2s, color .2s;
+}
+.intro-next:hover { transform: translateY(5px); color: #fff; }
+.intro-next .arrow { font-size: 29px; line-height: 1; }
+@media (max-width: 600px) {
+  .intro-screen { padding: 75px 10px 60px; }
+  .intro-title { letter-spacing: -.045em; }
+  .intro-description { line-height: 1.75; }
+  .intro-next { margin-top: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-next { transition: none; }
+}
+
 </style>
 </head>
 
 <body>
 <div class="site">
 <div class="wrap">
+
+<!-- INTRO SCREEN: FIRST THING VISITORS SEE -->
+<section class="intro-screen" id="welcome" aria-labelledby="intro-title">
+  <p class="intro-kicker">✦ PLAYER ONE / PROFILE LOADED ✦</p>
+  <h1 class="intro-title" id="intro-title">NEELI FAULKNER<span class="exe">.exe</span></h1>
+  <div class="intro-rule" aria-hidden="true"></div>
+  <p class="intro-description">
+    I'm Neeli Faulkner, a <strong>nationally recognized investigative journalist</strong>, founder,
+    storyteller, and creative technologist. I investigate stories, build things,
+    and turn complex ideas into reality.
+  </p>
+  <a class="intro-next" href="#top" aria-label="Continue to choose your character">
+    <span class="arrow" aria-hidden="true">↓</span>
+    SCROLL TO BEGIN
+  </a>
+</section>
 
 <header>
   <a href="#top" class="logo">NEELI FAULKNER<span>.exe</span></a>
