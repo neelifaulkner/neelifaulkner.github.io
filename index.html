@@ -70,7 +70,7 @@
   --white: #f9edff;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 body {
   margin: 0;
   background: var(--bg);
@@ -614,8 +614,8 @@ footer {
 @keyframes blink { 50% { opacity: .25; } }
 
 @media (max-width: 750px) {
-  .characters { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
-  .character { flex: 0 0 44%; scroll-snap-align: center; }
+  .characters { display: flex; overflow-x: auto; }
+  .character { flex: 0 0 44%; }
   .character .art { height: 330px; }
   .profile, .baggrid { grid-template-columns: 1fr; }
   .projects { grid-template-columns: 1fr; }
@@ -645,10 +645,10 @@ footer {
    The site's content remains centered while backgrounds
    reach the edges of the browser.
    ========================================================== */
-html { scroll-snap-type: y proximity; scroll-padding-top: 16px; }
+/* Natural page scrolling: no section snapping or forced smooth scrolling. */
 body { overflow-x: clip; }
 .site { overflow: clip; }
-.section, .hero, .easter-section { scroll-snap-align: start; }
+
 .section { position: relative; isolation: isolate; padding: 88px 0 100px; }
 .section::before {
   content: "";
@@ -754,9 +754,7 @@ body { overflow-x: clip; }
   .easter-section { padding: 75px 15px; min-height: 390px; }
   .arcade-game-frame iframe { height: 590px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-snap-type: none; }
-}
+
 
 /* ========================================
    NEELI FAULKNER.exe — EVIDENCE PIN CURSOR
