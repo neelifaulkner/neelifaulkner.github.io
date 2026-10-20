@@ -758,6 +758,37 @@ body { overflow-x: clip; }
   html { scroll-snap-type: none; }
 }
 
+/* ========================================
+   NEELI FAULKNER.exe — EVIDENCE PIN CURSOR
+   ======================================== */
+
+@media (pointer: fine) {
+
+  /* Default evidence pin */
+  html, body, body * {
+    cursor: url('/cursor-pin.png') 28 28, auto !important;
+  }
+
+  /* Glowing evidence pin on clickable items */
+  a, a *,
+  button, button *,
+  [role="button"], [role="button"] *,
+  [onclick], [onclick] *,
+  input[type="submit"],
+  input[type="button"],
+  label,
+  summary {
+    cursor: url('/cursor-pin-hover.png') 27 28, pointer !important;
+  }
+
+  /* Keep text selection usable */
+  input:not([type="submit"]):not([type="button"]),
+  textarea,
+  [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
 </style>
 </head>
 
